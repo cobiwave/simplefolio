@@ -22,35 +22,25 @@ npm@6.9.0
 ```
 ---
 
-## Installing
+## How To Use
 
-### Clone
+To clone and run Simplefolio, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
-- Clone this repo to your local machine:
-```
-$ git clone https://github.com/cobimr/simplefolio.git
-```
+```bash
+# Clone this repository
+$ git clone https://github.com/cobimr/simplefolio
 
-### Setup
+# Go into the repository
+$ cd simplefolio
 
-- Once you have the repo on your local machine, move to that created folder:
-```
-$ cd simplefolio/
-```
-
-- Install all required dependencies using NPM:
-```
+# Install dependencies
 $ npm install
-```
 
-### Run
-
-- Once you've installed all dependencies, run server with:
-```
+# Run the app
 $ npm start
 ```
 
-- Once your server has started, go to this url `http://localhost:3000/` and you will see the portfolio on live mode:
+Once your server has started, go to this url `http://localhost:3000/` and you will see the portfolio on live mode:
 
 IMAGEN GOES HERE
 
@@ -59,7 +49,7 @@ IMAGEN GOES HERE
 ## Template Instructions:
 
 ### Step 1
-- Fill your information, they are 5 sections:
+Fill your information, they are 5 sections:
 
 **Header** - Edit the `h1` and `p` in the jumbotron-text `div`.
 ```
@@ -110,7 +100,7 @@ IMAGEN GOES HERE
 ```
 
 ### Step 2
-- Change your color theme ( choose 2 colors to create a gradient ):
+Change your color theme ( choose 2 colors to create a gradient ):
 
 Go to `/styles/base/_variables.scss` and change the values on this classes `$main-color` and `$secondary-color` to your prefered choose.
 ```
