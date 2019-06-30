@@ -20,6 +20,7 @@ You need to have installed on your computer:
 node@v10.16.0
 npm@6.9.0
 ```
+---
 
 ## Installing
 
@@ -53,7 +54,9 @@ $ npm start
 
 IMAGEN GOES HERE
 
-## Instructions:
+---
+
+## Template Instructions:
 
 ### Step 1 - Fill your information, they are 5 sections:
 
@@ -112,10 +115,13 @@ Go to `/styles/base/_variables.scss` and change the values on this classes `$mai
   $main-color: #fff;
   $secondary-color: #000
 ```
+---
 
 ## Deployment
 
 Add additional notes about how to deploy this on a live system
+
+---
 
 ## Technologies used
 
@@ -125,13 +131,19 @@ Add additional notes about how to deploy this on a live system
 * [ScrollReveal.js](https://scrollrevealjs.org/) - JavaScript library
 * [Tilt.js](https://gijsroge.github.io/tilt.js/) - A tiny requestAnimationFrame
 
+---
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
+---
+
 ## Authors
 
 * **Jacobo Martinez** - [https://github.com/cobimr](https://github.com/cobimr)
+
+---
 
 ## License
 
