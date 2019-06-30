@@ -6,6 +6,8 @@ This repo is an easily customizable personal portfolio template. Feel free to us
 
 To view a live demo, **[click here](https://simplefolio.netlify.com/)**
 
+---
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -15,39 +17,45 @@ These instructions will get you a copy of the project up and running on your loc
 You need to have installed on your computer:
 
 ```
-node
-npm
+node@v10.16.0
+npm@6.9.0
 ```
 
-### Installing
+## Installing
 
-1) Clone this repository using:
+### Clone
 
+- Clone this repo to your local machine:
 ```
 $ git clone https://github.com/cobimr/simplefolio.git
 ```
 
-2) Once you have the repo on your computer, install it locally using npm:
+### Setup
 
+- Once you have the repo on your local machine, move to that created folder:
 ```
 $ cd simplefolio/
+```
+
+- Install all required dependencies using NPM:
+```
 $ npm install
 ```
 
-3) Start a development server using:
+### Run
 
+- Once you've installed all dependencies, run server with:
 ```
 $ npm start
 ```
 
-4) Once your start the server, go to this url `http://localhost:3000/` and you will see the portfolio on live mode:
+- Once your server has started, go to this url `http://localhost:3000/` and you will see the portfolio on live mode:
 
 IMAGEN GOES HERE
 
 ## Instructions:
 
-Step 1 - Fill your information, they are 5 sections:
----
+### Step 1 - Fill your information, they are 5 sections:
 
 **Header** - Edit the `h1` and `p` in the jumbotron-text `div`.
 ```
@@ -97,8 +105,7 @@ Step 1 - Fill your information, they are 5 sections:
           </div>
 ```
 
-Step 2 - Change your color theme ( choose 2 colors to create a gradient ):
----
+### Step 2 - Change your color theme ( choose 2 colors to create a gradient ):
 
 Go to `/styles/base/_variables.scss` and change the values on this classes `$main-color` and `$secondary-color` to your prefered choose.
 ```
