@@ -10,7 +10,7 @@ This repo is an easily customizable personal portfolio template. Feel free to us
 
 ## Instructions:
 
-(1) There are the 5 to fill out your information:
+Step (1) - Fill your information, they are 5 sections:
 ---
 
 **Header** - Edit the `h1` and `p` in the jumbotron-text `div`
@@ -37,15 +37,15 @@ This repo is an easily customizable personal portfolio template. Feel free to us
 ---
 **Portfolio** - Experiences are organized in content-body `div`. There is an `h4` and a `p` that you can edit.
 ```
-          <div class="content-body">
-            <div class="card">
-              <div class="card-header">
-                <h4>Company <span class="job-title">Job Title</span></h4>
-              </div>
-              <div class="card-content">
-                <p>Paragraph text</p>
-              </div>
-            </div>
+<div class="content-body">
+  <div class="card">
+    <div class="card-header">
+      <h4>Company <span class="job-title">Job Title</span></h4>
+    </div>
+   <div class="card-content">
+    <p>Paragraph text</p>
+   </div>
+</div>
 ```
 ---
 **Contact** - Simply cahnge the `address` to include your email address
@@ -61,13 +61,11 @@ This repo is an easily customizable personal portfolio template. Feel free to us
 ```
 ---
 
-(2) Change the color theme:
+Step (2) - Change your color theme ( choose 2 colors to create a gradient ):
 ---
 
-**Header** - Edit the `h1` and `p` in the jumbotron-text `div`
+Go to `/styles/base/_variables.scss` and change the values on this classes `$main-color` and `$secondary-color` to your prefered choose.
 ```
-<div class="jumbotron-text">
-  <h1>Brandon Morelli</h1>
-  <p>Full-Stack Web Developer in Boston, Ma.</p>
-</div>
+  $main-color: #fff;
+  $secondary-color: #000
 ```
