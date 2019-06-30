@@ -1,5 +1,6 @@
-## Simplefolio is a Open Source, Fully customizable Beautiful Portfolio Template
-Built with HTML5, Sass, Bootstrap 4, Webpack and more!
+# 🔥 Simplefolio - A FREE Beautiful Portfolio Template for Developers! 🔥
+
+Built with HTML5, CCS3, Sass, Bootstrap 4, Webpack and more!
 
 To view a live demo, **[click here](https://simplefolio.netlify.com/)**
 
@@ -7,7 +8,9 @@ This repo is an easily customizable personal portfolio template. Feel free to us
 
 ---
 
-Step 1) There are the 5 to fill out your information:
+## Instructions:
+
+(1) There are the 5 to fill out your information:
 ---
 
 **Header** - Edit the `h1` and `p` in the jumbotron-text `div`
@@ -58,7 +61,7 @@ Step 1) There are the 5 to fill out your information:
 ```
 ---
 
-Step 2) Change the color theme:
+(2) Change the color theme:
 ---
 
 **Header** - Edit the `h1` and `p` in the jumbotron-text `div`
