@@ -117,35 +117,28 @@ Go to `/styles/base/_variables.scss` and change the values on this classes `$mai
   $main-color: #fff;
   $secondary-color: #000
 ```
+
 ---
 
 ## Deployment
 
 Add additional notes about how to deploy this on a live system
 
----
-
 ## Technologies used
 
-* [Webpack](http://www.dropwizard.io/1.0.2/docs/) - Static module bundler
+* [Webpack](https://webpack.js.org/concepts/) - Static module bundler
 * [Bootstrap 4](https://getbootstrap.com/docs/4.3/getting-started/introduction/) - Front-end component library
 * [Sass](https://sass-lang.com/documentation) - CSS extension language
 * [ScrollReveal.js](https://scrollrevealjs.org/) - JavaScript library
 * [Tilt.js](https://gijsroge.github.io/tilt.js/) - A tiny requestAnimationFrame
 
----
-
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
----
-
 ## Authors
 
 * **Jacobo Martinez** - [https://github.com/cobimr](https://github.com/cobimr)
-
----
 
 ## License
 
