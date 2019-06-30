@@ -1,5 +1,4 @@
-# Simplefolio
-## Is a Open Source, Fully customizable Beautiful Portfolio Template
+## Simplefolio is a Open Source, Fully customizable Beautiful Portfolio Template
 Built with HTML5, Sass, Bootstrap 4, Webpack and more!
 
 To view a live demo, **[click here](https://simplefolio.netlify.com/)**
