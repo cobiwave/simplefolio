@@ -58,7 +58,8 @@ IMAGEN GOES HERE
 
 ## Template Instructions:
 
-### Step 1 - Fill your information, they are 5 sections:
+### Step 1
+- Fill your information, they are 5 sections:
 
 **Header** - Edit the `h1` and `p` in the jumbotron-text `div`.
 ```
@@ -108,7 +109,8 @@ IMAGEN GOES HERE
           </div>
 ```
 
-### Step 2 - Change your color theme ( choose 2 colors to create a gradient ):
+### Step 2
+- Change your color theme ( choose 2 colors to create a gradient ):
 
 Go to `/styles/base/_variables.scss` and change the values on this classes `$main-color` and `$secondary-color` to your prefered choose.
 ```
