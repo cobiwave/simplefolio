@@ -1,0 +1,52 @@
+.footer {
+  background-color: $dark-grey;
+  color: $light-grey;
+  padding: 4.8rem 0;
+
+  @include respond(phone) {
+    border: 0px;
+  }
+
+  &__text {
+    color: $light-grey;
+  }
+
+  & hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    width: 50%;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+.social-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 3rem;
+    width: 5rem;
+    height: 5rem;
+    margin: $default-font-size $default-font-size;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.back-to-top i {
+  color: $light-grey;
+  margin: 1rem 0 $default-font-size;
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
