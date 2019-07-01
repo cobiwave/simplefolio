@@ -9,12 +9,13 @@
 Feel free to use it as-is or customize it as much as you want. I wanted to build a clean, beautiful and simple template without any unnecessary bloat.
 
 <h2 align="center">
-  <img src="https://github.com/cobimr/simplefolio/blob/master/examples/example.gif" alt="Simplefolio" width="600px"
+  <img src="https://github.com/cobimr/simplefolio/blob/master/examples/example.gif" alt="Simplefolio" width="600px" />
+  <br>
 </h2>
 
 To view a live demo, **[click here](https://simplefolio.netlify.com/)**
 
-**IMPORTANT NOTE:** You are 100% allowed to use this template for both personal and commercial use, but NOT to claim it as your own design. A credit to the original author, Jacobo Martinez, is of course highly appreciated
+**IMPORTANT NOTE:** You are 100% allowed to use this template for both personal and commercial use, but NOT to claim it as your own design. A credit to the original author, Jacobo Martinez, is of course highly appreciated.
 
 ---
 
