@@ -3,7 +3,7 @@
 </h1>
 
 <h2 align="center">
-  A FREE Beautiful Portfolio Template for Developers!
+  A FREE UI Portfolio Template for Developers!
 </h2>
 
 Feel free to use it as-is or customize it as much as you want. I wanted to build a clean, beautiful and simple template without any unnecessary bloat.
