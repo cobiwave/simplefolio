@@ -1,18 +1,18 @@
 <h1 align="center">
-  <br>
   🔥 Simplefolio 🔥
-  <br>
 </h1>
 
 <h2 align="center">
-  <br>
   A FREE Beautiful Portfolio Template for Developers!
-  <br>
 </h2>
 
 Feel free to use it as-is or customize it as much as you want. I wanted to build a clean, beautiful and simple template without any unnecessary bloat.
 
-![](example.gif)
+<h2 align="center">
+  <a href="https://github.com/amitmerchant1990/pomolectron">
+    <img src="https://github.com/cobimr/simplefolio/blob/master/example.gif" alt="Pomolectron" width="600px">
+  </a>
+</h2>
 
 To view a live demo, **[click here](https://simplefolio.netlify.com/)**
 
