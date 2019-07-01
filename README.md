@@ -9,9 +9,7 @@
 Feel free to use it as-is or customize it as much as you want. I wanted to build a clean, beautiful and simple template without any unnecessary bloat.
 
 <h2 align="center">
-  <a href="https://github.com/amitmerchant1990/pomolectron">
-    <img src="https://github.com/cobimr/simplefolio/blob/master/example.gif" alt="Pomolectron" width="600px">
-  </a>
+  <img src="https://github.com/cobimr/simplefolio/blob/master/examples/example.gif" alt="Simplefolio" width="600px"
 </h2>
 
 To view a live demo, **[click here](https://simplefolio.netlify.com/)**
@@ -55,7 +53,9 @@ $ npm start
 
 Once your server has started, go to this url `http://localhost:8080/` and you will see the portfolio running on a dev-server:
 
-IMAGEN GOES HERE
+<h2 align="center">
+  <img src="https://github.com/cobimr/simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="600px">
+</h2>
 
 ---
 
