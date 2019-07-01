@@ -4,6 +4,8 @@ A **FREE** Beautiful Portfolio Template for Developers!
 
 This repo is an easily customizable personal portfolio template. Feel free to use it as-is or customize it as much as you want. I wanted to build a clean, beautiful and simple template without any unnecessary bloat.
 
+![](example.gif)
+
 To view a live demo, **[click here](https://simplefolio.netlify.com/)**
 
 ---
@@ -20,6 +22,7 @@ You need to have installed on your computer:
 node@v10.16.0
 npm@6.9.0
 ```
+
 ---
 
 ## How To Use
@@ -49,9 +52,11 @@ IMAGEN GOES HERE
 ## Template Instructions:
 
 ### Step 1
+
 Fill your information, they are 5 sections:
 
 **Header** - Edit the `h1` and `p` in the jumbotron-text `div`.
+
 ```
 <div class="jumbotron-text">
   <h1>Brandon Morelli</h1>
@@ -75,6 +80,7 @@ Fill your information, they are 5 sections:
 ```
 
 **Portfolio** - Experiences are organized in content-body `div`. There is an `h4` and a `p` that you can edit.
+
 ```
 <div class="content-body">
   <div class="card">
@@ -88,11 +94,13 @@ Fill your information, they are 5 sections:
 ```
 
 **Contact** - Simply cahnge the `address` to include your email address
+
 ```
 <form method="POST" action="https://formspree.io/email@email.com">
 ```
 
 **Footer** - content-body `div` with an editable `p`
+
 ```
           <div class="content-body">
             <p>Copyright YOUR NAME 2017</p>
@@ -100,9 +108,11 @@ Fill your information, they are 5 sections:
 ```
 
 ### Step 2
+
 Change your color theme ( choose 2 colors to create a gradient ):
 
 Go to `/styles/base/_variables.scss` and change the values on this classes `$main-color` and `$secondary-color` to your prefered choose.
+
 ```
   $main-color: #fff;
   $secondary-color: #000
@@ -116,11 +126,11 @@ Add additional notes about how to deploy this on a live system
 
 ## Technologies used
 
-* [Webpack](https://webpack.js.org/concepts/) - Static module bundler
-* [Bootstrap 4](https://getbootstrap.com/docs/4.3/getting-started/introduction/) - Front-end component library
-* [Sass](https://sass-lang.com/documentation) - CSS extension language
-* [ScrollReveal.js](https://scrollrevealjs.org/) - JavaScript library
-* [Tilt.js](https://gijsroge.github.io/tilt.js/) - A tiny requestAnimationFrame
+- [Webpack](https://webpack.js.org/concepts/) - Static module bundler
+- [Bootstrap 4](https://getbootstrap.com/docs/4.3/getting-started/introduction/) - Front-end component library
+- [Sass](https://sass-lang.com/documentation) - CSS extension language
+- [ScrollReveal.js](https://scrollrevealjs.org/) - JavaScript library
+- [Tilt.js](https://gijsroge.github.io/tilt.js/) - A tiny requestAnimationFrame
 
 ## Contributing
 
@@ -128,7 +138,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Authors
 
-* **Jacobo Martinez** - [https://github.com/cobimr](https://github.com/cobimr)
+- **Jacobo Martinez** - [https://github.com/cobimr](https://github.com/cobimr)
 
 ## License
 
@@ -136,4 +146,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* I was motivated to create this project for the [ZTM Community](https://github.com/zero-to-mastery)
+- I was motivated to create this project for the [ZTM Community](https://github.com/zero-to-mastery)

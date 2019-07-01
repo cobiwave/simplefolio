@@ -71,8 +71,12 @@ section {
 
 /* ---ABOUT SECTION--- */
 #about {
-  // background-color: $main-blue;
-  background-image: linear-gradient(135deg, $main-blue 0%, $main-purple 100%);
+  background-color: $primary-color;
+  background-image: linear-gradient(
+    135deg,
+    $primary-color 0%,
+    $secondary-color 100%
+  );
   color: $light-grey;
   height: 95vh;
   margin-top: 100vh;
@@ -124,7 +128,7 @@ section {
         }
 
         &--important {
-          background: darken($main-purple, 1%);
+          background: darken($secondary-color, 1%);
           display: inline-block;
           font-style: italic;
           padding: 0 0.3rem;
@@ -189,7 +193,7 @@ section {
       }
 
       & p > a {
-        color: $main-purple;
+        color: $secondary-color;
       }
     }
 
@@ -223,7 +227,11 @@ section {
 
 /*---CONTACT SECTION---*/
 #contact {
-  background-image: linear-gradient(135deg, $main-blue 0%, $main-purple 100%);
+  background-image: linear-gradient(
+    135deg,
+    $primary-color 0%,
+    $secondary-color 100%
+  );
   -webkit-clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
   clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
   padding: 15rem 0 10rem 0;

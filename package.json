@@ -1,7 +1,7 @@
 {
-  "name": "jacobo-martinez",
+  "name": "simplefolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "A FREE Beautiful Portfolio Template for Developers!",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js --open",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cobimr/jacobo-martinez.git"
+    "url": "git+https://github.com/cobimr/simplefolio"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jacobo Martinez",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cobimr/jacobo-martinez/issues"
+    "url": "https://github.com/cobimr/simplefolio/issues"
   },
-  "homepage": "https://github.com/cobimr/jacobo-martinez#readme",
+  "homepage": "https://github.com/cobimr/simplefolio#readme",
   "devDependencies": {
     "clean-webpack-plugin": "^2.0.2",
     "css-loader": "^2.1.1",
