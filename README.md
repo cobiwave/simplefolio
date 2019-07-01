@@ -2,19 +2,21 @@
 
 A **FREE** Beautiful Portfolio Template for Developers!
 
-This repo is an easily customizable personal portfolio template. Feel free to use it as-is or customize it as much as you want. I wanted to build a clean, beautiful and simple template without any unnecessary bloat.
+Feel free to use it as-is or customize it as much as you want. I wanted to build a clean, beautiful and simple template without any unnecessary bloat.
 
 ![](example.gif)
 
 To view a live demo, **[click here](https://simplefolio.netlify.com/)**
 
+**Note:** You are 100% allowed to use this template for both personal and commercial use, but NOT to claim it as your own design. A credit to the original author, Jacobo Martinez, is of course highly appreciated
+
 ---
 
-## Getting Started
+## Getting Started 🚀
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+### Prerequisites 📋
 
 You need to have installed on your computer:
 
@@ -25,7 +27,7 @@ npm@6.9.0
 
 ---
 
-## How To Use
+## How To Use 🔧
 
 To clone and run Simplefolio, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
@@ -120,11 +122,11 @@ Go to `/styles/base/_variables.scss` and change the values on this classes `$mai
 
 ---
 
-## Deployment
+## Deployment 📦
 
 Add additional notes about how to deploy this on a live system
 
-## Technologies used
+## Technologies used 🛠️
 
 - [Webpack](https://webpack.js.org/concepts/) - Static module bundler
 - [Bootstrap 4](https://getbootstrap.com/docs/4.3/getting-started/introduction/) - Front-end component library
@@ -140,10 +142,10 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 - **Jacobo Martinez** - [https://github.com/cobimr](https://github.com/cobimr)
 
-## License
+## License 📄
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
+## Acknowledgments 🎁
 
-- I was motivated to create this project for the [ZTM Community](https://github.com/zero-to-mastery)
+- I was motivated on create this project because I wanted to contribuit on something useful for the dev community, thanks to [ZTM Community](https://github.com/zero-to-mastery) and @aneagoie
