@@ -54,7 +54,7 @@ $ npm start
 Once your server has started, go to this url `http://localhost:8080/` and you will see the portfolio running on a dev-server:
 
 <h2 align="center">
-  <img src="https://github.com/cobimr/simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="600px">
+  <img src="https://github.com/cobimr/simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="100%">
 </h2>
 
 ---
