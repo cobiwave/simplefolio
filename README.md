@@ -13,7 +13,7 @@ Feel free to use it as-is or customize it as much as you want. I wanted to build
   <br>
 </h2>
 
-To view a live demo, **[click here](https://simplefolio.netlify.com/)**
+To view a live demo, **[click here](https://simplfolio.netlify.com/)**
 
 **IMPORTANT NOTE:** You are 100% allowed to use this template for both personal and commercial use, but NOT to claim it as your own design. A credit to the original author, Jacobo Martinez, is of course highly appreciated.
 
