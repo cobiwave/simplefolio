@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 
 h1 {
   font-weight: 700;
@@ -53,9 +52,4 @@ a:hover {
   &:hover {
     transform: translateX(2px);
   }
-}
-
-.text-code,
-.footer-text {
-  font-family: 'Roboto Mono', monospace;
 }
