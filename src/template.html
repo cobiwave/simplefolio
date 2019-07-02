@@ -30,9 +30,6 @@
 
     <!-- Improve your SEO by adding a small descrption of you -->
     <meta name="description" content="[Your name here] | Developer" />
-
-    <!-- ScrollReveal -->
-    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
   </head>
 
   <!-- Follow the HTML instructions below to create your stunning portfolio website -->
@@ -43,16 +40,27 @@
     <div id="welcome-section" class="jumbotron">
       <div class="container">
         <!-- Opening Text -->
-        <h1 id="opening-text">
+        <h1
+          data-sal="slide-right"
+          data-sal-duration="1000"
+          data-sal-delay="500"
+          data-sal-easing="ease-out-bounce"
+          id="opening-text"
+        >
           Hi, my name is <span class="text-color-main">John Doe</span>
           <br />
-          I'm the Unknow Developer</span
-          >.
+          I'm the Unknow Developer.
         </h1>
         <!-- /END Opening Text -->
 
         <!-- Opening Call To Action -->
-        <p id="opening-paragraph">
+        <p
+          data-sal="slide-right"
+          data-sal-duration="1000"
+          data-sal-delay="1000"
+          data-sal-easing="ease-out-bounce"
+          id="opening-paragraph"
+        >
           <a class="cta-btn cta-btn--hero" href="#about">Know more</a>
         </p>
       </div>
@@ -62,11 +70,24 @@
     <!-- **** About Section **** -->
     <section id="about" class="">
       <div class="container">
-        <h2 class="section-title">About me</h2>
+        <h2
+          data-sal="fade"
+          data-sal-duration="1500"
+          data-sal-easing="ease-out-bounce"
+          class="section-title"
+        >
+          About me
+        </h2>
         <br />
         <div class="row about-wrapper">
           <div class="col-lg-6 col-md-12">
-            <div class="about-wrapper__image">
+            <div
+              data-sal="slide-up"
+              data-sal-duration="1000"
+              data-sal-delay="300"
+              data-sal-easing="ease-out-bounce"
+              class="about-wrapper__image"
+            >
               <!-- Profile image: change path: ./assets/yourpic.jpg -->
               <img
                 class="img-fluid rounded shadow-lg"
@@ -79,7 +100,13 @@
             </div>
           </div>
           <div class="col-lg-6 col-md-12 ">
-            <div class="about-wrapper__info">
+            <div
+              data-sal="slide-right"
+              data-sal-duration="1000"
+              data-sal-delay="800"
+              data-sal-easing="ease-out-bounce"
+              class="about-wrapper__info"
+            >
               <!-- 
                 Profile about-text: separate each block of text with 2 <br />
                 I recommend to have no more that 4 block of text
@@ -119,11 +146,24 @@
       <div class="container">
         <!-- Personal projects -->
         <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text">Projects</h2>
+          <h2
+            data-sal="fade"
+            data-sal-duration="1500"
+            data-sal-easing="ease-out-bounce"
+            class="section-title dark-blue-text"
+          >
+            Projects
+          </h2>
           <!-- Each .row is a project block -->
           <div class="row">
             <div class="col-lg-4">
-              <div class="project-wrapper__text">
+              <div
+                data-sal="slide-right"
+                data-sal-duration="800"
+                data-sal-delay="300"
+                data-sal-easing="ease-out-bounce"
+                class="project-wrapper__text"
+              >
                 <!-- 1) project title -->
                 <h3 class="project-wrapper__text-title">Project Title</h3>
                 <!-- 2) project info -->
@@ -147,7 +187,13 @@
               </div>
             </div>
             <div class="col-lg-8">
-              <div class="project-wrapper__image">
+              <div
+                data-sal="slide-left"
+                data-sal-duration="800"
+                data-sal-delay="700"
+                data-sal-easing="ease-out-bounce"
+                class="project-wrapper__image"
+              >
                 <!-- 1) project url -->
                 <a href="#!" target="_blank">
                   <div data-tilt class="thumbnail rounded">
@@ -163,7 +209,13 @@
           <!-- Each .row is a project block -->
           <div class="row">
             <div class="col-lg-4">
-              <div class="project-wrapper__text">
+              <div
+                data-sal="slide-right"
+                data-sal-duration="800"
+                data-sal-delay="300"
+                data-sal-easing="ease-out-bounce"
+                class="project-wrapper__text"
+              >
                 <!-- 1) project title -->
                 <h3 class="project-wrapper__text-title">Project Title</h3>
                 <!-- 2) project info -->
@@ -187,7 +239,13 @@
               </div>
             </div>
             <div class="col-lg-8">
-              <div class="project-wrapper__image">
+              <div
+                data-sal="slide-left"
+                data-sal-duration="800"
+                data-sal-delay="700"
+                data-sal-easing="ease-out-bounce"
+                class="project-wrapper__image"
+              >
                 <!-- 1) project url -->
                 <a href="#!" target="_blank">
                   <div data-tilt class="thumbnail rounded">
@@ -203,7 +261,13 @@
           <!-- Each .row is a project block -->
           <div class="row">
             <div class="col-lg-4">
-              <div class="project-wrapper__text">
+              <div
+                data-sal="slide-right"
+                data-sal-duration="800"
+                data-sal-delay="300"
+                data-sal-easing="ease-out-bounce"
+                class="project-wrapper__text"
+              >
                 <!-- 1) project title -->
                 <h3 class="project-wrapper__text-title">Project Title</h3>
                 <!-- 2) project info -->
@@ -227,7 +291,13 @@
               </div>
             </div>
             <div class="col-lg-8">
-              <div class="project-wrapper__image">
+              <div
+                data-sal="slide-left"
+                data-sal-duration="800"
+                data-sal-delay="700"
+                data-sal-easing="ease-out-bounce"
+                class="project-wrapper__image"
+              >
                 <!-- 1) project url -->
                 <a href="#!" target="_blank">
                   <div data-tilt class="thumbnail rounded">
@@ -248,8 +318,21 @@
     <!-- **** Contact Section **** -->
     <section id="contact">
       <div class="container">
-        <h1 class="section-title">Contact</h1>
-        <div class="contact-wrapper">
+        <h2
+          data-sal="fade"
+          data-sal-duration="1500"
+          data-sal-easing="ease-out-bounce"
+          class="section-title"
+        >
+          Contact
+        </h2>
+        <div
+          data-sal="slide-up"
+          data-sal-duration="800"
+          data-sal-delay="700"
+          data-sal-easing="ease-out-bounce"
+          class="contact-wrapper"
+        >
           <!-- 1) Contact Call To Action: change if necessary -->
           <p class="contact-wrapper__text">
             [Put here your call to action]
