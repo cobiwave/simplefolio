@@ -31,6 +31,10 @@ a:hover {
   text-transform: uppercase;
 }
 
+.dark-blue-text {
+  color: $dark-blue-text !important;
+}
+
 .text-color-main {
   background-image: linear-gradient(
     135deg,

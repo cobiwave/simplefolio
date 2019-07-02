@@ -1,5 +1,4 @@
 import initReveal from './js/scrollReveal';
-import tilt from 'tilt.js';
 import initTilt from './js/tilt';
 import './style/main.scss';
 
