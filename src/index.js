@@ -1,4 +1,5 @@
 import initTilt from './js/tilt';
+import sal from 'sal.js';
 import './style/main.scss';
 
 $('a[href^="#"]').on('click', function(event) {
@@ -17,3 +18,4 @@ $('a[href^="#"]').on('click', function(event) {
 });
 
 initTilt();
+sal();
