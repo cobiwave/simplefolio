@@ -1,6 +1,6 @@
 import tilt from 'tilt.js';
 
-export const initTilt = () => {
+const initTilt = () => {
   // Projects images
   $('.project-wrapper__image a div').tilt({
     maxTilt: 7,
