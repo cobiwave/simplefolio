@@ -1,4 +1,3 @@
-import initReveal from './js/scrollReveal';
 import initTilt from './js/tilt';
 import './style/main.scss';
 
@@ -17,5 +16,4 @@ $('a[href^="#"]').on('click', function(event) {
   }
 });
 
-initReveal();
 initTilt();

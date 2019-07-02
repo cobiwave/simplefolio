@@ -40,7 +40,6 @@
     "bootstrap": "^4.3.1",
     "fstream": "^1.0.12",
     "jquery": "^3.4.1",
-    "scrollreveal": "^4.0.5",
     "tilt.js": "^1.2.1"
   }
 }
