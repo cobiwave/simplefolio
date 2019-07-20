@@ -45,9 +45,12 @@ section {
     @include respond(tab-land) {
       font-size: 4rem;
     }
+    @include respond(tab-port) {
+      font-size: 3.6rem;
+      text-align: center;
+    }
     @include respond(phone) {
       font-size: 3.5rem;
-      text-align: center;
       line-height: 1.5;
     }
     @include respond(phone-xs) {
@@ -58,7 +61,7 @@ section {
   #opening-paragraph {
     display: flex;
     // Responsive for opening paragraph
-    @include respond(phone) {
+    @include respond(tab-port) {
       justify-content: center;
     }
 
@@ -128,6 +131,7 @@ section {
         // Responsive for about text
         @include respond(tab-port) {
           font-size: 1.5rem;
+          text-align: center;
         }
         @include respond(phone) {
           font-size: 1.6rem;
