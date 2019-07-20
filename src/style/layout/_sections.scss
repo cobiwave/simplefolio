@@ -7,7 +7,7 @@ section {
     border: none;
     padding-left: 0.7rem;
     padding-right: 0.7rem;
-    padding: 9.5rem 0rem;
+    padding: 7.5rem 0rem;
   }
 }
 
@@ -42,10 +42,13 @@ section {
     text-align: left;
 
     // Responsive for opening text
+    @include respond(tab-land) {
+      font-size: 4rem;
+    }
     @include respond(phone) {
       font-size: 3.5rem;
-      line-height: 1.5;
       text-align: center;
+      line-height: 1.5;
     }
     @include respond(phone-xs) {
       font-size: 2.8rem;
@@ -87,7 +90,7 @@ section {
   clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
 
   // Responsive for About
-  @include respond(phone) {
+  @include respond(tab-land) {
     height: 100%;
     -webkit-clip-path: none;
     clip-path: none;
@@ -105,7 +108,7 @@ section {
       justify-content: center;
 
       // Responsive for about image
-      @include respond(phone) {
+      @include respond(tab-port) {
         padding-bottom: 6.4rem;
       }
       @include respond(tab-land) {
@@ -123,7 +126,11 @@ section {
         text-align: left;
 
         // Responsive for about text
+        @include respond(tab-port) {
+          font-size: 1.5rem;
+        }
         @include respond(phone) {
+          font-size: 1.6rem;
           text-align: center;
         }
 
@@ -155,7 +162,13 @@ section {
   color: $dark-blue-text;
   margin-top: -10rem;
   padding-top: 15rem;
+
   // Responsive for projects section
+  @include respond(tab-land) {
+    margin-top: 0;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
   @include respond(phone) {
     padding-top: 9.5rem;
     padding-bottom: 3rem;
@@ -238,6 +251,13 @@ section {
   margin-top: -10rem;
   margin-bottom: -1px;
   color: $light-grey;
+
+  @include respond(tab-land) {
+    padding: 10rem 0;
+    clip-path: none;
+    margin-top: 0;
+    -webkit-clip-path: none;
+  }
 
   .contact-wrapper {
     margin-top: 3.2rem;
