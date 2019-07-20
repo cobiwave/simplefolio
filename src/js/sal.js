@@ -1,12 +1,10 @@
 import sal from 'sal.js';
 
 const initSal = () => {
-  document.addEventListener('DOMContentLoaded', () => {
-    const scrollAnimations = sal();
+  const scrollAnimations = sal();
 
-    // Disable fade animation on smaller screens
-    window.innerWidth <= 1024 ? scrollAnimations.disable() : sal();
-  });
+  // Disable fade animation on smaller screens
+  window.innerWidth <= 1024 ? scrollAnimations.disable() : sal();
 };
 
 export default initSal;
