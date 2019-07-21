@@ -66,49 +66,169 @@ Once your server has started, go to this url `http://localhost:8080/` and you wi
 
 Fill your information, they are 5 sections:
 
-**Header Section** - Edit the `h1` and `p` in the jumbotron-text `div`.
+**Header Section** - Edit the `h1` and `p` in the `#welcome-section`.
 
 ```
-<div>
+<div id="welcome-section" class="jumbotron">
+  <div class="container">
+    <!-- Opening Text -->
+    <h1 id="opening-text">
+      Hi, my name is <span class="text-color-main">[YOUR NAME HERE]</span>
+      <br />
+      I'm the Unknow Developer.
+    </h1>
+    <!-- /END Opening Text -->
 
+    <!-- Opening Call To Action -->
+    <p id="opening-paragraph">
+      <a class="cta-btn cta-btn--hero" href="#about">[CALL TO ACTION]</a>
+    </p>
+  </div>
 </div>
 ```
 
-**About Section** - Edit the `h2` and `p`, or add more, in the main-content `div`.
+**About Section** - Edit the `img` src with your profile picture, it must live on assets folder. Edit `.about-wrapper__info-text` with information about you. I recommend separate each paragraph with `<br />` and max 4 paragraph in order to work well. Lastly and not mandatory, put your external link for resume in the `a` button.
 
 ```
-<div>
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">
+      About me
+    </h2>
+    <br />
+    <div class="row about-wrapper">
+      <div class="col-md-6 col-sm-12">
+        <div class="about-wrapper__image">
+          <!-- Profile image: change path: ./assets/yourpic.jpg -->
+          <img
+            class="img-fluid rounded shadow-lg"
+            height="auto"
+            width="300px"
+            src="./assets/[YOUR_IMAGE.png]"
+            alt="Profile Image"
+          />
+          <!-- /END Profile image -->
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="about-wrapper__info">
+          <!--
+            Profile about-text: separate each block of text with 2 <br />
+            I recommend to have no more that 4 block of text
+          -->
+          <p class="about-wrapper__info-text">
+            [YOUR ABOUT INFO HERE]
+            <!--
+              Resume Link: Put your external link for resume.
+              If you want you can comment this link
+            -->
+            <a target="_blank" class="cta-btn cta-btn--resume" href="[YOUR_EXTERNAL_LINK_CV]">
+              View Resume
+            </a>
+            <!-- /END Resume link -->
+          </p>
+          <!-- /END Profile about text  -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+```
 
+**Projects Section** - Projects are organized in `row`. The left-side `col` contains 4 blocks for fill information such as (`project-title, project-information, project-url, project-repo-url`).
+The right-side `col` contains the image of the project, place again the `project-url` and define the `src` of the `project-image`.
+Copy as many `row` project block as you want. That `row` projects must live inside the `.project-wrapper`
+
+```
+ <!-- Each .row is a project block -->
+<div class="row">
+
+  <!-- LEFT SIDE -->
+  <div class="col-lg-4">
+    <div class="project-wrapper__text">
+      <!-- 1) project title -->
+      <h3 class="project-wrapper__text-title">[YOUR-PROJECT-TITLE]</h3>
+      <!-- 2) project info -->
+      <div>
+        <p class="mb-4">
+          [YOUR-PROJECT-INFORMATION]
+        </p>
+      </div>
+      <!-- 3) project url  -->
+      <a target="_blank" class="cta-btn cta-btn--hero" href="[YOUR-PROJECT-URL]">
+        See Live
+      </a>
+      <!-- 4) project repository url -->
+      <a target="_blank" class="cta-btn text-color-main" href="[YOUR-PROJECT-REPO-URL]">
+        Source Code
+      </a>
+    </div>
+  </div>
+
+  <!-- RIGHT-SIDE -->
+  <div class="col-lg-8">
+    <div class="project-wrapper__image">
+      <!-- 1) project url -->
+      <a href="[PROJECT-URL]" target="_blank">
+        <div data-tilt class="thumbnail rounded">
+          <!-- 2) project image path  -->
+          <img class="img-fluid" src="./assets/[YOUR-PROJECT-IMAGE.png]" />
+        </div>
+      </a>
+    </div>
+  </div>
 </div>
+<!-- /END Project block -->
 ```
 
-**Portfolio Section** - Experiences are organized in content-body `div`. There is an `h4` and a `p` that you can edit.
+**Contact Section** - Simply change the `p` with class `.contact-wrapper__text` and include some call-to-action message. Lastly change your `address` and place your email on `href="mailto:your@email.com`
 
 ```
-<div>
-
-</div>
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">
+      Contact
+    </h2>
+    <div class="contact-wrapper">
+      <!-- 1) Contact Call To Action: change if necessary -->
+      <p class="contact-wrapper__text">
+        [YOUR-CONTACT-CALL-TO-ACTION]
+      </p>
+      <br />
+      <!-- 2) Contact mail link: change to your work email & change text if necessary -->
+      <a
+        target="_blank"
+        class="cta-btn cta-btn--resume"
+        href="mailto:example@email.com"
+        >Button</a
+      >
+    </div>
+  </div>
+</section>
 ```
 
-**Contact Section** - Simply cahnge the `address` to include your email address
+**Footer Section** - Put your social media link on each `a` tags. If you have more than the placed below, see Font Awesome Doc to put the corresponding `.class`
 
 ```
-<div>
-
-</div>
-```
-
-**Footer Section** - content-body `div` with an editable `p`
-
-```
-<div>
-
+<div class="social-links">
+  <a href="#!" target="_blank">
+    <i class="fa fa-twitter fa-inverse"></i>
+  </a>
+  <a href="#!" target="_blank">
+    <i class="fa fa-codepen fa-inverse"></i>
+  </a>
+  <a href="#!" target="_blank">
+    <i class="fa fa-linkedin fa-inverse"></i>
+  </a>
+  <a href="#!" target="_blank">
+    <i class="fa fa-github fa-inverse"></i>
+  </a>
 </div>
 ```
 
 ### Step 2
 
-Change your color theme ( choose 2 colors to create a gradient ):
+Change the color theme of the website ( choose 2 colors to create a gradient ):
 
 Go to `/styles/base/_variables.scss` and change the values on this classes `$main-color` and `$secondary-color` to your prefered choose.
 
@@ -117,11 +237,19 @@ Go to `/styles/base/_variables.scss` and change the values on this classes `$mai
   $secondary-color: #000
 ```
 
+I highly recommend to checkout gradients variations on [UI Gradient](https://uigradients.com/#BrightVault)
+
 ---
 
 ## Deployment 📦
 
-Add additional notes about how to deploy this on a live system
+Once you have done with your setup. You need to put your website online!
+
+I highly recommend to use [Netlify](https://netlify.com)
+
+Watch my step by step video tutorial to sucessfully upload your Simplefolio site on Netlify!
+
+**Link: [CLICK HERE!](https://youtube.com)**
 
 ## Technologies used 🛠️
 
@@ -129,7 +257,6 @@ Add additional notes about how to deploy this on a live system
 - [Bootstrap 4](https://getbootstrap.com/docs/4.3/getting-started/introduction/) - Front-end component library
 - [Sass](https://sass-lang.com/documentation) - CSS extension language
 - [ScrollReveal.js](https://scrollrevealjs.org/) - JavaScript library
-- [Tilt.js](https://gijsroge.github.io/tilt.js/) - A tiny requestAnimationFrame
 
 ## Contributing
 
@@ -145,4 +272,4 @@ This project is licensed under the GNU GPLv3 License - see the [LICENSE.md](LICE
 
 ## Acknowledgments 🎁
 
-- I was motivated on create this project because I wanted to contribuit on something useful for the dev community, thanks to [ZTM Community](https://github.com/zero-to-mastery) and @aneagoie
+- I was motivated to create this project because I wanted to contribuit on something useful for the dev community, thanks to [ZTM Community](https://github.com/zero-to-mastery) and [Andrei](https://github.com/aneagoie)
