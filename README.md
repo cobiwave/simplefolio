@@ -78,7 +78,7 @@ Once your server has started, go to this url `http://localhost:8080/` and you wi
 
 ### Step 1
 
-Fill your information, they are 5 sections:
+Go to `/src/template.html` and fill your information, they are 5 sections:
 
 **Header Section** - Edit the `h1` with ID `#opening-text` and `p` with ID `#opening-paragraph`.
 
@@ -248,7 +248,7 @@ Fill your information, they are 5 sections:
 
 Change the color theme of the website ( choose 2 colors to create a gradient ):
 
-Go to `/styles/abstracts/_variables.scss` and only change the values on this classes `$main-color` and `$secondary-color` to your prefered HEX color
+Go to `src/styles/abstracts/_variables.scss` and only change the values on this classes `$main-color` and `$secondary-color` to your prefered HEX color
 
 ```scss
 // Defaut values
