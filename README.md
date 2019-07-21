@@ -37,7 +37,7 @@ git@2.17.1 or higher
 
 ## How To Use 🔧
 
-From your command line, clone and run Simplefolio, :
+From your command line, clone and run Simplefolio:
 
 ```bash
 # Clone this repository
@@ -46,6 +46,9 @@ $ git clone https://github.com/cobimr/simplefolio
 # Go into the repository
 $ cd simplefolio
 
+# Remove current origin repository
+$ git remote remove origin
+
 # Install dependencies
 $ npm install
 
@@ -53,7 +56,17 @@ $ npm install
 $ npm start
 ```
 
-Once your server has started, go to this url `http://localhost:8080/` and you will see the portfolio running within Development Server:
+**NOTE**:
+If your run into issues installing the dependencies, use this command:
+
+```bash
+$ sudo npm install --unsafe-perm=true --allow-root
+
+# Run the app
+$ npm start
+```
+
+Once your server has started, go to this url `http://localhost:8080/` and you will see the Website running on a Development Server:
 
 <h2 align="center">
   <img src="https://github.com/cobimr/simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="100%">
