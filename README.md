@@ -80,9 +80,9 @@ Once your server has started, go to this url `http://localhost:8080/` and you wi
 
 Fill your information, they are 5 sections:
 
-**Header Section** - Edit the `h1` with ID `#opening-text` and `p` with ID `opening-paragraph`.
+**Header Section** - Edit the `h1` with ID `#opening-text` and `p` with ID `#opening-paragraph`.
 
-```
+```html
 <div id="welcome-section" class="jumbotron">
   <div class="container">
     <!-- Opening Text -->
