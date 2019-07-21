@@ -5,9 +5,8 @@ section {
   // Responsive for Section
   @include respond(phone) {
     border: none;
-    padding-left: 0.7rem;
-    padding-right: 0.7rem;
-    padding: 7.5rem 0rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
@@ -171,18 +170,13 @@ section {
   @include respond(tab-land) {
     margin-top: 0;
     padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
-  @include respond(phone) {
-    padding-top: 9.5rem;
-    padding-bottom: 3rem;
   }
 
   .project-wrapper {
     margin-bottom: 15rem;
     // Responsive for project-wrapper
     @include respond(phone) {
-      margin-bottom: 7rem;
+      margin-bottom: 0rem;
     }
 
     .row {
@@ -197,6 +191,7 @@ section {
       text-align: left;
       // Responsive for project-wrapper text
       @include respond(phone) {
+        margin-bottom: 2.5rem !important;
         text-align: center;
       }
       @include respond(tab-land) {
@@ -207,6 +202,10 @@ section {
         font-weight: bold;
         margin-bottom: 1.8rem;
         font-size: $mid-font-size;
+        // Responsive for project-title
+        @include respond(phone) {
+          font-size: 2rem;
+        }
       }
 
       & p > a {

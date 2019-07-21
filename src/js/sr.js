@@ -11,12 +11,12 @@ export default function() {
   ScrollReveal().reveal('#opening-text', {
     ...defaultProps,
     delay: 500,
-    origin: 'left'
+    origin: window.innerWidth > 768 ? 'left' : 'bottom'
   });
   ScrollReveal().reveal('#opening-paragraph', {
     ...defaultProps,
     delay: 1000,
-    origin: 'left'
+    origin: window.innerWidth > 768 ? 'left' : 'bottom'
   });
 
   // About Section
@@ -28,7 +28,7 @@ export default function() {
   ScrollReveal().reveal('.about-wrapper__info', {
     ...defaultProps,
     delay: 1000,
-    origin: 'left'
+    origin: window.innerWidth > 768 ? 'left' : 'bottom'
   });
 
   // Section
@@ -43,16 +43,17 @@ export default function() {
   ScrollReveal().reveal('.project-wrapper__text', {
     ...defaultProps,
     delay: 500,
-    origin: 'left'
+    origin: window.innerWidth > 768 ? 'left' : 'bottom'
   });
   ScrollReveal().reveal('.project-wrapper__image', {
     ...defaultProps,
     delay: 1000,
-    origin: 'right'
+    origin: window.innerWidth > 768 ? 'right' : 'bottom'
   });
 
   // Contact Section
   ScrollReveal().reveal('.contact-wrapper', {
+    ...defaultProps,
     delay: 800,
     origin: 'bottom'
   });
