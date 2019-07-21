@@ -25,18 +25,19 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites 📋
 
-You need to have installed on your computer:
+You'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer
 
 ```
-node@v10.16.0
-npm@6.9.0
+node@v10.16.0 or higher
+npm@6.9.0 or higher
+git@2.17.1 or higher
 ```
 
 ---
 
 ## How To Use 🔧
 
-To clone and run Simplefolio, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+From your command line, clone and run Simplefolio, :
 
 ```bash
 # Clone this repository
@@ -52,7 +53,7 @@ $ npm install
 $ npm start
 ```
 
-Once your server has started, go to this url `http://localhost:8080/` and you will see the portfolio running on a dev-server:
+Once your server has started, go to this url `http://localhost:8080/` and you will see the portfolio running within Development Server:
 
 <h2 align="center">
   <img src="https://github.com/cobimr/simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="100%">
@@ -66,7 +67,7 @@ Once your server has started, go to this url `http://localhost:8080/` and you wi
 
 Fill your information, they are 5 sections:
 
-**Header Section** - Edit the `h1` and `p` in the `#welcome-section`.
+**Header Section** - Edit the `h1` with ID `#opening-text` and `p` with ID `opening-paragraph`.
 
 ```
 <div id="welcome-section" class="jumbotron">
@@ -87,60 +88,61 @@ Fill your information, they are 5 sections:
 </div>
 ```
 
-**About Section** - Edit the `img` src with your profile picture, it must live on assets folder. Edit `.about-wrapper__info-text` with information about you. I recommend separate each paragraph with `<br />` and max 4 paragraph in order to work well. Lastly and not mandatory, put your external link for resume in the `a` button.
+**About Section**
+
+- Edit the `img` src with your profile picture url, your profile picture must live on assets folder.
+- Edit `p` with class `.about-wrapper__info-text` with information about you. I recommend separate each paragraph with 2 `<br />` and max 4 block of text in order to work well.
+- Lastly and not mandatory, put your resume link in the `a` button that lives inside `about-wrapper__info`.
 
 ```
-<section id="about">
-  <div class="container">
-    <h2 class="section-title">
-      About me
-    </h2>
-    <br />
-    <div class="row about-wrapper">
-      <div class="col-md-6 col-sm-12">
-        <div class="about-wrapper__image">
-          <!-- Profile image: change path: ./assets/yourpic.jpg -->
-          <img
-            class="img-fluid rounded shadow-lg"
-            height="auto"
-            width="300px"
-            src="./assets/[YOUR_IMAGE.png]"
-            alt="Profile Image"
-          />
-          <!-- /END Profile image -->
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-12">
-        <div class="about-wrapper__info">
-          <!--
-            Profile about-text: separate each block of text with 2 <br />
-            I recommend to have no more that 4 block of text
-          -->
-          <p class="about-wrapper__info-text">
-            [YOUR ABOUT INFO HERE]
-            <!--
-              Resume Link: Put your external link for resume.
-              If you want you can comment this link
-            -->
-            <a target="_blank" class="cta-btn cta-btn--resume" href="[YOUR_EXTERNAL_LINK_CV]">
-              View Resume
-            </a>
-            <!-- /END Resume link -->
-          </p>
-          <!-- /END Profile about text  -->
-        </div>
-      </div>
+
+<div class="row about-wrapper">
+  <div class="col-md-6 col-sm-12">
+    <div class="about-wrapper__image">
+      <!-- Profile image: change path: ./assets/yourpic.jpg -->
+      <img
+        class="img-fluid rounded shadow-lg"
+        height="auto"
+        width="300px"
+        src="./assets/[YOUR_IMAGE.png]"
+        alt="Profile Image"
+      />
+      <!-- /END Profile image -->
     </div>
   </div>
-</section>
+  <div class="col-md-6 col-sm-12">
+    <div class="about-wrapper__info">
+      <!--
+        Profile about-text: separate each block of text with 2 <br />
+        I recommend to have no more that 4 block of text
+      -->
+      <p class="about-wrapper__info-text">
+        [YOUR ABOUT INFO HERE]
+        <!--
+          Resume Link: Put your external link for resume.
+          If you want you can comment this link
+        -->
+        <a target="_blank" class="cta-btn cta-btn--resume" href="[YOUR_EXTERNAL_LINK_CV]">
+          View Resume
+        </a>
+        <!-- /END Resume link -->
+      </p>
+      <!-- /END Profile about text  -->
+    </div>
+  </div>
+</div>
+
 ```
 
-**Projects Section** - Projects are organized in `row`. The left-side `col` contains 4 blocks for fill information such as (`project-title, project-information, project-url, project-repo-url`).
-The right-side `col` contains the image of the project, place again the `project-url` and define the `src` of the `project-image`.
-Copy as many `row` project block as you want. That `row` projects must live inside the `.project-wrapper`
+**Projects Section**
+
+- Projects are organized in `row` and they lives inside `.project-wrapper`.
+- The left-side `col` contains 4 blocks to fill information such as (`project-title, project-information, project-url, project-repo-url`). Fill each information!
+- The right-side `col` contains the `img` of the project, place again your `project-url` on the `a` tag that holds the `img` and define the `src` path of your project image. The project `img` must live inside the `assets/` folder.
 
 ```
- <!-- Each .row is a project block -->
+<!-- Each .row is a project block -->
+
 <div class="row">
 
   <!-- LEFT SIDE -->
@@ -177,37 +179,38 @@ Copy as many `row` project block as you want. That `row` projects must live insi
       </a>
     </div>
   </div>
+
 </div>
+
 <!-- /END Project block -->
 ```
 
-**Contact Section** - Simply change the `p` with class `.contact-wrapper__text` and include some call-to-action message. Lastly change your `address` and place your email on `href="mailto:your@email.com`
+**Contact Section** - Simply change the `p` with class `.contact-wrapper__text` and include some call-to-action message. Lastly change your email `address` on the `href` property.
 
 ```
-<section id="contact">
-  <div class="container">
-    <h2 class="section-title">
-      Contact
-    </h2>
-    <div class="contact-wrapper">
-      <!-- 1) Contact Call To Action: change if necessary -->
-      <p class="contact-wrapper__text">
-        [YOUR-CONTACT-CALL-TO-ACTION]
-      </p>
-      <br />
-      <!-- 2) Contact mail link: change to your work email & change text if necessary -->
-      <a
-        target="_blank"
-        class="cta-btn cta-btn--resume"
-        href="mailto:example@email.com"
-        >Button</a
-      >
-    </div>
-  </div>
-</section>
+<div class="contact-wrapper">
+
+  <!-- 1) Contact Call To Action: change if necessary -->
+  <p class="contact-wrapper__text">
+    [YOUR-CONTACT-CALL-TO-ACTION]
+  </p>
+  <br />
+
+  <!-- 2) Contact mail link: change to your work email & change text if necessary -->
+  <a
+    target="_blank"
+    class="cta-btn cta-btn--resume"
+    href="mailto:example@email.com"
+    >Button</a
+  >
+</div>
 ```
 
-**Footer Section** - Put your social media link on each `a` tags. If you have more than the placed below, see Font Awesome Doc to put the corresponding `.class`
+**Footer Section**
+
+- Put your social media link on each `a` links.
+- If you have more social media accounts, see [Font Awesome Ions](https://fontawesome.com/icons?d=gallery) to put the corresponding social icon`.class`
+- You can delete or add as many `a` links your want.
 
 ```
 <div class="social-links">
@@ -230,7 +233,7 @@ Copy as many `row` project block as you want. That `row` projects must live insi
 
 Change the color theme of the website ( choose 2 colors to create a gradient ):
 
-Go to `/styles/base/_variables.scss` and change the values on this classes `$main-color` and `$secondary-color` to your prefered choose.
+Go to `/styles/abstracts/_variables.scss` and only change the values on this classes `$main-color` and `$secondary-color` to your prefered HEX color
 
 ```
   $main-color: #fff;
@@ -247,7 +250,7 @@ Once you have done with your setup. You need to put your website online!
 
 I highly recommend to use [Netlify](https://netlify.com)
 
-Watch my step by step video tutorial to sucessfully upload your Simplefolio site on Netlify!
+Because this template use Webpack maybe you can get errors during deployment, Please watch my step-by-step video tutorial to sucessfully upload your Simplefolio Website on Netlify!
 
 **Link: [CLICK HERE!](https://youtube.com)**
 
