@@ -229,16 +229,16 @@ Fill your information, they are 5 sections:
 
 ```html
 <div class="social-links">
-  <a href="#!" target="_blank">
+  <a href="[YOUR-SOCIAL-MEDIA-URL]" target="_blank">
     <i class="fa fa-twitter fa-inverse"></i>
   </a>
-  <a href="#!" target="_blank">
+  <a href="[YOUR-SOCIAL-MEDIA-URL]" target="_blank">
     <i class="fa fa-codepen fa-inverse"></i>
   </a>
-  <a href="#!" target="_blank">
+  <a href="[YOUR-SOCIAL-MEDIA-URL]" target="_blank">
     <i class="fa fa-linkedin fa-inverse"></i>
   </a>
-  <a href="#!" target="_blank">
+  <a href="[YOUR-SOCIAL-MEDIA-URL]" target="_blank">
     <i class="fa fa-github fa-inverse"></i>
   </a>
 </div>
@@ -251,11 +251,12 @@ Change the color theme of the website ( choose 2 colors to create a gradient ):
 Go to `/styles/abstracts/_variables.scss` and only change the values on this classes `$main-color` and `$secondary-color` to your prefered HEX color
 
 ```scss
-$main-color: #fff;
-$secondary-color: #000;
+// Defaut values
+$main-color: #02aab0;
+$secondary-color: #00cdac;
 ```
 
-I highly recommend to checkout gradients variations on [UI Gradient](https://uigradients.com/#BrightVault)
+**NOTE**: I highly recommend to checkout gradients variations on [UI Gradient](https://uigradients.com/#BrightVault)
 
 ---
 
@@ -263,11 +264,11 @@ I highly recommend to checkout gradients variations on [UI Gradient](https://uig
 
 Once you have done with your setup. You need to put your website online!
 
-I highly recommend to use [Netlify](https://netlify.com)
+I highly recommend to use [Netlify](https://netlify.com) to achieve this on the EASIEST WAY
 
-Because this template use Webpack maybe you can get errors during deployment, Please watch my step-by-step video tutorial to sucessfully upload your Simplefolio Website on Netlify!
+Because this template use Webpack maybe you can get errors during deployment, Please watch my step-by-step video tutorial to successfully upload your Simplefolio Website on Netlify!
 
-**Link: [CLICK HERE!](https://youtube.com)**
+**[WATCH MY STEP-BY-STEP TUTORIAL TO UPLOAD SIMPLEFOLIO ONLINE!](https://youtube.com)**
 
 ## Technologies used 🛠️
 
