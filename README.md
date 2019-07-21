@@ -103,12 +103,11 @@ Fill your information, they are 5 sections:
 
 **About Section**
 
-- Edit the `img` src with your profile picture url, your profile picture must live on assets folder.
+- Edit the `img` src with your profile picture url, your profile picture must live on `assets/` folder.
 - Edit `p` with class `.about-wrapper__info-text` with information about you. I recommend separate each paragraph with 2 `<br />` and max 4 block of text in order to work well.
 - Lastly and not mandatory, put your resume link in the `a` button that lives inside `about-wrapper__info`.
 
-```
-
+```html
 <div class="row about-wrapper">
   <div class="col-md-6 col-sm-12">
     <div class="about-wrapper__image">
@@ -135,7 +134,11 @@ Fill your information, they are 5 sections:
           Resume Link: Put your external link for resume.
           If you want you can comment this link
         -->
-        <a target="_blank" class="cta-btn cta-btn--resume" href="[YOUR_EXTERNAL_LINK_CV]">
+        <a
+          target="_blank"
+          class="cta-btn cta-btn--resume"
+          href="[YOUR_EXTERNAL_LINK_CV]"
+        >
           View Resume
         </a>
         <!-- /END Resume link -->
@@ -144,7 +147,6 @@ Fill your information, they are 5 sections:
     </div>
   </div>
 </div>
-
 ```
 
 **Projects Section**
@@ -153,11 +155,10 @@ Fill your information, they are 5 sections:
 - The left-side `col` contains 4 blocks to fill information such as (`project-title, project-information, project-url, project-repo-url`). Fill each information!
 - The right-side `col` contains the `img` of the project, place again your `project-url` on the `a` tag that holds the `img` and define the `src` path of your project image. The project `img` must live inside the `assets/` folder.
 
-```
+```html
 <!-- Each .row is a project block -->
 
 <div class="row">
-
   <!-- LEFT SIDE -->
   <div class="col-lg-4">
     <div class="project-wrapper__text">
@@ -170,11 +171,19 @@ Fill your information, they are 5 sections:
         </p>
       </div>
       <!-- 3) project url  -->
-      <a target="_blank" class="cta-btn cta-btn--hero" href="[YOUR-PROJECT-URL]">
+      <a
+        target="_blank"
+        class="cta-btn cta-btn--hero"
+        href="[YOUR-PROJECT-URL]"
+      >
         See Live
       </a>
       <!-- 4) project repository url -->
-      <a target="_blank" class="cta-btn text-color-main" href="[YOUR-PROJECT-REPO-URL]">
+      <a
+        target="_blank"
+        class="cta-btn text-color-main"
+        href="[YOUR-PROJECT-REPO-URL]"
+      >
         Source Code
       </a>
     </div>
@@ -192,28 +201,21 @@ Fill your information, they are 5 sections:
       </a>
     </div>
   </div>
-
 </div>
-
 <!-- /END Project block -->
 ```
 
 **Contact Section** - Simply change the `p` with class `.contact-wrapper__text` and include some call-to-action message. Lastly change your email `address` on the `href` property.
 
-```
+```html
 <div class="contact-wrapper">
-
   <!-- 1) Contact Call To Action: change if necessary -->
   <p class="contact-wrapper__text">
     [YOUR-CONTACT-CALL-TO-ACTION]
   </p>
   <br />
-
   <!-- 2) Contact mail link: change to your work email & change text if necessary -->
-  <a
-    target="_blank"
-    class="cta-btn cta-btn--resume"
-    href="mailto:example@email.com"
+  <a target="_blank" class="cta-btn cta-btn--resume" href="mailto:[YOUR-EMAIL]"
     >Button</a
   >
 </div>
@@ -222,10 +224,10 @@ Fill your information, they are 5 sections:
 **Footer Section**
 
 - Put your social media link on each `a` links.
-- If you have more social media accounts, see [Font Awesome Ions](https://fontawesome.com/icons?d=gallery) to put the corresponding social icon`.class`
+- If you have more social-media accounts, see [Font Awesome Ions](https://fontawesome.com/icons?d=gallery) to put the corresponding additional social icon `.class`
 - You can delete or add as many `a` links your want.
 
-```
+```html
 <div class="social-links">
   <a href="#!" target="_blank">
     <i class="fa fa-twitter fa-inverse"></i>
@@ -248,9 +250,9 @@ Change the color theme of the website ( choose 2 colors to create a gradient ):
 
 Go to `/styles/abstracts/_variables.scss` and only change the values on this classes `$main-color` and `$secondary-color` to your prefered HEX color
 
-```
-  $main-color: #fff;
-  $secondary-color: #000
+```scss
+$main-color: #fff;
+$secondary-color: #000;
 ```
 
 I highly recommend to checkout gradients variations on [UI Gradient](https://uigradients.com/#BrightVault)
