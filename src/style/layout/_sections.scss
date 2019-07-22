@@ -17,7 +17,7 @@ section {
   display: flex;
   align-items: center;
   border-bottom: 0px;
-  background: $light-grey;
+  background: $white-color;
   font-weight: 400;
   color: $dark-blue-text;
   padding: 0rem 5.6rem;
@@ -82,7 +82,7 @@ section {
     $primary-color 0%,
     $secondary-color 100%
   );
-  color: $light-grey;
+  color: $white-color;
   height: 95vh;
   margin-top: 100vh;
   border-top: 0px;
@@ -161,7 +161,7 @@ section {
 
 /*---PROJECTS SECTION---*/
 #projects {
-  background-color: $light-grey;
+  background-color: $white-color;
   color: $dark-blue-text;
   margin-top: -10rem;
   padding-top: 15rem;
@@ -252,7 +252,7 @@ section {
   padding: 15rem 0 10rem 0;
   margin-top: -10rem;
   margin-bottom: -1px;
-  color: $light-grey;
+  color: $white-color;
 
   @include respond(tab-land) {
     padding: 10rem 0;
