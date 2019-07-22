@@ -13,7 +13,9 @@ Feel free to use it as-is or customize it as much as you want. I wanted to build
   <br>
 </h2>
 
-To view a live demo, **[click here](https://simplfolio.netlify.com/)**
+To view a demo example, **[click here](https://simplfolio.netlify.com/)**
+
+To view a live example, **[click here](https://cobimr.xyz/)**
 
 ---
 
@@ -266,7 +268,7 @@ I highly recommend to use [Netlify](https://netlify.com) to achieve this on the 
 
 Because this template use Webpack maybe you can get errors during deployment, Please watch my step-by-step video tutorial to successfully upload your Simplefolio Website on Netlify!
 
-**[WATCH NOW MY STEP-BY-STEP TUTORIAL FOR DEPLOYMENT](https://youtube.com)**
+**[WATCH NOW MY STEP-BY-STEP TUTORIAL FOR DEPLOYMENT](https://youtu.be/soaG3GNSxJY)**
 
 ## Technologies used 🛠️
 
