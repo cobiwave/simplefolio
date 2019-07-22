@@ -277,10 +277,6 @@ Because this template use Webpack maybe you can get errors during deployment, Pl
 - [Sass](https://sass-lang.com/documentation) - CSS extension language
 - [ScrollReveal.js](https://scrollrevealjs.org/) - JavaScript library
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
 ## Authors
 
 - **Jacobo Martinez** - [https://github.com/cobimr](https://github.com/cobimr)
