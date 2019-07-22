@@ -192,7 +192,6 @@ section {
       // Responsive for project-wrapper text
       @include respond(phone) {
         margin-bottom: 2.5rem !important;
-        text-align: center;
       }
       @include respond(tab-land) {
         margin-bottom: 4.8rem;
