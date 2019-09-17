@@ -76,145 +76,154 @@ Once your server has started, go to this url `http://localhost:8080/` and you wi
 
 Go to `/src/template.html` and fill your information, they are 5 sections:
 
-**Header Section** - Edit the `h1` with ID `#opening-text` and `p` with ID `#opening-paragraph`.
+**Header Section** - Edit `.hero-title` for introduction title and `.hero-cta` for the button cta.
 
 ```html
-<div id="welcome-section" class="jumbotron">
+<!-- **** Hero Section **** -->
+<div id="hero" class="jumbotron">
   <div class="container">
-    <!-- Opening Text -->
-    <h1 id="opening-text">
-      Hi, my name is <span class="text-color-main">[YOUR NAME HERE]</span>
+    <h1 class="hero-title" class="load-hidden">
+      Hi, my name is <span class="text-color-main">John Doe</span>
       <br />
       I'm the Unknow Developer.
     </h1>
-    <!-- /END Opening Text -->
-
-    <!-- Opening Call To Action -->
-    <p id="opening-paragraph">
-      <a class="cta-btn cta-btn--hero" href="#about">[CALL TO ACTION]</a>
+    <p class="hero-cta" class="load-hidden">
+      <a class="cta-btn cta-btn--hero" href="#about">Know more</a>
     </p>
   </div>
 </div>
+<!-- /END Hero Section -->
 ```
 
 **About Section**
 
-- Edit the `img` src with your profile picture url, your profile picture must live on `assets/` folder.
-- Edit `p` with class `.about-wrapper__info-text` with information about you. I recommend separate each paragraph with 2 `<br />` and max 4 block of text in order to work well.
-- Lastly and not mandatory, put your resume link in the `a` button that lives inside `about-wrapper__info`.
+- On `<img>` tag, fill the `<src>` path with your profile picture, your picture must live on `assets/` folder.
+- On `<p>` tag with class-name `.about-wrapper__info-text`, include information abou you, I recommend to use 2 paragraph in order to work well and a maximun of 3 paragraph.
+- On last `<a>` tag, include your resume url on `href` property.
 
 ```html
-<div class="row about-wrapper">
-  <div class="col-md-6 col-sm-12">
-    <div class="about-wrapper__image">
-      <!-- Profile image: change path: ./assets/yourpic.jpg -->
-      <img
-        class="img-fluid rounded shadow-lg"
-        height="auto"
-        width="300px"
-        src="./assets/[YOUR_IMAGE.png]"
-        alt="Profile Image"
-      />
-      <!-- /END Profile image -->
+<!-- **** About Section **** -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">
+      About me
+    </h2>
+    <div class="row about-wrapper">
+      <div class="col-md-6 col-sm-12">
+        <div class="about-wrapper__image">
+          <img
+            class="img-fluid rounded shadow-lg"
+            height="auto"
+            width="300px"
+            src="./assets/profile.png"
+            alt="Profile Image"
+          />
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="about-wrapper__info">
+          <p class="about-wrapper__info-text">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi
+            neque, ipsa animi maiores repellendu distinctioaperiam earum dolor
+            voluptatum consequatur blanditiis inventore debitis fuga numquam
+            voluptate architecto itaque molestiae.
+          </p>
+          <p class="about-wrapper__info-text">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi
+            neque, ipsa animi maiores repellendu distinctioaperiam earum dolor
+            voluptatum consequatur blanditiis inventore debitis fuga numquam
+            voluptate architecto itaque molestiae.
+          </p>
+          <span class="d-flex mt-3">
+            <a target="_blank" class="cta-btn cta-btn--resume" href="#!">
+              View Resume
+            </a>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="col-md-6 col-sm-12">
-    <div class="about-wrapper__info">
-      <!--
-        Profile about-text: separate each block of text with 2 <br />
-        I recommend to have no more that 4 block of text
-      -->
-      <p class="about-wrapper__info-text">
-        [YOUR ABOUT INFO HERE]
-        <!--
-          Resume Link: Put your external link for resume.
-          If you want you can comment this link
-        -->
-        <a
-          target="_blank"
-          class="cta-btn cta-btn--resume"
-          href="[YOUR_EXTERNAL_LINK_CV]"
-        >
-          View Resume
-        </a>
-        <!-- /END Resume link -->
-      </p>
-      <!-- /END Profile about text  -->
-    </div>
-  </div>
-</div>
+</section>
+<!-- /END About Section -->
 ```
 
 **Projects Section**
 
-- Projects are organized in `row` and they lives inside `.project-wrapper`.
-- The left-side `col` contains 4 blocks to fill information such as (`project-title, project-information, project-url, project-repo-url`). Fill each information!
-- The right-side `col` contains the `img` of the project, place again your `project-url` on the `a` tag that holds the `img` and define the `src` path of your project image. The project `img` must live inside the `assets/` folder.
+- Each project are lives inside on a `row`.
+
+- On `<h3>` tag with class-name `.project-wrapper__text-title`, include your project title.
+- On `<p>` tag with `loremp ipsum` text, include your project information.
+- On first `<a>` tag, put your project url on `href` property.
+- On second `<a>` tag, put your project repostiroy url on `href` property.
+
+- Inside `<div>` with class-name `.project-wrapper__image`, put your project image url on the `src` of the `<img>`, recommended size for project image (1366 x 767px), your project image must live on `assets/` folder.
 
 ```html
-<!-- Each .row is a project block -->
-
-<div class="row">
-  <!-- LEFT SIDE -->
-  <div class="col-lg-4">
-    <div class="project-wrapper__text">
-      <!-- 1) project title -->
-      <h3 class="project-wrapper__text-title">[YOUR-PROJECT-TITLE]</h3>
-      <!-- 2) project info -->
-      <div>
-        <p class="mb-4">
-          [YOUR-PROJECT-INFORMATION]
-        </p>
-      </div>
-      <!-- 3) project url  -->
-      <a
-        target="_blank"
-        class="cta-btn cta-btn--hero"
-        href="[YOUR-PROJECT-URL]"
-      >
-        See Live
-      </a>
-      <!-- 4) project repository url -->
-      <a
-        target="_blank"
-        class="cta-btn text-color-main"
-        href="[YOUR-PROJECT-REPO-URL]"
-      >
-        Source Code
-      </a>
-    </div>
-  </div>
-
-  <!-- RIGHT-SIDE -->
-  <div class="col-lg-8">
-    <div class="project-wrapper__image">
-      <!-- 1) project url -->
-      <a href="[PROJECT-URL]" target="_blank">
-        <div data-tilt class="thumbnail rounded">
-          <!-- 2) project image path  -->
-          <img class="img-fluid" src="./assets/[YOUR-PROJECT-IMAGE.png]" />
+<!-- **** Projects Section **** -->
+<section id="projects">
+  ...
+  <!-- Each .row is a project -->
+  <div class="row">
+    <div class="col-lg-4 col-sm-12">
+      <div class="project-wrapper__text">
+        <h3 class="project-wrapper__text-title">[Project Title]</h3>
+        <div>
+          <p class="mb-4">
+            [Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi
+            neque, ipsa animi maiores repellendus distinctio aperiam earum dolor
+            voluptatum consequatur blanditiis inventore debitis fuga numquam
+            voluptate ex architecto itaque molestiae.]
+          </p>
         </div>
-      </a>
+        <a target="_blank" class="cta-btn cta-btn--hero" href="#!">
+          See Live
+        </a>
+        <a target="_blank" class="cta-btn text-color-main" href="#!">
+          Source Code
+        </a>
+      </div>
+    </div>
+    <div class="col-lg-8 col-sm-12">
+      <div class="project-wrapper__image">
+        <a href="#!" target="_blank">
+          <div data-tilt class="thumbnail rounded">
+            <img class="img-fluid" src="./assets/banner.png" />
+          </div>
+        </a>
+      </div>
     </div>
   </div>
-</div>
-<!-- /END Project block -->
+  <!-- /END Project block -->
+  ...
+</section>
 ```
 
-**Contact Section** - Simply change the `p` with class `.contact-wrapper__text` and include some call-to-action message. Lastly change your email `address` on the `href` property.
+**Contact Section**
+
+- On `<p>` tag with class-name `.contact-wrapper__text`, include some custom call-to-action message.
+- On `<a>` tag, put your email address on `href` property.
 
 ```html
-<div class="contact-wrapper">
-  <!-- 1) Contact Call To Action: change if necessary -->
-  <p class="contact-wrapper__text">
-    [YOUR-CONTACT-CALL-TO-ACTION]
-  </p>
-  <br />
-  <!-- 2) Contact mail link: change to your work email & change text if necessary -->
-  <a target="_blank" class="cta-btn cta-btn--resume" href="mailto:[YOUR-EMAIL]"
-    >Button</a
-  >
-</div>
+<!-- **** Contact Section **** -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">
+      Contact
+    </h2>
+    <div class="contact-wrapper">
+      <p class="contact-wrapper__text">
+        Put here your contact CTA
+      </p>
+      <a
+        target="_blank"
+        class="cta-btn cta-btn--resume"
+        href="mailto:example@email.com"
+        >Call to Action</a
+      >
+    </div>
+  </div>
+</section>
+<!-- /END Contact Section -->
 ```
 
 **Footer Section**
