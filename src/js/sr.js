@@ -7,14 +7,14 @@ export default function() {
     mobile: true
   };
 
-  // Welcome Section
-  ScrollReveal().reveal('#opening-text', {
+  // Hero Section
+  ScrollReveal().reveal('.hero-title', {
     ...defaultProps,
     reset: true,
     delay: 500,
     origin: window.innerWidth > 768 ? 'left' : 'bottom'
   });
-  ScrollReveal().reveal('#opening-paragraph', {
+  ScrollReveal().reveal('.hero-cta', {
     ...defaultProps,
     reset: true,
     delay: 1000,
