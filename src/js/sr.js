@@ -7,7 +7,15 @@ export default function() {
     mobile: true
   };
 
-  // Hero Section
+  /* Section Title */
+  ScrollReveal().reveal('.section-title', {
+    ...defaultProps,
+    delay: 300,
+    distance: '0px',
+    origin: 'bottom'
+  });
+
+  /* Hero Section */
   ScrollReveal().reveal('.hero-title', {
     ...defaultProps,
     reset: true,
@@ -21,7 +29,7 @@ export default function() {
     origin: window.innerWidth > 768 ? 'left' : 'bottom'
   });
 
-  // About Section
+  /* About Section */
   ScrollReveal().reveal('.about-wrapper__image', {
     ...defaultProps,
     delay: 600,
@@ -33,15 +41,7 @@ export default function() {
     origin: window.innerWidth > 768 ? 'left' : 'bottom'
   });
 
-  // Section
-  ScrollReveal().reveal('.section-title', {
-    ...defaultProps,
-    delay: 300,
-    distance: '0px',
-    origin: 'bottom'
-  });
-
-  // Projects Section
+  /* Projects Section */
   ScrollReveal().reveal('.project-wrapper__text', {
     ...defaultProps,
     delay: 500,
@@ -53,7 +53,7 @@ export default function() {
     origin: window.innerWidth > 768 ? 'right' : 'bottom'
   });
 
-  // Contact Section
+  /* Contact Section */
   ScrollReveal().reveal('.contact-wrapper', {
     ...defaultProps,
     delay: 800,
