@@ -1,10 +1,6 @@
-<h1 align="center">
-  🔥 Simplefolio 🔥
-</h1>
+# Simplefolio ⚡️ [![GitHub](https://img.shields.io/github/license/cobimr/simplefolio?color=blue)](https://github.com/cobimr/simplefolio/blob/master/LICENSE.md) ![GitHub stars](https://img.shields.io/github/stars/cobimr/simplefolio) ![GitHub forks](https://img.shields.io/github/forks/cobimr/simplefolio)
 
-<h2 align="center">
-  A clean, beautiful and responsive portfolio template for Developers!
-</h2>
+## A clean, beautiful and responsive portfolio template for Developers!
 
 Feel free to use it as-is or customize it as much as you want. I was motivated to create this project because I wanted to contribute on something useful for the dev community :)
 
