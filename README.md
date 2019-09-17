@@ -76,7 +76,10 @@ Once your server has started, go to this url `http://localhost:8080/` and you wi
 
 Go to `/src/template.html` and fill your information, they are 5 sections:
 
-**Header Section** - Edit `.hero-title` for introduction title and `.hero-cta` for the button cta.
+**Hero Section**
+
+- On `.hero-title`, put your custom title.
+- On `.hero-cta`, put your custom button cta.
 
 ```html
 <!-- **** Hero Section **** -->
@@ -97,8 +100,8 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 
 **About Section**
 
-- On `<img>` tag, fill the `<src>` path with your profile picture, your picture must live on `assets/` folder.
-- On `<p>` tag with class-name `.about-wrapper__info-text`, include information abou you, I recommend to use 2 paragraph in order to work well and a maximun of 3 paragraph.
+- On `<img>` tag, fill the `src` property with your profile picture, your picture must live on `assets/` folder.
+- On `<p>` tag with class-name `.about-wrapper__info-text`, include information abou you, I recommend to use 2 paragraphs in order to work well and a maximum of 3 paragraphs.
 - On last `<a>` tag, include your resume url on `href` property.
 
 ```html
@@ -123,16 +126,10 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
       <div class="col-md-6 col-sm-12">
         <div class="about-wrapper__info">
           <p class="about-wrapper__info-text">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi
-            neque, ipsa animi maiores repellendu distinctioaperiam earum dolor
-            voluptatum consequatur blanditiis inventore debitis fuga numquam
-            voluptate architecto itaque molestiae.
+            Lorem ipsum dolor sit, about my text.
           </p>
           <p class="about-wrapper__info-text">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi
-            neque, ipsa animi maiores repellendu distinctioaperiam earum dolor
-            voluptatum consequatur blanditiis inventore debitis fuga numquam
-            voluptate architecto itaque molestiae.
+            Lorem ipsum dolor sit, about my text.
           </p>
           <span class="d-flex mt-3">
             <a target="_blank" class="cta-btn cta-btn--resume" href="#!">
@@ -169,10 +166,7 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
         <h3 class="project-wrapper__text-title">[Project Title]</h3>
         <div>
           <p class="mb-4">
-            [Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi
-            neque, ipsa animi maiores repellendus distinctio aperiam earum dolor
-            voluptatum consequatur blanditiis inventore debitis fuga numquam
-            voluptate ex architecto itaque molestiae.]
+            Lorem ipsum dolor sit, my project information.
           </p>
         </div>
         <a target="_blank" class="cta-btn cta-btn--hero" href="#!">
