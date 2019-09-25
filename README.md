@@ -1,17 +1,17 @@
-# Simplefolio v1 ⚡️ [![GitHub](https://img.shields.io/github/license/cobimr/simplefolio?color=blue)](https://github.com/cobimr/simplefolio/blob/master/LICENSE.md) ![GitHub stars](https://img.shields.io/github/stars/cobimr/simplefolio) ![GitHub forks](https://img.shields.io/github/forks/cobimr/simplefolio)
+# Simplefolio v1 ⚡️ [![GitHub](https://img.shields.io/github/license/cobidev/simplefolio?color=blue)](https://github.com/cobidev/simplefolio/blob/master/LICENSE.md) ![GitHub stars](https://img.shields.io/github/stars/cobidev/simplefolio) ![GitHub forks](https://img.shields.io/github/forks/cobidev/simplefolio)
 
 ## A clean, beautiful and responsive portfolio template for Developers!
 
 Feel free to use it as-is or customize it as much as you want. I was motivated to create this project because I wanted to contribute on something useful for the dev community :)
 
 <h2 align="center">
-  <img src="https://github.com/cobimr/simplefolio/blob/master/examples/example.gif" alt="Simplefolio" width="600px" />
+  <img src="https://github.com/cobidev/simplefolio/blob/master/examples/example.gif" alt="Simplefolio" width="600px" />
   <br>
 </h2>
 
 To view a demo example, **[click here](https://simplfolio.netlify.com/)**
 
-To view a live example, **[click here](https://cobimr.xyz/)**
+To view a live example, **[click here](https://cobidev.com/)**
 
 ---
 
@@ -37,7 +37,7 @@ From your command line, clone and run Simplefolio:
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/cobimr/simplefolio
+$ git clone https://github.com/cobidev/simplefolio
 
 # Go into the repository
 $ cd simplefolio
@@ -65,7 +65,7 @@ $ npm start
 Once your server has started, go to this url `http://localhost:8080/` and you will see the Website running on a Development Server:
 
 <h2 align="center">
-  <img src="https://github.com/cobimr/simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="100%">
+  <img src="https://github.com/cobidev/simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="100%">
 </h2>
 
 ---
@@ -278,7 +278,7 @@ Because this template use Webpack maybe you can get errors during deployment, Pl
 
 ## Authors
 
-- **Jacobo Martinez** - [https://github.com/cobimr](https://github.com/cobimr)
+- **Jacobo Martinez** - [https://github.com/cobidev](https://github.com/cobidev)
 
 ## Status
 
