@@ -1,4 +1,4 @@
-# Simplefolio ⚡️ [![GitHub](https://img.shields.io/github/license/cobimr/simplefolio?color=blue)](https://github.com/cobimr/simplefolio/blob/master/LICENSE.md) ![GitHub stars](https://img.shields.io/github/stars/cobimr/simplefolio) ![GitHub forks](https://img.shields.io/github/forks/cobimr/simplefolio)
+# Simplefolio v1 ⚡️ [![GitHub](https://img.shields.io/github/license/cobimr/simplefolio?color=blue)](https://github.com/cobimr/simplefolio/blob/master/LICENSE.md) ![GitHub stars](https://img.shields.io/github/stars/cobimr/simplefolio) ![GitHub forks](https://img.shields.io/github/forks/cobimr/simplefolio)
 
 ## A clean, beautiful and responsive portfolio template for Developers!
 
