@@ -48,7 +48,7 @@ $ git remote remove origin
 # Install dependencies
 $ npm install
 
-# Run the app
+# Start development server
 $ npm start
 ```
 
@@ -56,13 +56,14 @@ $ npm start
 If your run into issues installing the dependencies, use this command:
 
 ```bash
+# Install dependencies with all permissions
 $ sudo npm install --unsafe-perm=true --allow-root
 
-# Run the app
+# Start development server
 $ npm start
 ```
 
-Once your server has started, go to this url `http://localhost:8080/` and you will see the Website running on a Development Server:
+Once your server has started, go to this url `http://localhost:8080/` and you will see the website running on a Development Server:
 
 <h2 align="center">
   <img src="https://github.com/cobidev/simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="100%">
@@ -72,7 +73,7 @@ Once your server has started, go to this url `http://localhost:8080/` and you wi
 
 ## Template Instructions:
 
-### Step 1
+### Step 1 - STRUCTURE
 
 Go to `/src/template.html` and fill your information, they are 5 sections:
 
@@ -222,28 +223,32 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 
 **Footer Section**
 
-- Put your social media link on each `a` links.
-- If you have more social-media accounts, see [Font Awesome Ions](https://fontawesome.com/icons?d=gallery) to put the corresponding additional social icon `.class`
+- Put your social media link on each `<a>` links.
+- If you have more social-media accounts, see [Font Awesome Ions](https://fontawesome.com/v4.7.0/icons/) to put the corresponding additional social icon `.class`
 - You can delete or add as many `a` links your want.
 
 ```html
-<div class="social-links">
-  <a href="[YOUR-SOCIAL-MEDIA-URL]" target="_blank">
-    <i class="fa fa-twitter fa-inverse"></i>
-  </a>
-  <a href="[YOUR-SOCIAL-MEDIA-URL]" target="_blank">
-    <i class="fa fa-codepen fa-inverse"></i>
-  </a>
-  <a href="[YOUR-SOCIAL-MEDIA-URL]" target="_blank">
-    <i class="fa fa-linkedin fa-inverse"></i>
-  </a>
-  <a href="[YOUR-SOCIAL-MEDIA-URL]" target="_blank">
-    <i class="fa fa-github fa-inverse"></i>
-  </a>
-</div>
+<footer class="footer navbar-static-bottom">
+  ...
+  <div class="social-links">
+    <a href="#!" target="_blank">
+      <i class="fa fa-twitter fa-inverse"></i>
+    </a>
+    <a href="#!" target="_blank">
+      <i class="fa fa-codepen fa-inverse"></i>
+    </a>
+    <a href="#!" target="_blank">
+      <i class="fa fa-linkedin fa-inverse"></i>
+    </a>
+    <a href="#!" target="_blank">
+      <i class="fa fa-github fa-inverse"></i>
+    </a>
+  </div>
+  ...
+</footer>
 ```
 
-### Step 2
+### Step 2 - STYLES
 
 Change the color theme of the website ( choose 2 colors to create a gradient ):
 
