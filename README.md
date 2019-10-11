@@ -102,7 +102,7 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 **About Section**
 
 - On `<img>` tag, fill the `src` property with your profile picture, your picture must live on `assets/` folder.
-- On `<p>` tag with class-name `.about-wrapper__info-text`, include information abou you, I recommend to use 2 paragraphs in order to work well and a maximum of 3 paragraphs.
+- On `<p>` tag with class-name `.about-wrapper__info-text`, include information about you, I recommend to use 2 paragraphs in order to work well and a maximum of 3 paragraphs.
 - On last `<a>` tag, include your resume url on `href` property.
 
 ```html
@@ -147,14 +147,16 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 
 **Projects Section**
 
-- Each project are lives inside on a `row`.
-
+- Each project lives inside on a `row`.
 - On `<h3>` tag with class-name `.project-wrapper__text-title`, include your project title.
 - On `<p>` tag with `loremp ipsum` text, include your project information.
 - On first `<a>` tag, put your project url on `href` property.
 - On second `<a>` tag, put your project repostiroy url on `href` property.
 
-- Inside `<div>` with class-name `.project-wrapper__image`, put your project image url on the `src` of the `<img>`, recommended size for project image (1366 x 767px), your project image must live on `assets/` folder.
+---
+
+- Inside `<div>` tag with class-name `.project-wrapper__image`, put your project image url on the `src` of the `<img>` and put again your project url on `href` property of `<a>` tag.
+- Recommended size for project image (1366 x 767px), your project image must live on `assets/` folder.
 
 ```html
 <!-- **** Projects Section **** -->
