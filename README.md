@@ -226,7 +226,7 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 **Footer Section**
 
 - Put your social media link on each `<a>` links.
-- If you have more social-media accounts, see [Font Awesome Ions](https://fontawesome.com/v4.7.0/icons/) to put the corresponding additional social icon `.class`
+- If you have more social-media accounts, see [Font Awesome Icons](https://fontawesome.com/v4.7.0/icons/) to put the corresponding additional social icon `.class`
 - You can delete or add as many `a` links your want.
 
 ```html
@@ -276,7 +276,7 @@ Because this template use Webpack maybe you can get errors during deployment, Pl
 
 **[WATCH NOW MY STEP-BY-STEP TUTORIAL FOR DEPLOYMENT](https://www.youtube.com/watch?v=soaG3GNSxJY)**
 
-## Others Versions by the Community:
+## Others versions made by the community:
 
 [Simplefolio Ember.js](https://github.com/sernadesigns/simplefolio-ember) by [Michael Serna](https://github.com/sernadesigns)
 
