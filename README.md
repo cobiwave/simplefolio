@@ -276,7 +276,7 @@ Because this template use Webpack maybe you can get errors during deployment, Pl
 
 **[WATCH NOW MY STEP-BY-STEP TUTORIAL FOR DEPLOYMENT](https://www.youtube.com/watch?v=soaG3GNSxJY)**
 
-## Others versions made by the community:
+## Others versions made by the community 👥
 
 [Simplefolio Ember.js](https://github.com/sernadesigns/simplefolio-ember) by [Michael Serna](https://github.com/sernadesigns)
 
