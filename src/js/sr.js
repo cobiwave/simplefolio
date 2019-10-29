@@ -18,13 +18,11 @@ export default function() {
   /* Hero Section */
   ScrollReveal().reveal('.hero-title', {
     ...defaultProps,
-    reset: true,
     delay: 500,
     origin: window.innerWidth > 768 ? 'left' : 'bottom'
   });
   ScrollReveal().reveal('.hero-cta', {
     ...defaultProps,
-    reset: true,
     delay: 1000,
     origin: window.innerWidth > 768 ? 'left' : 'bottom'
   });
