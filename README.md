@@ -9,8 +9,17 @@ Feel free to use it as-is or customize it as much as you want. I was motivated t
   <br>
 </h2>
 
-To view a demo example, **[click here](https://simplfolio.netlify.com/)**
+## Features
+✔️ Modern UI Design + Reveal Animations\
+✔️ One Page Layout\
+✔️ Built with Bootstrap v4.3 + Custom SCSS\
+✔️ Light Clean Codes\
+✔️ Fully Responsive\
+✔️ Valid HTML5 & CSS3\
+✔️ Optimized with Webpack\
+✔️ Well organized Documentation
 
+To view a demo example, **[click here](https://simplfolio.netlify.com/)**\
 To view a live example, **[click here](https://cobidev.com/)**
 
 ---
