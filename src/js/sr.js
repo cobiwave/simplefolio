@@ -7,21 +7,27 @@ export default function() {
     mobile: true
   };
 
-  // Welcome Section
-  ScrollReveal().reveal('#opening-text', {
+  /* Section Title */
+  ScrollReveal().reveal('.section-title', {
     ...defaultProps,
-    reset: true,
+    delay: 300,
+    distance: '0px',
+    origin: 'bottom'
+  });
+
+  /* Hero Section */
+  ScrollReveal().reveal('.hero-title', {
+    ...defaultProps,
     delay: 500,
     origin: window.innerWidth > 768 ? 'left' : 'bottom'
   });
-  ScrollReveal().reveal('#opening-paragraph', {
+  ScrollReveal().reveal('.hero-cta', {
     ...defaultProps,
-    reset: true,
     delay: 1000,
     origin: window.innerWidth > 768 ? 'left' : 'bottom'
   });
 
-  // About Section
+  /* About Section */
   ScrollReveal().reveal('.about-wrapper__image', {
     ...defaultProps,
     delay: 600,
@@ -33,15 +39,7 @@ export default function() {
     origin: window.innerWidth > 768 ? 'left' : 'bottom'
   });
 
-  // Section
-  ScrollReveal().reveal('.section-title', {
-    ...defaultProps,
-    delay: 300,
-    distance: '0px',
-    origin: 'bottom'
-  });
-
-  // Projects Section
+  /* Projects Section */
   ScrollReveal().reveal('.project-wrapper__text', {
     ...defaultProps,
     delay: 500,
@@ -53,7 +51,7 @@ export default function() {
     origin: window.innerWidth > 768 ? 'right' : 'bottom'
   });
 
-  // Contact Section
+  /* Contact Section */
   ScrollReveal().reveal('.contact-wrapper', {
     ...defaultProps,
     delay: 800,

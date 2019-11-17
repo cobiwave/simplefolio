@@ -1,65 +1,61 @@
 <!--
-
   Hello!
   -
   Simplefolio is a clean and responsive portfolio template for Developers!
   Created by Jacobo Martinez.
   -
-  Github Repo: https://github.com/cobimr/simplefolio/
-  Readme: https://github.com/cobimr/simplefolio/README.md
+  Github Repo: https://github.com/cobidev/simplefolio/
+  Readme: https://github.com/cobidev/simplefolio/README.md
   -
   For business & inquires, contact me -> cobimr@protonmail.com
-
 -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/png" href="./assets/favicon.png" />
 
     <!-- Put here your site title -->
     <title>[Your name here] | Developer</title>
-
-    <!-- Add your custom Favicon -->
-    <link rel="shortcut icon" type="image/png" href="./assets/favicon.png" />
-
     <!-- Add some coding keywords below, Ex: (javascript, yourusername, etc) -->
     <meta name="keywords" content="[username], [name], skill" />
-
     <!-- Improve your SEO by adding a small descrption of you -->
     <meta name="description" content="[Your name here] | Developer" />
 
-    <!-- Scroll Reveal -->
+    <!-- Required librarys -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>
       ScrollReveal({ reset: false });
     </script>
+
+    <!-- Remove this script once you setup your custom portfolio -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
 
-  <!-- Follow the HTML instructions below to create your stunning portfolio website -->
+  <!-- Follow the HTML instructions to create your stunning portfolio website -->
   <body>
     <div id="top"></div>
 
-    <!-- **** Welcome Section **** -->
-    <div id="welcome-section" class="jumbotron">
+    <!-- **** Hero Section **** -->
+    <div id="hero" class="jumbotron">
       <div class="container">
-        <!-- Opening Text -->
-        <h1 id="opening-text" class="load-hidden">
+        <h1 class="hero-title" class="load-hidden">
           Hi, my name is <span class="text-color-main">John Doe</span>
           <br />
           I'm the Unknown Developer.
         </h1>
-        <!-- /END Opening Text -->
-
-        <!-- Opening Call To Action -->
-        <p id="opening-paragraph" class="load-hidden">
+        <p class="hero-cta" class="load-hidden">
           <a class="cta-btn cta-btn--hero" href="#about">Know more</a>
         </p>
       </div>
     </div>
-    <!-- /END Welcome Section -->
+    <!-- /END Hero Section -->
 
     <!-- **** About Section **** -->
     <section id="about">
@@ -67,11 +63,9 @@
         <h2 class="section-title">
           About me
         </h2>
-        <br />
         <div class="row about-wrapper">
           <div class="col-md-6 col-sm-12">
             <div class="about-wrapper__image">
-              <!-- Profile image: change path: ./assets/yourpic.jpg -->
               <img
                 class="img-fluid rounded shadow-lg"
                 height="auto"
@@ -79,38 +73,27 @@
                 src="./assets/profile.png"
                 alt="Profile Image"
               />
-              <!-- /END Profile image -->
             </div>
           </div>
           <div class="col-md-6 col-sm-12">
             <div class="about-wrapper__info">
-              <!-- 
-                Profile about-text: separate each block of text with 2 <br />
-                I recommend to have no more that 4 block of text
-              -->
               <p class="about-wrapper__info-text">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Excepturi neque, ipsa animi maiores repellendus distinctio
-                aperiam earum.
-                <br /><br />
+                Excepturi neque, ipsa animi maiores repellendu distinctioaperiam
+                earum dolor voluptatum consequatur blanditiis inventore debitis
+                fuga numquam voluptate architecto itaque molestiae.
+              </p>
+              <p class="about-wrapper__info-text">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Excepturi neque, ipsa animi maiores repellendus distinctio
-                aperiam earum.
-                <br /><br />
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Excepturi neque, ipsa animi maiores repellendus distinctio
-                aperiam earum.
-                <br /><br />
-                <!-- 
-                  Resume Link: Put your external link for resume.
-                  If you want you can comment this link
-                -->
+                Excepturi neque, ipsa animi maiores repellendu distinctioaperiam
+                earum dolor voluptatum consequatur blanditiis inventore debitis
+                fuga numquam voluptate architecto itaque molestiae.
+              </p>
+              <span class="d-flex mt-3">
                 <a target="_blank" class="cta-btn cta-btn--resume" href="#!">
                   View Resume
                 </a>
-                <!-- /END Resume link -->
-              </p>
-              <!-- /END Profile about text  -->
+              </span>
             </div>
           </div>
         </div>
@@ -121,58 +104,16 @@
     <!-- **** Projects Section **** -->
     <section id="projects">
       <div class="container">
-        <!-- Personal projects -->
         <div class="project-wrapper">
           <h2 class="section-title dark-blue-text">
             Projects
           </h2>
-          <!-- Each .row is a project block -->
-          <div class="row">
-            <div class="col-lg-4 col-sm-12">
-              <div class="project-wrapper__text">
-                <!-- 1) project title -->
-                <h3 class="project-wrapper__text-title">Project Title</h3>
-                <!-- 2) project info -->
-                <div>
-                  <p class="mb-4">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Excepturi neque, ipsa animi maiores repellendus distinctio
-                    aperiam earum dolor voluptatum consequatur blanditiis
-                    inventore debitis fuga numquam voluptate ex architecto
-                    itaque molestiae.
-                  </p>
-                </div>
-                <!-- 3) project url  -->
-                <a target="_blank" class="cta-btn cta-btn--hero" href="#!">
-                  See Live
-                </a>
-                <!-- 4) project repository url -->
-                <a target="_blank" class="cta-btn text-color-main" href="#!">
-                  Source Code
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-12">
-              <div class="project-wrapper__image">
-                <!-- 1) project url -->
-                <a href="#!" target="_blank">
-                  <div data-tilt class="thumbnail rounded">
-                    <!-- 2) project image path  -->
-                    <img class="img-fluid" src="./assets/banner.png" />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- /END Project block -->
 
-          <!-- Each .row is a project block -->
+          <!-- Each .row is a project -->
           <div class="row">
             <div class="col-lg-4 col-sm-12">
               <div class="project-wrapper__text">
-                <!-- 1) project title -->
                 <h3 class="project-wrapper__text-title">Project Title</h3>
-                <!-- 2) project info -->
                 <div>
                   <p class="mb-4">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -182,11 +123,9 @@
                     itaque molestiae.
                   </p>
                 </div>
-                <!-- 3) project url  -->
                 <a target="_blank" class="cta-btn cta-btn--hero" href="#!">
                   See Live
                 </a>
-                <!-- 4) project repository url -->
                 <a target="_blank" class="cta-btn text-color-main" href="#!">
                   Source Code
                 </a>
@@ -194,25 +133,21 @@
             </div>
             <div class="col-lg-8 col-sm-12">
               <div class="project-wrapper__image">
-                <!-- 1) project url -->
                 <a href="#!" target="_blank">
                   <div data-tilt class="thumbnail rounded">
-                    <!-- 2) project image path  -->
                     <img class="img-fluid" src="./assets/banner.png" />
                   </div>
                 </a>
               </div>
             </div>
           </div>
-          <!-- /END Project block -->
+          <!-- /END Project -->
 
-          <!-- Each .row is a project block -->
+          <!-- Each .row is a project -->
           <div class="row">
             <div class="col-lg-4 col-sm-12">
               <div class="project-wrapper__text">
-                <!-- 1) project title -->
                 <h3 class="project-wrapper__text-title">Project Title</h3>
-                <!-- 2) project info -->
                 <div>
                   <p class="mb-4">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -222,11 +157,9 @@
                     itaque molestiae.
                   </p>
                 </div>
-                <!-- 3) project url -->
                 <a target="_blank" class="cta-btn cta-btn--hero" href="#!">
                   See Live
                 </a>
-                <!-- 4) project repository url  -->
                 <a target="_blank" class="cta-btn text-color-main" href="#!">
                   Source Code
                 </a>
@@ -234,19 +167,50 @@
             </div>
             <div class="col-lg-8 col-sm-12">
               <div class="project-wrapper__image">
-                <!-- 1) project url -->
                 <a href="#!" target="_blank">
                   <div data-tilt class="thumbnail rounded">
-                    <!-- 2) project image path -->
                     <img class="img-fluid" src="./assets/banner.png" />
                   </div>
                 </a>
               </div>
             </div>
           </div>
-          <!-- /END Project block -->
+          <!-- /END Project -->
+
+          <!-- Each .row is a project -->
+          <div class="row">
+            <div class="col-lg-4 col-sm-12">
+              <div class="project-wrapper__text">
+                <h3 class="project-wrapper__text-title">Project Title</h3>
+                <div>
+                  <p class="mb-4">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Excepturi neque, ipsa animi maiores repellendus distinctio
+                    aperiam earum dolor voluptatum consequatur blanditiis
+                    inventore debitis fuga numquam voluptate ex architecto
+                    itaque molestiae.
+                  </p>
+                </div>
+                <a target="_blank" class="cta-btn cta-btn--hero" href="#!">
+                  See Live
+                </a>
+                <a target="_blank" class="cta-btn text-color-main" href="#!">
+                  Source Code
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-8 col-sm-12">
+              <div class="project-wrapper__image">
+                <a href="#!" target="_blank">
+                  <div data-tilt class="thumbnail rounded">
+                    <img class="img-fluid" src="./assets/banner.png" />
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- /END Project -->
         </div>
-        <!-- /END Personal projects -->
       </div>
     </section>
     <!-- /END Projects Section -->
@@ -258,17 +222,14 @@
           Contact
         </h2>
         <div class="contact-wrapper">
-          <!-- 1) Contact Call To Action: change if necessary -->
           <p class="contact-wrapper__text">
             [Put your call to action here]
           </p>
-          <br />
-          <!-- 2) Contact mail link: change to your work email & change text if necessary -->
           <a
             target="_blank"
             class="cta-btn cta-btn--resume"
             href="mailto:example@email.com"
-            >Button</a
+            >Call to Action</a
           >
         </div>
       </div>
@@ -281,7 +242,6 @@
         <a href="#top" class="back-to-top">
           <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
         </a>
-        <!-- Social Links -->
         <div class="social-links">
           <a href="#!" target="_blank">
             <i class="fa fa-twitter fa-inverse"></i>
@@ -296,22 +256,44 @@
             <i class="fa fa-github fa-inverse"></i>
           </a>
         </div>
-        <!-- /END Social Links -->
 
         <hr />
 
-        <!-- Please don't remove this text, I spend to much on create this for the community :) -->
+        <!-- If you give me some credit, will be huge for me :) -->
         <p class="footer__text">
-          © 2019 - Developed by
-          <a href="https://github.com/cobimr" target="_blank"
-            >Jacobo Martinez
+          © 2019 - Developed with
+          <i
+            style="color: #dc3545; font-size: 1.8rem"
+            class="fa fa-heart px-2"
+          ></i>
+          by
+          <a href="https://github.com/covidev" target="_blank">Jacobo Martínez</a>
           </a>
+        </p>
+
+        <!-- Remove this paragraph once you setup your custom portfolio -->
+        <p class="mt-3 pt-3">
+          <a
+            class="github-button"
+            href="https://github.com/cobidev/simplefolio/fork"
+            data-icon="octicon-repo-forked"
+            data-size="large"
+            data-show-count="true"
+            aria-label="Fork ntkme/github-buttons on GitHub"
+            >Fork</a
+          >
+          <a
+            class="github-button"
+            href="https://github.com/cobidev/simplefolio"
+            data-icon="octicon-star"
+            data-size="large"
+            data-show-count="true"
+            aria-label="Star cobidev/simplefolio on GitHub"
+            >Star</a
+          >
         </p>
       </div>
     </footer>
     <!-- /END Footer Section -->
-
-    <!-- Font Awesome CDN -->
-    <script src="https://use.fontawesome.com/c384233445.js"></script>
   </body>
 </html>
