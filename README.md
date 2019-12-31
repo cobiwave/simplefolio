@@ -2,22 +2,20 @@
 
 ## A clean, beautiful and responsive portfolio template for Developers!
 
-Feel free to use it as-is or customize it as much as you want. I was motivated to create this project because I wanted to contribute on something useful for the dev community :)
-
 <h2 align="center">
   <img src="https://github.com/cobidev/simplefolio/blob/master/examples/example.gif" alt="Simplefolio" width="600px" />
   <br>
 </h2>
 
 ## Features
-✔️ Modern UI Design + Reveal Animations\
-✔️ One Page Layout\
-✔️ Styled with Bootstrap v4.3 + Custom SCSS\
-✔️ Light Clean Codes\
-✔️ Fully Responsive\
-✔️ Valid HTML5 & CSS3\
-✔️ Optimized with Webpack\
-✔️ Well organized documentation
+⚡️ Modern UI Design + Reveal Animations\
+⚡️ One Page Layout\
+⚡️ Styled with Bootstrap v4.3 + Custom SCSS\
+⚡️ Light Clean Codes\
+⚡️ Fully Responsive\
+⚡️ Valid HTML5 & CSS3\
+⚡️ Optimized with Webpack\
+⚡️ Well organized documentation
 
 To view a demo example, **[click here](https://simplfolio.netlify.com/)**\
 To view a live example, **[click here](https://cobidev.com/)**
