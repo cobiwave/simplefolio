@@ -84,7 +84,7 @@ Once your server has started, go to this url `http://localhost:8080/` and you wi
 
 Go to `/src/template.html` and fill your information, they are 5 sections:
 
-**Hero Section**
+### Hero Section
 
 - On `.hero-title`, put your custom title.
 - On `.hero-cta`, put your custom button cta.
@@ -106,7 +106,7 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 <!-- /END Hero Section -->
 ```
 
-**About Section**
+### About Section
 
 - On `<img>` tag, fill the `src` property with your profile picture, your picture must live on `assets/` folder.
 - On `<p>` tag with class-name `.about-wrapper__info-text`, include information about you, I recommend to use 2 paragraphs in order to work well and a maximum of 3 paragraphs.
@@ -152,13 +152,13 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 <!-- /END About Section -->
 ```
 
-**Projects Section**
+### Projects Section
 
 - Each project lives inside on a `row`.
 - On `<h3>` tag with class-name `.project-wrapper__text-title`, include your project title.
 - On `<p>` tag with `loremp ipsum` text, include your project information.
 - On first `<a>` tag, put your project url on `href` property.
-- On second `<a>` tag, put your project repostiroy url on `href` property.
+- On second `<a>` tag, put your project repository url on `href` property.
 
 ---
 
@@ -202,7 +202,7 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 </section>
 ```
 
-**Contact Section**
+### Contact Section
 
 - On `<p>` tag with class-name `.contact-wrapper__text`, include some custom call-to-action message.
 - On `<a>` tag, put your email address on `href` property.
@@ -230,7 +230,7 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 <!-- /END Contact Section -->
 ```
 
-**Footer Section**
+### Footer Section
 
 - Put your social media link on each `<a>` links.
 - If you have more social-media accounts, see [Font Awesome Icons](https://fontawesome.com/v4.7.0/icons/) to put the corresponding additional social icon `.class`
