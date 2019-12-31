@@ -1,5 +1,7 @@
 # Simplefolio ⚡️ [![GitHub](https://img.shields.io/github/license/cobidev/simplefolio?color=blue)](https://github.com/cobidev/simplefolio/blob/master/LICENSE.md) ![GitHub stars](https://img.shields.io/github/stars/cobidev/simplefolio) ![GitHub forks](https://img.shields.io/github/forks/cobidev/simplefolio)
 
+***IMPORTANT NOTE***: New version came out using React + Gatsby! See more: [Gatsby Simplefolio](https://github.com/cobidev/gatsby-simplefolio)
+
 ## A clean, beautiful and responsive portfolio template for Developers!
 
 <h2 align="center">
