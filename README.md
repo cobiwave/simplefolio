@@ -13,7 +13,6 @@
 ⚡️ Modern UI Design + Reveal Animations\
 ⚡️ One Page Layout\
 ⚡️ Styled with Bootstrap v4.3 + Custom SCSS\
-⚡️ Light Clean Codes\
 ⚡️ Fully Responsive\
 ⚡️ Valid HTML5 & CSS3\
 ⚡️ Optimized with Webpack\
@@ -21,6 +20,8 @@
 
 To view a demo example, **[click here](https://simplfolio.netlify.com/)**\
 To view a live example, **[click here](https://cobidev.com/)**
+
+Checkout the newest version of Simplefolio, **[click here](https://github.com/cobidev/gatsby-simplefolio/)**
 
 ---
 
