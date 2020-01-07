@@ -97,7 +97,7 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 <div id="hero" class="jumbotron">
   <div class="container">
     <h1 class="hero-title" class="load-hidden">
-      Hi, my name is <span class="text-color-main">John Doe</span>
+      Hi, my name is <span class="text-color-main">Your Name</span>
       <br />
       I'm the Unknow Developer.
     </h1>
@@ -129,7 +129,7 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
             class="img-fluid rounded shadow-lg"
             height="auto"
             width="300px"
-            src="./assets/profile.png"
+            src="./assets/profile.jpg"
             alt="Profile Image"
           />
         </div>
@@ -194,7 +194,7 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
       <div class="project-wrapper__image">
         <a href="#!" target="_blank">
           <div data-tilt class="thumbnail rounded">
-            <img class="img-fluid" src="./assets/banner.png" />
+            <img class="img-fluid" src="./assets/project.jpg" />
           </div>
         </a>
       </div>
@@ -286,9 +286,10 @@ Because this template use Webpack maybe you can get errors during deployment, Pl
 
 **[WATCH NOW MY STEP-BY-STEP TUTORIAL FOR DEPLOYMENT](https://www.youtube.com/watch?v=soaG3GNSxJY)**
 
-## Others versions made by the community 👥
+## Others versions 👥
 
-[Simplefolio Ember.js](https://github.com/sernadesigns/simplefolio-ember) by [Michael Serna](https://github.com/sernadesigns)
+[Gatsby Simplefolio](https://github.com/cobidev/gatsby-simplefolio) by [Jacobo Martinez](https://github.com/cobidev)
+[Ember.js Simplefolio](https://github.com/sernadesigns/simplefolio-ember) by [Michael Serna](https://github.com/sernadesigns)
 
 ## Technologies used 🛠️
 
