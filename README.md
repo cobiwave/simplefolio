@@ -5,11 +5,12 @@
 Feel free to use it as-is or customize it as much as you want. I was motivated to create this project because I wanted to contribute on something useful for the dev community :)
 
 <h2 align="center">
-  <img src="https://github.com/cobidev/simplefolio/blob/master/examples/example.gif" alt="Simplefolio" width="600px" />
+  <img src="https://github.com/cobidev/gatsby-simplefolio/blob/master/examples/example.gif" alt="Simplefolio" width="600px" />
   <br>
 </h2>
 
 ## Features
+
 ✔️ Modern UI Design + Reveal Animations\
 ✔️ One Page Layout\
 ✔️ Built with Bootstrap v4.3 + Custom SCSS\
@@ -75,7 +76,7 @@ $ npm start
 Once your server has started, go to this url `http://localhost:8080/` and you will see the website running on a Development Server:
 
 <h2 align="center">
-  <img src="https://github.com/cobidev/simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="100%">
+  <img src="https://github.com/cobidev/gatsby-simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="100%">
 </h2>
 
 ---
