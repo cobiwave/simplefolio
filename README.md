@@ -7,7 +7,7 @@
   <br>
 </h2>
 
-**_IMPORTANT NOTE_**: New fastest version came out, built with React + Gatsby! See more: [Gatsby Simplefolio](https://github.com/cobidev/gatsby-simplefolio)
+**_IMPORTANT NOTE_**: New fastest version came out, built with React + Gatsby! 🎉🎉🎉 See more: [Gatsby Simplefolio](https://github.com/cobidev/gatsby-simplefolio)
 
 ## Features
 
@@ -21,8 +21,6 @@
 
 To view a demo example, **[click here](https://simplfolio.netlify.com/)**\
 To view a live example, **[click here](https://cobidev.com/)**
-
-Checkout the newest version of Simplefolio, **[click here](https://github.com/cobidev/gatsby-simplefolio/)**
 
 ---
 
