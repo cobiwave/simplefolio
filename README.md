@@ -110,7 +110,7 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 
 ### About Section
 
-- On `<img>` tag, fill the `src` property with your profile picture, your picture must live on `assets/` folder.
+- On `<img>` tag, fill the `src` property with your profile picture, your picture must be located inside `assets/` folder.
 - On `<p>` tag with class-name `.about-wrapper__info-text`, include information about you, I recommend to use 2 paragraphs in order to work well and a maximum of 3 paragraphs.
 - On last `<a>` tag, include your resume url on `href` property.
 
