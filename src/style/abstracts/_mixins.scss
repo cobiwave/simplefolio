@@ -25,6 +25,12 @@ ORDER: Base + Typography > Generar Layout + Grid > Page Layout > Components
       @content;
     } //0 - 600px
   }
+  // Table small
+  @if $breakpoint == tab-port-sm {
+    @media (max-width: 48em) {
+      @content;
+    } //768px
+  }
   // Table Portrait
   @if $breakpoint == tab-port {
     @media (max-width: 56.25em) {

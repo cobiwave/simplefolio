@@ -29,11 +29,11 @@
       align-items: center;
       justify-content: center;
 
-      @include respond(tab-port) {
-        padding-bottom: 6.4rem;
-      }
       @include respond(tab-land) {
         height: 100%;
+      }
+      @include respond(tab-port-sm) {
+        padding-bottom: 6.4rem;
       }
     }
 
@@ -43,7 +43,7 @@
       justify-content: center;
       flex-direction: column;
 
-      @include respond(phone) {
+      @include respond(tab-port-sm) {
         align-items: center;
       }
 
@@ -51,11 +51,9 @@
         text-align: left;
 
         @include respond(tab-port) {
-          font-size: 1.5rem;
-          text-align: center;
+          text-align: left;
         }
-        @include respond(phone) {
-          font-size: 1.6rem;
+        @include respond(tab-port-sm) {
           text-align: center;
         }
 
