@@ -266,7 +266,7 @@ Change the color theme of the website ( choose 2 colors to create a gradient ):
 Go to `src/styles/abstracts/_variables.scss` and only change the values on this classes `$main-color` and `$secondary-color` to your prefered HEX color
 
 ```scss
-// Defaut values
+// Default values
 $main-color: #02aab0;
 $secondary-color: #00cdac;
 ```
