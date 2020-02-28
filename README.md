@@ -9,6 +9,11 @@
 
 **_IMPORTANT NOTE_**: New fastest version came out, built with React + Gatsby! 🎉🎉🎉 See more: [Gatsby Simplefolio](https://github.com/cobidev/gatsby-simplefolio)
 
+<h2 align="center">
+  <img src="https://media.giphy.com/media/3oFzmq6Kj4yXZUVHmE/giphy.gif" alt="Look up!" width="600px" />
+  <br>
+</h2>
+
 ## Features
 
 ⚡️ Modern UI Design + Reveal Animations\
