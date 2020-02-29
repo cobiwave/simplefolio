@@ -64,6 +64,7 @@ $ cd simplefolio
 
 # Remove current origin repository
 $ git remote remove origin
+$ git remote add origin git@github.com:<your github username>/simplefolio.git
 ```
 
 Then you can install the dependencies either using NPM or Yarn:
