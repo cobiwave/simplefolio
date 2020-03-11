@@ -32,6 +32,7 @@
   );
   border-image-slice: 1;
   @include supportIE11() {
+    color:$secondary-color !important;
     &:hover {
       color:$white-color !important;
     }
