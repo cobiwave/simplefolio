@@ -40,9 +40,7 @@ a:hover {
 
 .text-color-main {
   @include supportColorForIE11();
-  @include supportIE11() {
-    color: $secondary-color !important;
-  }
+  
   // Responsive text purple style
   @include respond(phone) {
     background-image: none;

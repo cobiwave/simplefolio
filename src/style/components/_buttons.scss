@@ -8,7 +8,7 @@
   z-index: 1;
   transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.6s;
   @include supportIE11() {
-    color: $secondary-color !important;
+    color: $white-color !important;
   }
   &::after {
     content: '';
@@ -33,6 +33,11 @@
     $secondary-color 100%
   );
   border-image-slice: 1;
+  @include supportIE11() {
+    &:hover {
+      color:$white-color !important;
+    }
+  }
   // Responsive Button hero style
   @include respond(phone) {
     background-image: none;
