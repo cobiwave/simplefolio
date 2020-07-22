@@ -1,0 +1,51 @@
+/* Dark Mode styles */
+body.dark-theme {
+	background: #272341;
+
+	#hero,
+	#projects,
+	footer {
+		background: #272341;
+		color: #00cdac;
+	}
+
+	#about,
+	#contact {
+		background: #44405f;
+		color: #00cdac;
+
+		a {
+			color: #00cdac;
+			border: 2px solid #00cdac;
+			&:hover {
+				border: 2px solid #fff;
+			}
+		}
+	}
+
+	.text-color-main {
+		background-image: linear-gradient(135deg, #fff 0%, #eee 100%);
+	}
+
+	.cta-btn--hero {
+		background-image: linear-gradient(135deg, #fff 0%, #eee 100%);
+		border: 2px solid #fff;
+
+		&:hover {
+			border: 2px solid #00cdac;
+		}
+	}
+
+	footer {
+		a {
+			background-color: #272341;
+		}
+	}
+}
+
+.btn-toggle {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 1000;
+}

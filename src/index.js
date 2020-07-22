@@ -17,12 +17,6 @@ $('a[href^="#"]').on('click', function (event) {
 	}
 });
 
-const btn = document.querySelector('.btn-toggle');
-btn.addEventListener('click', function () {
-	document.body.classList.toggle('dark-theme');
-	console.log('btn clicked');
-});
-
 theme();
 initSr();
 initTilt();
