@@ -22,7 +22,8 @@
 ⚡️ Fully Responsive\
 ⚡️ Valid HTML5 & CSS3\
 ⚡️ Optimized with Webpack\
-⚡️ Well organized documentation
+⚡️ Well organized documentation\
+⚡️ Dark Mode
 
 To view a demo example, **[click here](https://simplfolio.netlify.com/)**\
 To view a live example, **[click here](https://cobidev.com/)**
@@ -69,6 +70,7 @@ $ git remote remove origin
 Then you can install the dependencies either using NPM or Yarn:
 
 Using NPM:
+
 ```bash
 # Install dependencies
 $ npm install
@@ -76,7 +78,9 @@ $ npm install
 # Start development server
 $ npm start
 ```
+
 Using Yarn:
+
 ```bash
 # Install dependencies
 $ yarn
@@ -115,16 +119,19 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 ```html
 <!-- **** Hero Section **** -->
 <div id="hero" class="jumbotron">
-  <div class="container">
-    <h1 class="hero-title" class="load-hidden">
-      Hi, my name is <span class="text-color-main">Your Name</span>
-      <br />
-      I'm the Unknow Developer.
-    </h1>
-    <p class="hero-cta" class="load-hidden">
-      <a class="cta-btn cta-btn--hero" href="#about">Know more</a>
-    </p>
-  </div>
+	<div class="container">
+		<h1 class="hero-title" class="load-hidden">
+			Hi, my name is
+			<span class="text-color-main">Your Name</span>
+			<br />
+			I'm the Unknow Developer.
+		</h1>
+		<p class="hero-cta" class="load-hidden">
+			<a class="cta-btn cta-btn--hero" href="#about"
+				>Know more</a
+			>
+		</p>
+	</div>
 </div>
 <!-- /END Hero Section -->
 ```
@@ -138,39 +145,45 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 ```html
 <!-- **** About Section **** -->
 <section id="about">
-  <div class="container">
-    <h2 class="section-title">
-      About me
-    </h2>
-    <div class="row about-wrapper">
-      <div class="col-md-6 col-sm-12">
-        <div class="about-wrapper__image">
-          <img
-            class="img-fluid rounded shadow-lg"
-            height="auto"
-            width="300px"
-            src="./assets/profile.jpg"
-            alt="Profile Image"
-          />
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-12">
-        <div class="about-wrapper__info">
-          <p class="about-wrapper__info-text">
-            Lorem ipsum dolor sit, about my text.
-          </p>
-          <p class="about-wrapper__info-text">
-            Lorem ipsum dolor sit, about my text.
-          </p>
-          <span class="d-flex mt-3">
-            <a target="_blank" class="cta-btn cta-btn--resume" href="#!">
-              View Resume
-            </a>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		<h2 class="section-title">
+			About me
+		</h2>
+		<div class="row about-wrapper">
+			<div class="col-md-6 col-sm-12">
+				<div class="about-wrapper__image">
+					<img
+						class="img-fluid rounded shadow-lg"
+						height="auto"
+						width="300px"
+						src="./assets/profile.jpg"
+						alt="Profile Image"
+					/>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-12">
+				<div class="about-wrapper__info">
+					<p class="about-wrapper__info-text">
+						Lorem ipsum dolor sit, about my
+						text.
+					</p>
+					<p class="about-wrapper__info-text">
+						Lorem ipsum dolor sit, about my
+						text.
+					</p>
+					<span class="d-flex mt-3">
+						<a
+							target="_blank"
+							class="cta-btn cta-btn--resume"
+							href="#!"
+						>
+							View Resume
+						</a>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 <!-- /END About Section -->
 ```
@@ -191,37 +204,54 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 ```html
 <!-- **** Projects Section **** -->
 <section id="projects">
-  ...
-  <!-- Each .row is a project -->
-  <div class="row">
-    <div class="col-lg-4 col-sm-12">
-      <div class="project-wrapper__text">
-        <h3 class="project-wrapper__text-title">[Project Title]</h3>
-        <div>
-          <p class="mb-4">
-            Lorem ipsum dolor sit, my project information.
-          </p>
-        </div>
-        <a target="_blank" class="cta-btn cta-btn--hero" href="#!">
-          See Live
-        </a>
-        <a target="_blank" class="cta-btn text-color-main" href="#!">
-          Source Code
-        </a>
-      </div>
-    </div>
-    <div class="col-lg-8 col-sm-12">
-      <div class="project-wrapper__image">
-        <a href="#!" target="_blank">
-          <div data-tilt class="thumbnail rounded">
-            <img class="img-fluid" src="./assets/project.jpg" />
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-  <!-- /END Project block -->
-  ...
+	...
+	<!-- Each .row is a project -->
+	<div class="row">
+		<div class="col-lg-4 col-sm-12">
+			<div class="project-wrapper__text">
+				<h3 class="project-wrapper__text-title">
+					[Project Title]
+				</h3>
+				<div>
+					<p class="mb-4">
+						Lorem ipsum dolor sit, my
+						project information.
+					</p>
+				</div>
+				<a
+					target="_blank"
+					class="cta-btn cta-btn--hero"
+					href="#!"
+				>
+					See Live
+				</a>
+				<a
+					target="_blank"
+					class="cta-btn text-color-main"
+					href="#!"
+				>
+					Source Code
+				</a>
+			</div>
+		</div>
+		<div class="col-lg-8 col-sm-12">
+			<div class="project-wrapper__image">
+				<a href="#!" target="_blank">
+					<div
+						data-tilt
+						class="thumbnail rounded"
+					>
+						<img
+							class="img-fluid"
+							src="./assets/project.jpg"
+						/>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	<!-- /END Project block -->
+	...
 </section>
 ```
 
@@ -233,22 +263,22 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 ```html
 <!-- **** Contact Section **** -->
 <section id="contact">
-  <div class="container">
-    <h2 class="section-title">
-      Contact
-    </h2>
-    <div class="contact-wrapper">
-      <p class="contact-wrapper__text">
-        Put here your contact CTA
-      </p>
-      <a
-        target="_blank"
-        class="cta-btn cta-btn--resume"
-        href="mailto:example@email.com"
-        >Call to Action</a
-      >
-    </div>
-  </div>
+	<div class="container">
+		<h2 class="section-title">
+			Contact
+		</h2>
+		<div class="contact-wrapper">
+			<p class="contact-wrapper__text">
+				Put here your contact CTA
+			</p>
+			<a
+				target="_blank"
+				class="cta-btn cta-btn--resume"
+				href="mailto:example@email.com"
+				>Call to Action</a
+			>
+		</div>
+	</div>
 </section>
 <!-- /END Contact Section -->
 ```
@@ -261,22 +291,22 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 
 ```html
 <footer class="footer navbar-static-bottom">
-  ...
-  <div class="social-links">
-    <a href="#!" target="_blank">
-      <i class="fa fa-twitter fa-inverse"></i>
-    </a>
-    <a href="#!" target="_blank">
-      <i class="fa fa-codepen fa-inverse"></i>
-    </a>
-    <a href="#!" target="_blank">
-      <i class="fa fa-linkedin fa-inverse"></i>
-    </a>
-    <a href="#!" target="_blank">
-      <i class="fa fa-github fa-inverse"></i>
-    </a>
-  </div>
-  ...
+	...
+	<div class="social-links">
+		<a href="#!" target="_blank">
+			<i class="fa fa-twitter fa-inverse"></i>
+		</a>
+		<a href="#!" target="_blank">
+			<i class="fa fa-codepen fa-inverse"></i>
+		</a>
+		<a href="#!" target="_blank">
+			<i class="fa fa-linkedin fa-inverse"></i>
+		</a>
+		<a href="#!" target="_blank">
+			<i class="fa fa-github fa-inverse"></i>
+		</a>
+	</div>
+	...
 </footer>
 ```
 
