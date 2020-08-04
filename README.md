@@ -105,7 +105,7 @@ Once your server has started, go to this url `http://localhost:8080/` and you wi
 
 ### Step 1 - STRUCTURE
 
-Go to `/src/template.html` and fill your information, they are 5 sections:
+Go to `/src/template.html` and fill your information, there are 5 sections:
 
 ### Hero Section
 
@@ -132,7 +132,7 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 ### About Section
 
 - On `<img>` tag, fill the `src` property with your profile picture, your picture must be located inside `assets/` folder.
-- On `<p>` tag with class-name `.about-wrapper__info-text`, include information about you, I recommend to use 2 paragraphs in order to work well and a maximum of 3 paragraphs.
+- On `<p>` tag with class-name `.about-wrapper__info-text`, include information about yourself. I recommend to use 2 paragraphs in order to work well and a maximum of 3 paragraphs.
 - On last `<a>` tag, include your resume url on `href` property.
 
 ```html
@@ -186,7 +186,7 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
 ---
 
 - Inside `<div>` tag with class-name `.project-wrapper__image`, put your project image url on the `src` of the `<img>` and put again your project url on `href` property of `<a>` tag.
-- Recommended size for project image (1366 x 767px), your project image must live on `assets/` folder.
+- Recommended size for project image (1366 x 767px), your project image must be located inside `assets/` folder.
 
 ```html
 <!-- **** Projects Section **** -->
@@ -298,11 +298,11 @@ $secondary-color: #00cdac;
 
 ## Deployment 📦
 
-Once you have done with your setup. You need to put your website online!
+Once you have done with your setup, you need to put your website online!
 
-I highly recommend to use [Netlify](https://netlify.com) to achieve this on the EASIEST WAY
+I highly recommend to use [Netlify](https://netlify.com) to achieve this the EASIEST WAY.
 
-Because this template use Webpack maybe you can get errors during deployment, Please watch my step-by-step video tutorial to successfully upload your Simplefolio Website on Netlify!
+Because this template uses Webpack maybe you can get errors during deployment. Please watch my step-by-step video tutorial to successfully upload your Simplefolio Website on Netlify!
 
 **[WATCH NOW MY STEP-BY-STEP TUTORIAL FOR DEPLOYMENT](https://www.youtube.com/watch?v=soaG3GNSxJY)**
 
