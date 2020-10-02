@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Rambla|Staatliches&display=swap');
+
+:root{
+    --color-black : #000000;
+    --color-white: #ffffff;
+    --color-border: #ffffff34;
+    --font-staat:  'Staatliches', cursive;
+    --font-os: 'Oswald', sans-serif;
+    --font-ram: 'Rambla', sans-serif;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+/* Global Css Classes */
+.font-staat{
+    font: normal 400 18px var(--font-staat);
+}
+
+.font-oswald{
+    font: normal 300 18px var(--font-os);
+}
+
+.font-ram{
+    font: normal bold 18px var(--font-ram);
+}
+
+.font-size-40{
+    font-size: 40px;
+}
+
+.font-size-34{
+    font-size: 34px;
+}
+
+.font-size-27{
+    font-size: 27px;
+}
+
+.font-size-20{
+    font-size: 20px;
+}
+
+.font-size-16{
+    font-size: 16px;
+}
+
+
+
+.text-white{
+    color: var(--color-white);
+}
+
+.bgcolor-black{
+    background-color: var(--color-black);
+}
+
+/* ---------------------------------------- */
+
+#header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999999;
+    transition: left .5s ease;
+}
+
+#header nav{
+    height: 100vh;
+}
+
+#header .site-title .navbar-brand{
+    font: normal 400 40px var(--font-staat);
+    letter-spacing: 2px;
+    color: var(--color-white) !important;
+}
+
+ .toggle-button{
+    background: none;
+    color: var(--color-black);
+    border: 1px solid var(--color-border);
+    position: fixed;
+    right: 20px;
+    top: 25px;
+}
+
+@media  screen and  (min-width: 768px){
+    .toggle-button{
+        display: none;
+    }
+}
+
+#header .nabar-nav .nav-link{
+    margin: .7rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    text-transform: uppercase;
+}
+#header .nabar-nav .nav-link:hover {
+    color: var(--color-white) !important;
+}
+
+.site-content .banner-area{
+    background: url(./assets/Banner_image.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+.site-content .banner-area{
+    position: relative;
+}
+.site-content .banner-area .author{
+    margin: 0;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.site-content .banner-area .author .author-img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: auto;
+    background: url(./assets/about.jpg) no-repeat;
+    background-size: 200%;
+    background-position: 40% 0%;
+}
+
+.skill .bars p, .site-content .skill .bars span{
+    line-height: 10px;
+}
+
+/* footer */
+#footer form .row .col input[type="text"],
+#footer form .row .col input[type="email"],
+#footer form textarea{
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid gray;
+    padding: 1.5rem 1rem;
+}
+
+.toggle-left{
+    left: 0 !important;
+    width: 1000px !important;
+}
