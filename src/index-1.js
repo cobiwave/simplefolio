@@ -20,7 +20,7 @@ $('a[href^="#"]').on('click', function(event) {
 
 console.log('Hello');
 console.log('Branch 2');
-console.log('Branch NEWIDEA And something new ');
+console.log('Branch NEWIDEA And something new .');
 
 initSr();
 initTilt();
