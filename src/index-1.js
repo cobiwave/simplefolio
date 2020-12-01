@@ -19,6 +19,7 @@ $('a[href^="#"]').on('click', function(event) {
 });
 
 console.log('Hello');
+console.log('Branch 2');
 
 initSr();
 initTilt();
