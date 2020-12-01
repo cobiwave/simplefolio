@@ -18,5 +18,7 @@ $('a[href^="#"]').on('click', function(event) {
   }
 });
 
+console.log('Hello');
+
 initSr();
 initTilt();
