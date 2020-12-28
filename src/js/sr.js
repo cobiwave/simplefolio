@@ -8,7 +8,7 @@ export default function() {
     mobile: true
   };
   
-  /* Section Title */
+  /* Section Title test modification */
   ScrollReveal().reveal('.section-title', 
     assignProps(
       {
