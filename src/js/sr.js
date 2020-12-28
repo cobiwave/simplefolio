@@ -17,7 +17,7 @@ export default function() {
       }, defaultProps)
   );
 
-  /* Hero Section */
+  /* Hero Section test modification on server */
   ScrollReveal().reveal('.hero-title', 
     assignProps(
       { 
