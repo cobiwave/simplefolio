@@ -8,7 +8,7 @@ export default function() {
     mobile: true
   };
   
-  /* Section Title test modification */
+  /* Section Title test modification ||| ceci est une modification faite au niveau de la branche firstbranch dans le but de tester */
   ScrollReveal().reveal('.section-title', 
     assignProps(
       {
