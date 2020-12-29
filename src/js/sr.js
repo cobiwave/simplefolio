@@ -8,7 +8,7 @@ export default function() {
     mobile: true
   };
   
-  /* Section Title test modification ||| ceci est une modification faite au niveau de la branche firstbranch dans le but de tester */
+  /* Section Title*/
   ScrollReveal().reveal('.section-title', 
     assignProps(
       {
@@ -17,7 +17,7 @@ export default function() {
       }, defaultProps)
   );
 
-  /* Hero Section test modification on server */
+  /* Hero Section */
   ScrollReveal().reveal('.hero-title', 
     assignProps(
       { 
