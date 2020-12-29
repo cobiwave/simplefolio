@@ -8,7 +8,7 @@ export default function() {
     mobile: true
   };
   
-  /* Section Title*/
+  /* Section Title Ce sont des modifications de test faite au niveau de serveur pour tester un pull*/
   ScrollReveal().reveal('.section-title', 
     assignProps(
       {
