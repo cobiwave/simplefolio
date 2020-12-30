@@ -9,7 +9,7 @@ export default function() {
   };
   
 
-  /* Section Title ceci est un test*/
+  /* Section Title Modification sur la branche bserve*/
   ScrollReveal().reveal('.section-title', 
     assignProps(
       {
