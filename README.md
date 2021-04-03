@@ -29,7 +29,7 @@ To view a live example, **[click here](https://cobidev.com/)**
 
 ---
 
-## Need of portfolio for a developer
+## Need of portfolio for a developer ☝️
 
 - Professional way To showcase your work
 - Increases your visibility and online presence
