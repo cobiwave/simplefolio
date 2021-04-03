@@ -25,7 +25,6 @@
 ⚡️ Well organized documentation
 
 To view a demo example, **[click here](https://simplfolio.netlify.com/)**\
-To view a live example, **[click here](https://cobidev.com/)**
 
 ---
 
@@ -170,7 +169,7 @@ Go to `/src/template.html` and fill your information, they are 5 sections:
             Lorem ipsum dolor sit, about my text.
           </p>
           <span class="d-flex mt-3">
-            <a target="_blank" class="cta-btn cta-btn--resume" href="#!">
+            <a target="_blank" class="cta-btn cta-btn--resume" href="">
               View Resume
             </a>
           </span>
