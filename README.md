@@ -306,6 +306,14 @@ Because this template use Webpack maybe you can get errors during deployment, Pl
 
 **[WATCH NOW MY STEP-BY-STEP TUTORIAL FOR DEPLOYMENT](https://www.youtube.com/watch?v=soaG3GNSxJY)**
 
+You can also deploy your website through Github Pages.
+
+If you wish to deploy your website through Github Pages, first push your portfolio into your own repository
+
+Then deploy the portfolio to a Github Page by following the instructions on this website (https://create-react-app.dev/docs/deployment/#github-pages-https-pagesgithubcom).
+
+Once you build, just change the folder name ("dist") to "build" and it should work.
+
 ## Others versions 👥
 
 [Gatsby Simplefolio](https://github.com/cobidev/gatsby-simplefolio) by [Jacobo Martinez](https://github.com/cobidev)\
