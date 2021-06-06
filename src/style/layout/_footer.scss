@@ -8,11 +8,11 @@
   }
 
   &__text {
-    color: darken(white, 50%);
+    color: darken($white-color, 50%);
     font-size: 1.3rem;
 
     a {
-      color: darken(white, 50%);
+      color: darken($white-color, 50%);
       font-size: 1.3rem;
       transition: all 0.4s;
       display: inline-block;

@@ -31,7 +31,6 @@
     a {
       font-size: 2.4rem;
 
-      // Responsive for contact text
       @include respond(phone) {
         font-size: 2rem;
       }
