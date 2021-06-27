@@ -28,11 +28,10 @@
   }
 
   & hr {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem auto;
     border: 0;
     width: 50%;
-    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    border-top: 2px solid grey;
   }
 }
 
