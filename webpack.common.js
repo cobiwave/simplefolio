@@ -1,4 +1,5 @@
 const Webpack = require("webpack");
+
 module.exports = {
   entry: {
     vendor: "./src/vendor.js",
@@ -11,13 +12,16 @@ module.exports = {
         use: ["html-loader"],
       },
       {
-        test: /\.(jpg|jpeg|png|gif|svg|pdf)$/i,
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: "asset/resource",
+      },
+      {
+        test: /\.(pdf)$/,
         use: [
           {
-            loader: "file-loader?name=[name].[ext]",
+            loader: "file-loader",
             options: {
-              outputPath: "assets",
-              esModule: false,
+              name: "[name].[ext]",
             },
           },
         ],
