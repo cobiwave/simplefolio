@@ -14,9 +14,8 @@ module.exports = {
         test: /\.(jpg|jpeg|png|gif|svg|pdf)$/i,
         use: [
           {
-            loader: "file-loader",
+            loader: "file-loader?name=[name].[ext]",
             options: {
-              name: "[name].[hash].[ext]",
               outputPath: "assets",
               esModule: false,
             },
