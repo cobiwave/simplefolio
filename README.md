@@ -30,7 +30,7 @@ To view a demo example, **[click here](https://simplfolio.netlify.com/)**
 
 ## Need of portfolio for a developer ☝️
 
-- Professional way To showcase your work
+- Professional way to showcase your work
 - Increases your visibility and online presence
 - Shows you’re more than just a resume
 
