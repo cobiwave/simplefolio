@@ -1,5 +1,8 @@
 import initTilt from './js/tilt';
 import initSr from './js/sr';
+var ghpages = require('gh-pages');
+
+ghpages.publish('dist', function(err) {});
 
 import './style/main.scss';
 

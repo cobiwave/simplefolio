@@ -19,15 +19,10 @@
   },
   "homepage": "https://github.com/cobidev/simplefolio#readme",
   "devDependencies": {
-  },
-  "dependencies": {
-    "bootstrap": "^4.6.0",
-    "jquery": "^3.6.0",
-    "popper.js": "^1.16.1",
-    "tilt.js": "^1.2.1",    
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.6.0",
     "file-loader": "^6.0.0",
+    "gh-pages": "^3.2.3",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
@@ -39,5 +34,11 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1",
+    "tilt.js": "^1.2.1"
   }
 }
