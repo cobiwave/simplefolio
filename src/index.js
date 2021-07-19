@@ -4,6 +4,10 @@ var ghpages = require('gh-pages');
 
 ghpages.publish('dist', function(err) {});
 
+ghpages.publish(dir, callback);
+// or...
+ghpages.publish(dir, options, callback);
+
 import './style/main.scss';
 
 $('a[href^="#"]').on('click', function(event) {
