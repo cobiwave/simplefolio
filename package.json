@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cobidev/simplefolio"
+    "url": "git+https://github.com/cobidev/simplefolio.git"
   },
   "keywords": [],
   "author": "Jacobo Martinez",
@@ -42,5 +42,8 @@
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
     "tilt.js": "^1.2.1"
+  },
+  "directories": {
+    "example": "examples"
   }
 }
