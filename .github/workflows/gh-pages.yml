@@ -4,9 +4,9 @@ name: Portfolio
 # events but only for the main branch
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -18,11 +18,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check-out repository
         uses: actions/checkout@v2
-        
+
       # Runs a single command using the runners shell
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
-        
+
       # Install project
       - name: Install project
         run: npm install
@@ -30,7 +30,7 @@ jobs:
       # Build project
       - name: Build project
         run: npm run-script build
-        
+
       # Push to Github Pages
       - name: Github Pages
         uses: crazy-max/ghaction-github-pages@v2.1.3
