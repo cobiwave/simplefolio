@@ -52,7 +52,11 @@
     );
 
     @include respond(phone) {
-      background-image: none;
+      background-image: linear-gradient(
+        135deg,
+        $primary-color 0%,
+        $secondary-color 100%
+      );
     }
   }
 
@@ -61,7 +65,7 @@
     text-decoration: none;
 
     @include respond(phone) {
-      -webkit-text-fill-color: $secondary-color;
+      -webkit-text-fill-color: $white-color;
     }
 
     &::after {
