@@ -78,8 +78,8 @@
       <div class="row about-wrapper">
         <div class="col-md-6 col-sm-12">
           <div class="about-wrapper__image load-hidden">
-            <img alt="Profile Image" class="img-fluid rounded" height="auto" width="300px"
-              src="assets/portrait2.jpg" alt="Profile Image" />
+            <img alt="Profile Image" class="img-fluid rounded" height="auto" width="300px" src="assets/portrait2.jpg"
+              alt="Profile Image" />
           </div>
         </div>
         <div class="col-md-6 col-sm-12">
@@ -160,10 +160,12 @@
               <h3 class="project-wrapper__text-title">Hue</h3>
               <div>
                 <div class="project-summmary mb-3">
-                  <h4 id="projectSummary3"> Full-Stack E-Commerce Application | Python, Django, JavaScript, HTML,CSS</h4>
+                  <h4 id="projectSummary3"> Full-Stack E-Commerce Application | Python, Django, JavaScript, HTML,CSS
+                  </h4>
                 </div>
                 <p class="mb-4">
-                  Hue is a digital art store that includes custom: database models, data storage configuration, secure user authentication, and fully-functional checkout functionaliy via Stripe API integration.
+                  Hue is a digital art store that includes custom: database models, data storage configuration, secure
+                  user authentication, and fully-functional checkout functionaliy via Stripe API integration.
                   Special admin users can create, edit, and delete products, and view all orders.
                 </p>
               </div>
@@ -276,16 +278,19 @@
       <h2 class="section-title">Contact</h2>
       <div class="contact-wrapper load-hidden">
         <p class="contact-wrapper__text">Let's discuss your next project</p>
-        <a rel="noreferrer" target="_blank" class="cta-btn cta-btn--resume" href="mailto:alissatroiano@alissatroiano.com">CONTACT ME</a>
+        <a rel="noreferrer" target="_blank" class="cta-btn cta-btn--resume"
+          href="mailto:alissatroiano@alissatroiano.com">CONTACT ME</a>
       </div>
     </div>
   </section>
   <!-- /END Contact Section -->
   <div>
-  <a rel="noreferrer" href="#top" class="back-to-top" id="backToTop">
-    <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
-  </a>
-</div>
+    <button id="backToTop">
+      <a rel="noreferrer" href="#top" class="back-to-top">
+        <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
+      </a>
+    </button>
+  </div>
   <!-- **** Footer Section **** -->
   <footer class="footer navbar-static-bottom">
     <div class="container">
@@ -319,30 +324,31 @@
     </div>
   </footer>
   <!-- /END Footer Section -->
+  <!-- <script type="module">
 
+    //Get the button:
+    mybutton = document.getElementById("backToTop");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+  </script> -->
+  <script defer type="module" src="../scrollspy.js"></script>
   <script defer type="module" src="index.js"></script>
-  <script type="module">
-    
-//Get the button:
-mybutton = document.getElementById("backToTop");
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
-  </script>
 </body>
 
 </html>
