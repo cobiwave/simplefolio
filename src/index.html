@@ -41,6 +41,8 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="styles.scss" />
+  <link rel="stylesheet" href="css/style.css" />
+
   <script defer src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
   <!-- Todo: remove the below script once you finish your portfolio -->
@@ -76,7 +78,7 @@
       <div class="row about-wrapper">
         <div class="col-md-6 col-sm-12">
           <div class="about-wrapper__image load-hidden">
-            <img alt="Profile Image" class="img-fluid rounded shadow-lg" height="auto" width="300px"
+            <img alt="Profile Image" class="img-fluid rounded" height="auto" width="300px"
               src="assets/portrait2.jpg" alt="Profile Image" />
           </div>
         </div>
@@ -118,6 +120,9 @@
           <div class="col-lg-4 col-sm-12">
             <div class="project-wrapper__text load-hidden">
               <h3 class="project-wrapper__text-title">Smitten</h3>
+              <div class="project-summmary mb-3">
+                <h4 id="projectSummary4"> Word Game | JavaScript, HTML, CSS, Bootstrap 5 </h4>
+              </div>
               <div>
                 <p class="mb-4">
                   As the 1st Place winner in Code Institute’s 2022 “Love is in The Air” Hackathon, "Smitten" is a
@@ -137,7 +142,7 @@
           </div>
           <div class="col-lg-8 col-sm-12">
             <div class="project-wrapper__image load-hidden">
-              <a rel="noreferrer" href="#!" target="_blank">
+              <a rel="noreferrer" href="https://alissatroiano.github.io/8-your-heart-out/index.html" target="_blank">
                 <div data-tilt data-tilt-max="4" data-tilt-glare="true" data-tilt-max-glare="0.5"
                   class="thumbnail rounded js-tilt">
                   <img alt="Project Image" class="img-fluid" src="assets/smitten.png" />
@@ -154,9 +159,12 @@
             <div class="project-wrapper__text load-hidden">
               <h3 class="project-wrapper__text-title">Hue</h3>
               <div>
+                <div class="project-summmary mb-3">
+                  <h4 id="projectSummary3"> Full-Stack E-Commerce Application | Python, Django, JavaScript, HTML,CSS</h4>
+                </div>
                 <p class="mb-4">
-                  Hue is a digital art store that includes custom: database models, data storage configuration, and user
-                  authentication system. Built with Python/Django. Includes e-commerce functionality via Stripe API.
+                  Hue is a digital art store that includes custom: database models, data storage configuration, secure user authentication, and fully-functional checkout functionaliy via Stripe API integration.
+                  Special admin users can create, edit, and delete products, and view all orders.
                 </p>
               </div>
               <a rel="noreferrer" target="_blank" class="cta-btn cta-btn--hero"
@@ -171,7 +179,7 @@
           </div>
           <div class="col-lg-8 col-sm-12">
             <div class="project-wrapper__image load-hidden">
-              <a rel="noreferrer" href="#!" target="_blank">
+              <a rel="noreferrer" href="https://hue-alissa.herokuapp.com/" target="_blank">
                 <div data-tilt data-tilt-max="4" data-tilt-glare="true" data-tilt-max-glare="0.5"
                   class="thumbnail rounded js-tilt">
                   <img alt="Project Image" class="img-fluid" src="assets/hue-shop.png" />
@@ -188,6 +196,9 @@
             <div class="project-wrapper__text load-hidden">
               <h3 class="project-wrapper__text-title">Game of Facts</h3>
               <div>
+                <div class="project-summmary mb-3">
+                  <h4 id="projectSummary2"> JavaScript Game</h4>
+                </div>
                 <p class="mb-4">
                   As the Milestone 2 Project for Code Institute's, 'Interactive Front end development" module of the
                   Full Stack Developer Diploma Program, Game of Facts is a trivia game built with HTML, CSS, Bootstrap
@@ -207,7 +218,7 @@
           </div>
           <div class="col-lg-8 col-sm-12">
             <div class="project-wrapper__image load-hidden">
-              <a rel="noreferrer" href="#!" target="_blank">
+              <a rel="noreferrer" href="https://alissatroiano.github.io/Milestone-2/" target="_blank">
                 <div data-tilt data-tilt-max="4" data-tilt-glare="true" data-tilt-max-glare="0.5"
                   class="thumbnail rounded js-tilt">
                   <img alt="Project Image" class="img-fluid" src="assets/gameoffacts.png" />
@@ -223,6 +234,9 @@
           <div class="col-lg-4 col-sm-12">
             <div class="project-wrapper__text load-hidden">
               <h3 class="project-wrapper__text-title">Infinity</h3>
+              <div class="project-summmary mb-3">
+                <h4 id="projectSummary1"> Front End Design & Development </h4>
+              </div>
               <div>
                 <p class="mb-4">
                   As the Milestone 1 Project for Code Institute's Full Stack Developer Program, this website was built
@@ -241,7 +255,7 @@
           </div>
           <div class="col-lg-8 col-sm-12">
             <div class="project-wrapper__image load-hidden">
-              <a rel="noreferrer" href="#!" target="_blank">
+              <a rel="noreferrer" href="https://alissatroiano.github.io/MS-1/" target="_blank">
                 <div data-tilt data-tilt-max="4" data-tilt-glare="true" data-tilt-max-glare="0.5"
                   class="thumbnail rounded js-tilt">
                   <img alt="Project Image" class="img-fluid" src="assets/infinity.png" />
@@ -261,28 +275,28 @@
     <div class="container">
       <h2 class="section-title">Contact</h2>
       <div class="contact-wrapper load-hidden">
-        <p class="contact-wrapper__text">[Put your call to action here]</p>
-        <a rel="noreferrer" target="_blank" class="cta-btn cta-btn--resume" href="mailto:example@email.com">Call to
-          Action</a>
+        <p class="contact-wrapper__text">Let's discuss your next project</p>
+        <a rel="noreferrer" target="_blank" class="cta-btn cta-btn--resume" href="mailto:alissatroiano@alissatroiano.com">CONTACT ME</a>
       </div>
     </div>
   </section>
   <!-- /END Contact Section -->
-
+  <div>
+  <a rel="noreferrer" href="#top" class="back-to-top" id="backToTop">
+    <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
+  </a>
+</div>
   <!-- **** Footer Section **** -->
   <footer class="footer navbar-static-bottom">
     <div class="container">
-      <a rel="noreferrer" href="#top" class="back-to-top">
-        <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
-      </a>
       <div class="social-links">
-        <a rel="noreferrer" href="#!" target="_blank">
+        <a rel="noreferrer" href="https://www.twitter.com/alissamtroiano" target="_blank">
           <i class="fa fa-twitter fa-inverse"></i>
         </a>
-        <a rel="noreferrer" href="#!" target="_blank">
+        <a rel="noreferrer" href="https://www.linkedin.com/in/alissatroiano/" target="_blank">
           <i class="fa fa-linkedin fa-inverse"></i>
         </a>
-        <a rel="noreferrer" href="#!" target="_blank">
+        <a rel="noreferrer" href="https://github.com/alissatroiano" target="_blank">
           <i class="fa fa-github fa-inverse"></i>
         </a>
       </div>
@@ -294,7 +308,6 @@
         © 2021 - Template developed by
         <a rel="noreferrer" href="https://github.com/cobidev" target="_blank">Jacobo Martínez</a>
       </p>
-
       <!-- TO DO: remove this entire paragraph once you finish your portfolio -->
       <p class="mt-3 pt-3">
         <a rel="noreferrer" class="github-button" href="https://github.com/cobidev/simplefolio/fork"
@@ -309,14 +322,26 @@
 
   <script defer type="module" src="index.js"></script>
   <script type="module">
-    var ghpages = require(gh-pages);
+    
+//Get the button:
+mybutton = document.getElementById("backToTop");
 
-    ghpages.publish('dist', {
-      branch: 'master',
-      repo: 'https://github.com/alissatroiano/simplefolio.git'
-    }, callback);
-    ghpages.publish('dist', callback);
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
 
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
   </script>
 </body>
 

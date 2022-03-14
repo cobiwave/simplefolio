@@ -1,0 +1,34 @@
+.img-fluid .rounded {
+	box-shadow: 10px 3px 5px #000;
+}
+
+#backToTop {
+	display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #10555ad0;
+  color: white;
+  cursor: pointer;
+  padding: 0px 15px;
+  border-radius: 4px;
+  height: fit-content;
+}
+
+#backToTop:hover {
+  background-color: #555;
+}
+
+
+#projectSummary,
+#projectSummary1,
+#projectSummary2,
+#projectSummary3,
+#projectSummary4
+{
+	color: #666;
+}
