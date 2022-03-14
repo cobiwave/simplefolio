@@ -24,6 +24,7 @@
   "homepage": "https://alissatroiano.github.io/folio/",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.1",
+    "gh-pages": "^3.2.3",
     "parcel": "^2.3.2",
     "prettier": "^2.4.1"
   },
