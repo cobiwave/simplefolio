@@ -14,7 +14,7 @@
   background-color: #10555ad0;
   color: white;
   cursor: pointer;
-  padding: 0px 15px;
+  padding: 5px 15px;
   border-radius: 4px;
   height: fit-content;
 }
@@ -31,4 +31,9 @@
 #projectSummary4
 {
 	color: #666;
+}
+
+.to-top {
+	color: #fafafa;
+	font-size: 20px;
 }
