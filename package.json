@@ -7,7 +7,8 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "deploy": "gh-pages -b master -d dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "eject": "react-scripts eject"
   },
   "repository": {
