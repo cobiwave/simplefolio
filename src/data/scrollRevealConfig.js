@@ -18,14 +18,29 @@ export const targetElements = [
   {
     element: ".hero-title",
     animation: {
+      delay: 100,
+      distance: "0px",
+      origin: window.innerWidth > 768 ? "bottom" : "bottom",
+    },
+  },
+  {
+    element: ".hero-subtitle",
+    animation: {
       delay: 500,
-      origin: window.innerWidth > 768 ? "left" : "bottom",
+      origin: window.innerWidth > 768 ? "right" : "bottom",
+    },
+  },
+  {
+    element: ".hero-subsubtitle",
+    animation: {
+      delay: 900,
+      origin: window.innerWidth > 768 ? "right" : "bottom",
     },
   },
   {
     element: ".hero-cta",
     animation: {
-      delay: 1000,
+      delay: 1200,
       origin: window.innerWidth > 768 ? "left" : "bottom",
     },
   },

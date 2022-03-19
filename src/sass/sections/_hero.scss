@@ -16,7 +16,7 @@
   z-index: -1;
 
   // Set position sticky so the jumbotron stays fixed while you scroll.
-  // position: sticky;
+  //   position: sticky;
 
   // If you want to set a background image on the hero section, uncomment these with your custom image
 
@@ -28,7 +28,9 @@
     padding: 0rem $default-font-size;
   }
 
-  .hero-title {
+  .hero-title,
+  .hero-subtitle,
+  .hero-subsubtitle {
     font-size: 5.6rem;
     font-weight: 700;
     margin-bottom: 3.2rem;
@@ -48,6 +50,10 @@
     @include respond(phone-xs) {
       font-size: 2.8rem;
     }
+  }
+
+  .underline-text {
+      text-decoration: underline;
   }
 
   .hero-cta {
