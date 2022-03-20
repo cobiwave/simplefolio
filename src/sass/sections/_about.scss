@@ -12,6 +12,9 @@
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   padding-bottom: 10%;
 
+//    -webkit-clip-path: url('./assets/layered-waves-bottom.svg');
+//  clip-path: url('./assets/layered-waves-bottom.svg');
+
   @include respond(tab-land) {
     height: 100%;
     -webkit-clip-path: none;
