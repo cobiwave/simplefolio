@@ -1,14 +1,3 @@
-<!--
-  Hello!
-  -
-  Simplefolio is a clean and responsive portfolio template for Developers!
-  Created by Jacobo Martinez.
-  -
-  Github Repo: https://github.com/cobidev/simplefolio/
-  Readme: https://github.com/cobidev/simplefolio/README.md
-  -
-  For business & inquires, contact me -> jacobojavier98@gmail.com
--->
 <!DOCTYPE html>
 <html lang="en" class="sr">
   <head>
@@ -17,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
 
-    <!-- Todo: put here your site title -->
-    <title>[Your name here] | Developer</title>
-    <!-- Todo: add some coding keywords below - e.g: (javascript, yourusername, etc) -->
-    <meta name="keywords" content="[username], [name], skill" />
-    <!-- Todo: improve your SEO by adding a small description of you -->
-    <meta name="description" content="[Your name here] | Developer" />
+    <title>Sigrid Aasma | Software Developer</title>
+    <meta name="keywords" content="java, spring, javascript, react, web development, back-end development, fintech" />
+    <meta name="description" content="I am a full stack developer with 4+ years of experience at Wise that focuses on fintech. 
+    I have worked in the company during its massive growth stage and have good exposure to variety of tech. As part of working for a 
+    fast-growing startup, I have not only coded, but also planned features and taken on tasks ranging from product management to 
+    analysis to testing to coordinating work with other teams. I've also graduated university cum laude in software development.
+    This has made me a well-rounded software developer." />
 
     <link
       rel="stylesheet"
@@ -33,12 +23,8 @@
       defer
       src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"
     ></script>
-
-    <!-- Todo: remove the below script once you finish your portfolio -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
 
-  <!-- Todo: read the following HTML Todos to create your stunning portfolio website -->
   <body>
     <div id="top"></div>
 
@@ -46,9 +32,9 @@
     <section id="hero" class="jumbotron">
       <div class="container">
         <h1 class="hero-title load-hidden">
-          Hi, my name is <span class="text-color-main">Your Name</span>
+          <span class="text-color-main">Sigrid Aasma</span>
           <br />
-          I'm the Unknown Developer.
+          Software developer
         </h1>
         <p class="hero-cta load-hidden">
           <a rel="noreferrer" class="cta-btn cta-btn--hero" href="#about"
@@ -71,7 +57,7 @@
                 class="img-fluid rounded shadow-lg"
                 height="auto"
                 width="300px"
-                src="assets/profile.jpg"
+                src="assets/profile-pic.jpeg"
                 alt="Profile Image"
               />
             </div>
@@ -79,18 +65,20 @@
           <div class="col-md-6 col-sm-12">
             <div class="about-wrapper__info load-hidden">
               <p class="about-wrapper__info-text">
-                This is where you can describe about yourself. The more you
-                describe about yourself, the more chances you can!
+                I am a full stack developer with 4+ years of experience at Wise that focuses on fintech. I have worked in the company during its massive growth stage and have good exposure to variety of tech. As part of working for a 
+                    fast-growing startup, I have not only coded, but also planned features and taken on tasks ranging from product management to 
+                    analysis to testing to coordinating work with other teams. I've also graduated university cum laude in software development.
+                    This has made me a well-rounded software developer.
               </p>
               <p class="about-wrapper__info-text">
-                Extra Information about you! like hobbies and your goals.
+                My hobbies include video gaming, boardgames, dogs and illustration. I also have an MA in architecture, but decided to pursue software development instead shortly after graduation.
               </p>
               <span class="d-flex mt-3">
                 <a
                   rel="noreferrer"
                   target="_blank"
                   class="cta-btn cta-btn--resume"
-                  href="assets/resume.pdf"
+                  href="#!"
                 >
                   View Resume
                 </a>
@@ -112,32 +100,18 @@
           <div class="row">
             <div class="col-lg-4 col-sm-12">
               <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Project Title 0</h3>
+                <h3 class="project-wrapper__text-title">Integrate US business lookup</h3>
                 <div>
                   <p class="mb-4">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Excepturi neque, ipsa animi maiores repellendus distinctio
-                    aperiam earum dolor voluptatum consequatur blanditiis
-                    inventore debitis fuga numquam voluptate ex architecto
-                    itaque molestiae.
+                    As business onboarding at Wise (back then TransferWise) proved to be a cumbersome process, we looked for ways to 
+                    make things easier for potential customers. In UK we integrated with a business registry API in order to 
+                    prefill profile values for the customer. Based on the existing frontend it was my task to find an API provider 
+                    for US business registries and integrate their API into an existing Java project that already had an integration with the 
+                    UK business registry provider. As my first task at Wise I had to find and get an agreement with the vendor, analyze 
+                    available data via API, integrate with it and customize frontend to ask for state input. I also monitored the onboarding 
+                    metrics via MixPanel to understand the impact of the integration.
                   </p>
                 </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="#!"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="#!"
-                >
-                  Source Code
-                </a>
               </div>
             </div>
             <div class="col-lg-8 col-sm-12">
@@ -151,9 +125,9 @@
                     class="thumbnail rounded js-tilt"
                   >
                     <img
-                      alt="Project Image"
+                      alt="TransferWise"
                       class="img-fluid"
-                      src="assets/project.jpg"
+                      src="assets/TW-logo.jpg"
                     />
                   </div>
                 </a>
@@ -166,21 +140,22 @@
           <div class="row">
             <div class="col-lg-4 col-sm-12">
               <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Project Title 1</h3>
+                <h3 class="project-wrapper__text-title">LikeMinded</h3>
                 <div>
                   <p class="mb-4">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Excepturi neque, ipsa animi maiores repellendus distinctio
-                    aperiam earum dolor voluptatum consequatur blanditiis
-                    inventore debitis fuga numquam voluptate ex architecto
-                    itaque molestiae.
+                    As my final project as part of my university I set up a boardgame group meetup environment called LikeMinded. 
+                    Website's goal was to be a channel for ongoing boardgame news for Estonians and offer an easy way to browse as well 
+                    as set up new meetups that fit your gaming taste. Additionally it includes ways to set up groups and find people for 
+                    groups. The website has a Spring application running in backend with a Postgres database. Frontend is a React app 
+                    written from scratch in Javascript (ES6). Website supports mobile view. As it is currently dormant, the hosting is set up 
+                    in Heroku and requires about a minute to bootup after getting a visitor hit. 
                   </p>
                 </div>
                 <a
                   rel="noreferrer"
                   target="_blank"
                   class="cta-btn cta-btn--hero"
-                  href="#!"
+                  href="http://www.likeminded.ee/"
                 >
                   See Live
                 </a>
@@ -188,7 +163,7 @@
                   rel="noreferrer"
                   target="_blank"
                   class="cta-btn text-color-main"
-                  href="#!"
+                  href="https://github.com/sikumiku/likeminded-server"
                 >
                   Source Code
                 </a>
@@ -205,9 +180,9 @@
                     class="thumbnail rounded js-tilt"
                   >
                     <img
-                      alt="Project Image"
+                      alt="LikeMinded"
                       class="img-fluid"
-                      src="assets/project.jpg"
+                      src="assets/likeminded.jpg"
                     />
                   </div>
                 </a>
@@ -220,32 +195,17 @@
           <div class="row">
             <div class="col-lg-4 col-sm-12">
               <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Project Title 2</h3>
+                <h3 class="project-wrapper__text-title">Automate verification for Canada personal customers</h3>
                 <div>
                   <p class="mb-4">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Excepturi neque, ipsa animi maiores repellendus distinctio
-                    aperiam earum dolor voluptatum consequatur blanditiis
-                    inventore debitis fuga numquam voluptate ex architecto
-                    itaque molestiae.
+                    At a point in time, Canada regulatory board made Canadian customer onboarding at online financial institutions very 
+                    cumbersome and alternative solutions were investigated. The team found a background check vendor that would allow TransferWise 
+                    to automate customer onboarding for customers that have sufficient history with financial instutions in Canada by matching 
+                    their exact identity. I was tasked with building a new micro-service to integrate with the vendor, securely store vendor 
+                    findings as well as connect with our verification backend services and other backend support tools. I also built out 
+                    dashboards in Looker and Grafana to monitor the service and business metrics. 
                   </p>
                 </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="#!"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="#!"
-                >
-                  Source Code
-                </a>
               </div>
             </div>
             <div class="col-lg-8 col-sm-12">
@@ -259,9 +219,9 @@
                     class="thumbnail rounded js-tilt"
                   >
                     <img
-                      alt="Project Image"
+                      alt="TransferWise"
                       class="img-fluid"
-                      src="assets/project.jpg"
+                      src="assets/TW-logo.jpg"
                     />
                   </div>
                 </a>
@@ -279,13 +239,13 @@
       <div class="container">
         <h2 class="section-title">Contact</h2>
         <div class="contact-wrapper load-hidden">
-          <p class="contact-wrapper__text">[Put your call to action here]</p>
+          <p class="contact-wrapper__text">Interested?</p>
           <a
             rel="noreferrer"
             target="_blank"
             class="cta-btn cta-btn--resume"
-            href="mailto:example@email.com"
-            >Call to Action</a
+            href="https://www.linkedin.com/in/sigrid-aasma/"
+            >Message me on LinkedIn</a
           >
         </div>
       </div>
@@ -299,50 +259,26 @@
           <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
         </a>
         <div class="social-links">
-          <a rel="noreferrer" href="#!" target="_blank">
+          <a rel="noreferrer" href="https://twitter.com/SikuMiku" target="_blank">
             <i class="fa fa-twitter fa-inverse"></i>
           </a>
-          <a rel="noreferrer" href="#!" target="_blank">
+          <a rel="noreferrer" href="https://www.linkedin.com/in/sigrid-aasma/" target="_blank">
             <i class="fa fa-linkedin fa-inverse"></i>
           </a>
-          <a rel="noreferrer" href="#!" target="_blank">
+          <a rel="noreferrer" href="https://github.com/sikumiku" target="_blank">
             <i class="fa fa-github fa-inverse"></i>
           </a>
         </div>
 
         <hr />
 
-        <!-- Notice: if you want to give me some credit, it will be huge for me! if not, put your data on it -->
         <p class="footer__text">
-          © 2021 - Template developed by
-          <a rel="noreferrer" href="https://github.com/cobidev" target="_blank"
-            >Jacobo Martínez</a
+          E-mail: 
+          <a rel="noreferrer" href="mailto:sigridaasma@gmail.com" target="_blank"
+            >sigridaasma@gmail.com</a
           >
         </p>
 
-        <!-- TO DO: remove this entire paragraph once you finish your portfolio -->
-        <p class="mt-3 pt-3">
-          <a
-            rel="noreferrer"
-            class="github-button"
-            href="https://github.com/cobidev/simplefolio/fork"
-            data-icon="octicon-repo-forked"
-            data-size="large"
-            data-show-count="true"
-            aria-label="Fork ntkme/github-buttons on GitHub"
-            >Fork</a
-          >
-          <a
-            rel="noreferrer"
-            class="github-button"
-            href="https://github.com/cobidev/simplefolio"
-            data-icon="octicon-star"
-            data-size="large"
-            data-show-count="true"
-            aria-label="Star cobidev/simplefolio on GitHub"
-            >Star</a
-          >
-        </p>
       </div>
     </footer>
     <!-- /END Footer Section -->
