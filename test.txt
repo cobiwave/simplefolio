@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ABCDEFG
+=======
+test update
+>>>>>>> de6f96c954d011667bf38b5d07fb92f8d3f940f7
