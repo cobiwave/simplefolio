@@ -1,23 +1,23 @@
-# Simplefolio ⚡️ [![GitHub](https://img.shields.io/github/license/cobidev/simplefolio?color=blue)](https://github.com/cobidev/simplefolio/blob/master/LICENSE.md) ![GitHub stars](https://img.shields.io/github/stars/cobidev/simplefolio) ![GitHub forks](https://img.shields.io/github/forks/cobidev/simplefolio)
+# Simplefolio 🔥 [![GitHub](https://img.shields.io/github/license/alexwindy0/simplefolio?color=blue)](https://github.com/alexwindy0/simplefolio/blob/master/LICENSE.md) ![GitHub stars](https://img.shields.io/github/stars/alexwindy0/simplefolio) ![GitHub forks](https://img.shields.io/github/forks/alexwindy0/simplefolio)
 
 ## A minimal portfolio template for Developers!
 
 <h2 align="center">
-  <img src="https://github.com/cobidev/gatsby-simplefolio/blob/master/examples/example.gif" alt="Simplefolio" width="600px" />
+  <img src="https://github.com/alexwindy0/simplefolio/blob/master/examples/example.gif" alt="Simplefolio" width="600px" />
   <br>
 </h2>
 
 ## Features
 
-⚡️ Modern UI Design + Reveal Animations\
-⚡️ One Page Layout\
-⚡️ Styled with Bootstrap v4.3 + Custom SCSS\
-⚡️ Fully Responsive\
-⚡️ Valid HTML5 & CSS3\
-⚡️ Optimized with Parcel\
-⚡️ Well organized documentation
+🔥 Modern UI Design + Reveal Animations\
+🔥 One Page Layout\
+🔥 Styled with Bootstrap v4.3 + Custom SCSS\
+🔥 Fully Responsive\
+🔥 Valid HTML5 & CSS3\
+🔥 Optimized with Parcel\
+🔥 Well organized documentation
 
-To view the demo: **[click here](https://the-simplefolio.netlify.app/)**
+To view the demo: **[click here](https://alexwindy-portfolio.netlify.app/)**
 
 ---
 
@@ -97,7 +97,7 @@ $ sudo npm install --unsafe-perm=true --allow-root
 Once your server has started, go to this url `http://localhost:1234/` to see the portfolio locally. It should look like the below screenshot.
 
 <h2 align="center">
-  <img src="https://github.com/cobidev/gatsby-simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="100%">
+  <img src="https://github.com/alexwindy0/simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="100%">
 </h2>
 
 ---
@@ -326,10 +326,6 @@ Once you finish your setup. You need to put your website online!
 
 I highly recommend to use [Netlify](https://netlify.com) because it is super easy.
 
-## Others versions 👥
-
-[Gatsby Simplefolio](https://github.com/cobidev/gatsby-simplefolio) by [Jacobo Martinez](https://github.com/cobidev)\
-[Ember.js Simplefolio](https://github.com/sernadesigns/simplefolio-ember) by [Michael Serna](https://github.com/sernadesigns)
 
 ## Technologies used 🛠️
 
@@ -341,11 +337,11 @@ I highly recommend to use [Netlify](https://netlify.com) because it is super eas
 
 ## Authors
 
-- **Jacobo Martinez** - [https://github.com/cobidev](https://github.com/cobidev)
+- **Alex Windy** - [https://github.com/alexwindy0](https://github.com/alexwindy0)
 
 ## Status
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/3a029bfd-575c-41e5-8249-c864d482c2e5/deploy-status)](https://app.netlify.com/sites/the-simplefolio/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fb9e80c1-5f54-49af-aa2a-3994f33bd995/deploy-status)](https://app.netlify.com/sites/alexwindy-portfolio/deploys)
 
 ## License 📄
 
