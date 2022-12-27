@@ -69,6 +69,10 @@ After that, you can install the dependencies either using NPM or Yarn.
 Using NPM: Simply run the below commands.
 
 ```bash
+# 2022 Update - Fix Dependencies
+$ npm audit fix
+$ npm i @parcel/transformer-sass
+
 # Install dependencies
 $ npm install
 
