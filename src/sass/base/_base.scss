@@ -12,17 +12,27 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Scrollbar */
+/* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
   height: 10px;
 }
+
+/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
+
+/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $light-grey;
+  background: #888;
 }
+
+/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: $primary-color;
+  background: #555;
+}
+
+.img-fluid {
+  border-radius: 5px;
 }
