@@ -10,25 +10,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cobidev/simplefolio"
+    "url": "git+https://github.com/cobiwave/simplefolio"
   },
   "keywords": [],
   "author": "Jacobo Martinez",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cobidev/simplefolio/issues"
+    "url": "https://github.com/cobiwave/simplefolio/issues"
   },
-  "homepage": "https://github.com/cobidev/simplefolio#readme",
+  "homepage": "https://github.com/cobiwave/simplefolio#readme",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.1",
-    "parcel": "^2.0.1",
-    "prettier": "^2.4.1"
+    "@parcel/transformer-sass": "^2.8.2",
+    "parcel": "^2.8.2",
+    "prettier": "^2.8.1"
   },
   "dependencies": {
-    "@popperjs/core": "^2.10.2",
-    "bootstrap": "^5.1.3",
-    "jquery": "^3.6.0",
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.3",
+    "jquery": "^3.6.3",
     "popper.js": "^1.16.1",
-    "vanilla-tilt": "^1.7.2"
+    "vanilla-tilt": "^1.8.0"
   }
 }

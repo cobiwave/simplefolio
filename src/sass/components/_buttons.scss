@@ -24,12 +24,24 @@
 /* Hero Style */
 .cta-btn--hero {
   @include supportColorForIE11();
-  border: 2px solid transparent;
+  border-width: 2px;
+  border-style: solid;
+  -moz-border-image: -moz-linear-gradient(
+    135deg,
+    $primary-color 0%,
+    $secondary-color 100%
+  );
+  -webkit-border-image: -webkit-linear-gradient(
+    135deg,
+    $primary-color 0%,
+    $secondary-color 100%
+  );
   border-image: linear-gradient(
     135deg,
     $primary-color 0%,
     $secondary-color 100%
   );
+  -webkit-border-image-slice: 1;
   border-image-slice: 1;
   @include supportIE11() {
     color: $secondary-color !important;
