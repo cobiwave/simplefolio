@@ -1,0 +1,9 @@
+package-lock.json
+.nvmrc
+README.md
+.prettierrc
+LICENSE.md
+.git
+.gitignore
+Dockerfile
+.github
