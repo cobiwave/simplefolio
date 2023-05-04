@@ -8,7 +8,7 @@ RUN yarn
 
 RUN yarn build --dist-dir /usr/src/app/out
 
-from nginx:alpine
+FROM nginx:alpine
 
 EXPOSE 80
 
