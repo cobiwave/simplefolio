@@ -4,9 +4,7 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN yarn
-
-RUN yarn build --dist-dir /usr/src/app/out
+RUN yarn && yarn build --dist-dir /usr/src/app/out
 
 FROM nginx:alpine
 
