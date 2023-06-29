@@ -1,14 +1,3 @@
-<!--
-  Hello!
-  -
-  Simplefolio is a clean and responsive portfolio template for Developers!
-  Created by Jacobo Martinez.
-  -
-  Github Repo: https://github.com/cobiwave/simplefolio/
-  Readme: https://github.com/cobiwave/simplefolio/README.md
-  -
-  For business & inquires, contact me -> jacobojavier98@gmail.com
--->
 <!DOCTYPE html>
 <html lang="en" class="sr">
   <head>
@@ -17,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
 
-    <!-- Todo: put here your site title -->
-    <title>[Your name here] | Developer</title>
-    <!-- Todo: add some coding keywords below - e.g: (javascript, yourusername, etc) -->
-    <meta name="keywords" content="[username], [name], skill" />
-    <!-- Todo: improve your SEO by adding a small description of you -->
-    <meta name="description" content="[Your name here] | Developer" />
+
+    <title>Benjamin Woolston | Electrical Engineer</title>
+    <meta name="keywords" content="[Triliant], [Benjamin Woolston], skill" />
+    <meta name="description" content="[Benjamin Woolston] | Electrical Engineer" />
 
     <link
       rel="stylesheet"
@@ -46,9 +33,9 @@
     <section id="hero" class="jumbotron">
       <div class="container">
         <h1 class="hero-title load-hidden">
-          Hi, my name is <span class="text-color-main">Your Name</span>
+          Hi, my name is <span class="text-color-main">Benjamin Woolston</span>
           <br />
-          I'm the Unknown Developer.
+          Electrical Engineering Graduate.
         </h1>
         <p class="hero-cta load-hidden">
           <a rel="noreferrer" class="cta-btn cta-btn--hero" href="#about"
@@ -79,11 +66,10 @@
           <div class="col-md-6 col-sm-12">
             <div class="about-wrapper__info load-hidden">
               <p class="about-wrapper__info-text">
-                This is where you can describe about yourself. The more you
-                describe about yourself, the more chances you have!
+                Final year Electrical & Aerospace Engineering graduate with a passion for directly helping people, solving complex problems and exploring the latest technologies. I enjoy coding, optimization and a fast-paced office environment.
               </p>
               <p class="about-wrapper__info-text">
-                Extra Information about you! like hobbies and your goals.
+                In my free time I love travelling, meeting new people, and exploring! I've visited >15 countries.
               </p>
               <span class="d-flex mt-3">
                 <a
@@ -112,30 +98,11 @@
           <div class="row">
             <div class="col-lg-4 col-sm-12">
               <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Project Title 0</h3>
+                <h3 class="project-wrapper__text-title">T-Shirt Extravaganza</h3>
                 <div>
                   <p class="mb-4">
-                    Describe the project being very specific, you can use the Twitter standard: no more than 280 characters: 
-                    complement the information: the skills learned or reinforced in its realization and how you faced it, 
-                    prove to be proactive in the search for solutions.
+                    I sent an email to every startup company in the world asking for a free T-Shirt. <br> <br> To do this I used several data scraping tools like Scrapy & Selenium, as well as Google Bard Exploitation with fifty Google accounts to find company names and emails of over 5000 startups. The results are I received over 90 T-Shirts, 10 Water Bottles, 17 booklets and hundreds of stickers! <br> <br> At peak, I hit Bard with >1500 requests a minute. I did this by implementing multithreading to send requests from all my accounts at the same time.  
                   </p>
-                </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="#!"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="#!"
-                >
-                  Source Code
-                </a>
               </div>
             </div>
             <div class="col-lg-8 col-sm-12">
@@ -164,30 +131,20 @@
           <div class="row">
             <div class="col-lg-4 col-sm-12">
               <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Project Title 1</h3>
+                <h3 class="project-wrapper__text-title">SPAM Optimisation</h3>
                 <div>
                   <p class="mb-4">
-                    Demonstrate in this description the skills of a programmer: such as having commitment, 
-                    having perseverance and accepting alternative solutions. Remember that being a portfolio you are not selling the project, 
-                    you are selling yourself, it reflects the resources used: Frameworks, libraries, platforms, etc.
+                    At Telstra, I was tasked with creating a system that identified re-occuring SPAM being sent over our network - and informing the provider it 
+                    is coming from. I.e. Optus <br> <br>
+
+                    I was provided the front-facing website of the current system that picked up SPAM messages and told to figure it out! Firstly, I utilised scraping software
+                    and built third-party keys with get requests to pull the recorded SPAM for a given hour. I recorded this on a local linux server, i then ran some simple 
+                    Python to check if the SPAM was being sent from a number for more than 8 hours -> If it was I compiled it into a list -> Then every morning and afternoon
+                    I sent out automatic Emails to the relevent providers for the given time period to inform them of the Spamming numbers.
+
+                    This is still operational at Telstra, as I cc'd my personal Email! But I can't provide the code as per Telstra's employee requirements.
                   </p>
                 </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="#!"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="#!"
-                >
-                  Source Code
-                </a>
               </div>
             </div>
             <div class="col-lg-8 col-sm-12">
@@ -203,7 +160,7 @@
                     <img
                       alt="Project Image"
                       class="img-fluid"
-                      src="assets/project.jpg"
+                      src="assets/project1.jpg"
                     />
                   </div>
                 </a>
@@ -216,29 +173,17 @@
           <div class="row">
             <div class="col-lg-4 col-sm-12">
               <div class="project-wrapper__text load-hidden">
-                <h3 class="project-wrapper__text-title">Project Title 2</h3>
+                <h3 class="project-wrapper__text-title">Swyftx: Boosting team efficiency</h3>
                 <div>
                   <p class="mb-4">
-                    If the project was collaborative, reflect it in this description, that will demonstrate communication and/or leadership skills. 
-                    Additionally, if you made use of the mastery of a second language, it will reflect on you professionalism.
+                    At Swyftx, I worked as an online customer service rep, the role was quite competitive. To increase the number of people I could assist, while maintaining
+                    my service quality I implemented a number of macros. <br> <br> I initially used AutoHotKey, but found it a little inconsistent as it's colour detection 
+                    wasn't ideal and would click the wrong parts of the screen. 
+                    <br><br>
+                    So I then used Python, as it's inbuilt image detection meant it would always click the right part of the screen regardless of how big it was/where it was. 
+                    This worked brilliantly and improved my efficiency by 15% and teammates efficiency by 10-15% depending on the person.
                   </p>
                 </div>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn cta-btn--hero"
-                  href="#!"
-                >
-                  See Live
-                </a>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  class="cta-btn text-color-main"
-                  href="#!"
-                >
-                  Source Code
-                </a>
               </div>
             </div>
             <div class="col-lg-8 col-sm-12">
@@ -254,7 +199,50 @@
                     <img
                       alt="Project Image"
                       class="img-fluid"
-                      src="assets/project.jpg"
+                      src="assets/project2.jpg"
+                    />
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- /END Project -->
+
+          <!-- Notice: each .row is a project -->
+          <div class="row">
+            <div class="col-lg-4 col-sm-12">
+              <div class="project-wrapper__text load-hidden">
+                <h3 class="project-wrapper__text-title">E-commerce Website</h3>
+                <div>
+                  <p class="mb-4">
+                    I am an owner of the business Cannology, I've helped the business to expand it's social media pressence on FB, Instagram, Twitter and Google. I've also managed to help get the business into 5 more Pharmacies around Australia bringing the total to over 50 Chemists.<br><br>
+                    The business takes up a small part of each week and is something I love building in the background.
+                  </p>
+                </div>
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  class="cta-btn text-color-main"
+                  href="Cannology.com.au"
+                >
+                  Visit Website
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-8 col-sm-12">
+              <div class="project-wrapper__image load-hidden">
+                <a rel="noreferrer" href="Cannology.com.au" target="_blank">
+                  <div
+                    data-tilt
+                    data-tilt-max="4"
+                    data-tilt-glare="true"
+                    data-tilt-max-glare="0.5"
+                    class="thumbnail rounded js-tilt"
+                  >
+                    <img
+                      alt="Project Image"
+                      class="img-fluid"
+                      src="assets/project3.jpg"
                     />
                   </div>
                 </a>
@@ -267,18 +255,21 @@
     </section>
     <!-- /END Projects Section -->
 
+
     <!-- **** Contact Section **** -->
     <section id="contact">
       <div class="container">
         <h2 class="section-title">Contact</h2>
         <div class="contact-wrapper load-hidden">
-          <p class="contact-wrapper__text">[Put your call to action here]</p>
+          <p class="contact-wrapper__text">I'd love to get in touch to show you how I can help your organisation<br><br>
+            0491 110 438 | benjamin@woolston.dev</p>
+
           <a
             rel="noreferrer"
             target="_blank"
             class="cta-btn cta-btn--resume"
-            href="mailto:example@email.com"
-            >Call to Action</a
+            href="mailto:benjamin@woolston.dev"
+            >Send me an Email</a
           >
         </div>
       </div>
@@ -292,49 +283,10 @@
           <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
         </a>
         <div class="social-links">
-          <a rel="noreferrer" href="#!" target="_blank">
-            <i class="fa fa-twitter fa-inverse"></i>
-          </a>
-          <a rel="noreferrer" href="#!" target="_blank">
+          <a rel="noreferrer" href="https://www.linkedin.com/in/ben-woolston-7423531a0/" target="_blank">
             <i class="fa fa-linkedin fa-inverse"></i>
           </a>
-          <a rel="noreferrer" href="#!" target="_blank">
-            <i class="fa fa-github fa-inverse"></i>
-          </a>
         </div>
-
-        <hr />
-
-        <!-- Notice: if you want to give me some credit, it will be huge for me! if not, put your data on it -->
-        <p class="footer__text">
-          © 2021 - Template developed by
-          <a rel="noreferrer" href="https://github.com/cobiwave" target="_blank"
-            >Jacobo Martínez</a
-          >
-        </p>
-
-        <!-- TO DO: remove this entire paragraph once you finish your portfolio -->
-        <p class="mt-3 pt-3">
-          <a
-            rel="noreferrer"
-            class="github-button"
-            href="https://github.com/cobiwave/simplefolio/fork"
-            data-icon="octicon-repo-forked"
-            data-size="large"
-            data-show-count="true"
-            aria-label="Fork ntkme/github-buttons on GitHub"
-            >Fork</a
-          >
-          <a
-            rel="noreferrer" 
-            class="github-button"
-            href="https://github.com/cobiwave/simplefolio"
-            data-icon="octicon-star"
-            data-size="large"
-            data-show-count="true"
-            aria-label="Star cobiwave/simplefolio on GitHub"
-            >Star</a
-          >
         </p>
       </div>
     </footer>
