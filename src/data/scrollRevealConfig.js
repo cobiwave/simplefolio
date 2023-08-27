@@ -6,6 +6,23 @@ export const defaultProps = {
   mobile: true,
 };
 
+export const headElement = [
+  {
+    element: ".hero-title",
+    animation: {
+      delay: 200,
+      origin: window.innerWidth > 768 ? "left" : "bottom",
+    }
+  },
+  {
+    element: ".hero-cta",
+    animation: {
+      delay: 500,
+      origin: window.innerWidth > 768 ? "left" : "bottom",
+    },
+  }
+];
+
 export const targetElements = [
   {
     element: ".section-title",
@@ -13,20 +30,6 @@ export const targetElements = [
       delay: 300,
       distance: "0px",
       origin: "bottom",
-    },
-  },
-  {
-    element: ".hero-title",
-    animation: {
-      delay: 500,
-      origin: window.innerWidth > 768 ? "left" : "bottom",
-    },
-  },
-  {
-    element: ".hero-cta",
-    animation: {
-      delay: 1000,
-      origin: window.innerWidth > 768 ? "left" : "bottom",
     },
   },
   {
