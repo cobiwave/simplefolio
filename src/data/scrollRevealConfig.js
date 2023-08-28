@@ -17,7 +17,7 @@ export const headElement = [
   {
     element: ".hero-cta",
     animation: {
-      delay: 500,
+      delay: 800,
       origin: window.innerWidth > 768 ? "left" : "bottom",
     },
   }
@@ -27,7 +27,7 @@ export const targetElements = [
   {
     element: ".section-title",
     animation: {
-      delay: 300,
+      delay: 200,
       distance: "0px",
       origin: "bottom",
     },
@@ -35,14 +35,14 @@ export const targetElements = [
   {
     element: ".about-wrapper__image",
     animation: {
-      delay: 600,
+      delay: 200,
       origin: "bottom",
     },
   },
   {
     element: ".about-wrapper__info",
     animation: {
-      delay: 1000,
+      delay: 500,
       origin: window.innerWidth > 768 ? "left" : "bottom",
     },
   },
