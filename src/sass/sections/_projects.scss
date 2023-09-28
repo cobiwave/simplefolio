@@ -40,7 +40,7 @@
         font-size: $mid-font-size;
 
         @include respond(phone) {
-          font-size: 2rem;
+          font-size: 3rem;
         }
       }
 

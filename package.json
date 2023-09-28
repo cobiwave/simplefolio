@@ -4,24 +4,17 @@
   "private": "true",
   "description": "A clean, beautiful and responsive portfolio template for Developers!",
   "source": "src/index.html",
+  "homepage": "https://grimeway.github.io/anaxphragmonWP",
   "scripts": {
-    "start": "parcel",
+    "predeploy": "parcel build",
+    "deploy": "gh-pages -d dist",
+    "start": "parcel index.html --public-url https://grimeway.github.io/anaxphragmonWP",
     "build": "parcel build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cobiwave/simplefolio"
-  },
-  "keywords": [],
-  "author": "Jacobo Martinez",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cobiwave/simplefolio/issues"
-  },
-  "homepage": "https://github.com/cobiwave/simplefolio#readme",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.8.2",
-    "parcel": "^2.8.2",
+    "@parcel/transformer-sass": "^2.9.3",
+    "gh-pages": "^6.0.0",
+    "parcel": "^2.9.3",
     "prettier": "^2.8.1"
   },
   "dependencies": {
@@ -29,6 +22,7 @@
     "bootstrap": "^5.2.3",
     "jquery": "^3.6.3",
     "popper.js": "^1.16.1",
-    "vanilla-tilt": "^1.8.0"
+    "vanilla-tilt": "^1.8.0",
+    "yarn": "^1.22.19"
   }
 }
