@@ -6,9 +6,9 @@
   "source": "src/index.html",
   "homepage": "https://grimeway.github.io/anaxphragmonWP",
   "scripts": {
-    "predeploy": "parcel build",
+    "predeploy": "parcel build src/index.html --public-url ./",
     "deploy": "gh-pages -d dist",
-    "start": "parcel index.html --public-url https://grimeway.github.io/anaxphragmonWP",
+    "start": "parcel ",
     "build": "parcel build"
   },
   "devDependencies": {
