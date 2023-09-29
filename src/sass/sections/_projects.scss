@@ -4,6 +4,7 @@
   margin-top: -10rem;
   padding-top: 15rem;
 
+
   @include respond(tab-land) {
     margin-top: 0;
     padding-top: 5rem;
@@ -50,7 +51,7 @@
     }
 
     &__image {
-      width: 90%;
+      width: 80%;
       margin: 0 auto;
 
       @include respond(tab-land) {
@@ -59,7 +60,6 @@
       }
 
       & .thumbnail {
-        border: none;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         transition: all 0.2s ease-out;
         box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
@@ -74,5 +74,52 @@
         }
       }
     }
+  }
+}
+
+#slider {
+  overflow: hidden;
+}
+
+#slider figure {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  animation: 20s slider infinite;
+}
+
+#slider figure img {
+  float: left;
+  width: 20%;
+}
+
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -300%;
+  }
+  95% {
+    left: -300%;
+  }
+  100% {
+    left: -400%;
   }
 }
