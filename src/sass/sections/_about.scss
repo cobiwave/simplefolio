@@ -25,7 +25,6 @@
 
     &__image {
       display: flex;
-      height: 100%;
       align-items: center;
       justify-content: center;
 
@@ -50,6 +49,7 @@
 
       &-text {
         text-align: left;
+        font-size: x-large;
 
         @include respond(tab-port) {
           text-align: left;
