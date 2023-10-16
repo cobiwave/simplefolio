@@ -20,9 +20,9 @@
   },
   "homepage": "https://github.com/cobiwave/simplefolio#readme",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.8.2",
-    "parcel": "^2.8.2",
-    "prettier": "^2.8.1"
+    "@parcel/transformer-sass": "^2.10.0",
+    "parcel": "^2.10.0",
+    "prettier": "^2.8.8"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
