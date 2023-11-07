@@ -801,8 +801,7 @@ color: #8A6679;
     	width: 40%;
     	margin-bottom: 30px;
     }
-    footer section.top div.item.large{++++
-    	width: 60%;
+    footer section.top div.item.large{    	width: 60%;
     }
     footer section.top div.item:last-child{
     	width: 60%;
