@@ -36,6 +36,7 @@
 
     <!-- Todo: remove the below script once you finish your portfolio -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
   </head>
 
   <!-- Todo: read the following HTML Todos to create your stunning portfolio website -->
@@ -48,7 +49,7 @@
         <h1 class="hero-title load-hidden">
           Hi, my name is <span class="text-color-main">Your Name</span>
           <br />
-          I'm the Unknown Developer.
+          <span id="typed-text"></span>
         </h1>
         <p class="hero-cta load-hidden">
           <a rel="noreferrer" class="cta-btn cta-btn--hero" href="#about"
@@ -341,5 +342,18 @@
     <!-- /END Footer Section -->
 
     <script defer type="module" src="index.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        new Typed('#typed-text', {
+          strings: ["an avid Gen AI Enthusiast","an AIML Engineer", "a Data Analyst", "a Web Developer"],
+          typeSpeed: 50,
+        backSpeed: 50, 
+        loop: true, 
+        showCursor: true, 
+        cursorChar: '|',
+        smartBackspace: true 
+        });
+      });
+    </script>
   </body>
 </html>
