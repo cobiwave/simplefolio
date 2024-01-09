@@ -288,17 +288,18 @@
         <hr />
 
         <!-- Notice: if you want to give me some credit, it will be huge for me! if not, put your data on it -->
-        <p class="footer__text">
-          © 2024 - 
-          <a rel="noreferrer" href="https://www.linkedin.com/in/braden-townsell" target="_blank"
-            >Braden Townsell</a
-          >
-        </p>
+        <p class="footer__text" id="footerYear"></p>
       </div>
     </footer>
     <!-- /END Footer Section -->
 
     <script defer type="module" src="index.js"></script>
     <script src="https://kit.fontawesome.com/f1a1687783.js" crossorigin="anonymous"></script>
+    <script>
+      var currentYear = new Date().getFullYear();
+
+      document.getElementById("footerYear").innerHTML = "&copy " + currentYear + " - " + 
+      '<a rel="noreferrer" href="https://www.linkedin.com/in/braden-townsell" target="_blank">Braden Townsell</a>';
+    </script>
   </body>
 </html>
