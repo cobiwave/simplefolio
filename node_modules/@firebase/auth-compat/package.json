@@ -1,0 +1,85 @@
+{
+  "name": "@firebase/auth-compat",
+  "version": "0.5.1",
+  "description": "FirebaseAuth compatibility package that uses API style compatible with Firebase@8 and prior versions",
+  "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)",
+  "main": "dist/index.node.cjs.js",
+  "browser": "dist/index.esm2017.js",
+  "module": "dist/index.esm2017.js",
+  "esm5": "dist/index.esm.js",
+  "exports": {
+    ".": {
+      "types": "./dist/auth-compat/index.d.ts",
+      "node": {
+        "types": "./dist/auth-compat/index.node.d.ts",
+        "import": "./dist/esm/index.node.esm.js",
+        "require": "./dist/index.node.cjs.js"
+      },
+      "esm5": "./dist/index.esm.js",
+      "browser": {
+        "require": "./dist/index.cjs.js",
+        "import": "./dist/index.esm2017.js"
+      },
+      "default": "./dist/index.esm2017.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint -c .eslintrc.js '**/*.ts' --ignore-path '../../.gitignore'",
+    "lint:fix": "eslint --fix -c .eslintrc.js '**/*.ts' --ignore-path '../../.gitignore'",
+    "build": "rollup -c",
+    "build:deps": "lerna run --scope @firebase/auth-compat --include-dependencies build",
+    "build:release": "yarn build && yarn add-compat-overloads",
+    "dev": "rollup -c -w",
+    "test": "run-p --npm-path npm lint test:all",
+    "test:all": "run-p --npm-path npm test:browser test:node test:integration",
+    "test:ci": "node ../../scripts/run_tests_in_ci.js -s test:all",
+    "test:browser": "karma start --single-run",
+    "test:browser:unit": "karma start --single-run --unit",
+    "test:browser:integration": "karma start --single-run --integration",
+    "test:node": "ts-node -O '{\"module\": \"commonjs\", \"target\": \"es6\"}' scripts/run_node_tests.ts",
+    "test:node:integration": "ts-node -O '{\"module\": \"commonjs\", \"target\": \"es6\"}' scripts/run_node_tests.ts --integration",
+    "test:webdriver": "rollup -c test/integration/webdriver/static/rollup.config.js && ts-node -O '{\"module\": \"commonjs\", \"target\": \"es6\"}' scripts/run_node_tests.ts --webdriver",
+    "test:integration": "firebase emulators:exec --project demo-emulatedproject --only auth \"run-s --npm-path npm test:browser:integration test:node:integration test:webdriver\"",
+    "add-compat-overloads": "ts-node-script ../../scripts/build/create-overloads.ts -i ../auth/dist/auth-public.d.ts -o dist/auth-compat/index.d.ts -a -r Auth:types.FirebaseAuth -r User:types.User -r FirebaseApp:FirebaseAppCompat --moduleToEnhance @firebase/auth"
+  },
+  "peerDependencies": {
+    "@firebase/app-compat": "0.x"
+  },
+  "dependencies": {
+    "@firebase/auth": "1.5.1",
+    "@firebase/auth-types": "0.12.0",
+    "@firebase/component": "0.6.4",
+    "@firebase/util": "1.9.3",
+    "undici": "5.26.5",
+    "tslib": "^2.1.0"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@firebase/app-compat": "0.2.25",
+    "@rollup/plugin-json": "4.1.0",
+    "rollup": "2.79.1",
+    "rollup-plugin-replace": "2.2.0",
+    "rollup-plugin-typescript2": "0.31.2",
+    "selenium-webdriver": "4.8.0",
+    "typescript": "4.7.4"
+  },
+  "repository": {
+    "directory": "packages/auth-compat",
+    "type": "git",
+    "url": "https://github.com/firebase/firebase-js-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/firebase/firebase-js-sdk/issues"
+  },
+  "typings": "dist/auth-compat/index.d.ts",
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "reportDir": "./coverage/node"
+  }
+}

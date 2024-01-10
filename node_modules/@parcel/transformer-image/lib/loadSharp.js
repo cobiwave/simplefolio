@@ -1,0 +1,15 @@
+"use strict";
+
+const SHARP_RANGE = '^0.31.1';
+
+// This is used to load sharp on the main thread, which prevents errors when worker threads exit
+// See https://sharp.pixelplumbing.com/install#worker-threads and https://github.com/lovell/sharp/issues/2263
+module.exports = async (packageManager, filePath, shouldAutoInstall, shouldReturn) => {
+  let sharp = await packageManager.require('sharp', filePath, {
+    range: SHARP_RANGE,
+    shouldAutoInstall: shouldAutoInstall
+  });
+  if (shouldReturn) {
+    return sharp;
+  }
+};

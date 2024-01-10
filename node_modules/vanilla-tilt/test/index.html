@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Vanilla-tilt.js</title>
+
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .logo {
+      display: block;
+
+      width: 100%;
+      max-width: 200px;
+      height: 200px;
+
+      line-height: 200px;
+      text-align: center;
+
+      color: white;
+      font-size: 2em;
+
+      background: #0099F7; /* fallback for old browsers */
+      background: -webkit-linear-gradient(135deg, #0099F7, #F11712); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(135deg, #0099F7, #F11712); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-transform: perspective(500px);
+      transform: perspective(500px);
+      margin-bottom: 75px;
+    }
+
+    .logo > span {
+      position: relative;
+      display: block;
+      -webkit-transform: translateZ(50px) scale(0.7);
+      transform: translateZ(50px) scale(0.7);
+    }
+
+    .logo > span:after {
+      content: "GitHub";
+      position: absolute;
+      color: white;
+      font-size: 18px;
+      top: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      opacity: 0.8;
+
+      transition: 0.3s ease all;
+    }
+
+    .logo > span:before {
+      content: "View source";
+      position: absolute;
+      color: white;
+      font-size: 18px;
+      top: 36px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-10px);
+
+      opacity: 0;
+
+      display: inline-block;
+      width: 100%;
+
+      transition: 0.3s ease all;
+    }
+
+    .logo:hover > span:after {
+      opacity: 0;
+      transform: translateX(-50%) translateY(10px);
+    }
+
+    .logo:hover > span:before {
+      opacity: 0.8;
+      transform: translateX(-50%);
+    }
+
+    .logo > span > span {
+      display: block;
+      font-size: 12px;
+    }
+
+    .logo:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: #333;
+      box-shadow: 0 20px 70px -10px rgba(51, 51, 51, 0.7), 0 50px 100px 0 rgba(51, 51, 51, 0.2);
+      z-index: -1;
+      -webkit-transform: translateZ(-50px);
+      transform: translateZ(-50px);
+      -webkit-transition: .3s;
+      transition: .3s;
+    }
+  </style>
+</head>
+<body>
+
+<a href="https://github.com/micku7zu/vanilla-tilt.js" class="logo" id="logo"
+   data-tilt data-tilt-glare="true"
+   data-tilt-max-glare="0.5"
+   data-tilt-speed="400"
+   data-tilt-scale="1.1"
+   data-tilt-perspective="500"
+   data-tilt-max="15"
+   data-tilt-startX="15"
+   data-tilt-startY="30"
+>
+  <span>vanilla-tilt.js</span>
+</a>
+
+<script type="text/javascript" src="../dist/vanilla-tilt.js"></script>
+
+</body>
+</html>

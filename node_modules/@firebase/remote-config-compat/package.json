@@ -1,0 +1,71 @@
+{
+  "name": "@firebase/remote-config-compat",
+  "version": "0.2.4",
+  "description": "The compatibility package of Remote Config",
+  "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)",
+  "main": "dist/index.cjs.js",
+  "browser": "dist/esm/index.esm2017.js",
+  "module": "dist/esm/index.esm2017.js",
+  "esm5": "dist/esm/index.esm5.js",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "require": "./dist/index.cjs.js",
+      "esm5": "./dist/esm/index.esm5.js",
+      "default": "./dist/esm/index.esm2017.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint -c .eslintrc.js '**/*.ts' --ignore-path '../../.gitignore'",
+    "lint:fix": "eslint --fix -c .eslintrc.js '**/*.ts'  --ignore-path '../../.gitignore'",
+    "build": "rollup -c",
+    "build:release": "yarn build && yarn add-compat-overloads",
+    "build:deps": "lerna run --scope @firebase/remote-config-compat --include-dependencies build",
+    "dev": "rollup -c -w",
+    "test": "run-p lint test:all",
+    "test:all": "run-p test:browser",
+    "test:ci": "node ../../scripts/run_tests_in_ci.js -s test:all",
+    "test:browser": "karma start --single-run",
+    "test:browser:debug": "karma start --browsers Chrome --auto-watch",
+    "add-compat-overloads": "ts-node-script ../../scripts/build/create-overloads.ts -i ../remote-config/dist/remote-config-public.d.ts -o dist/src/index.d.ts -a -r RemoteConfig:RemoteConfigCompat -r FirebaseApp:FirebaseAppCompat --moduleToEnhance @firebase/remote-config"
+  },
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "@firebase/app-compat": "0.x"
+  },
+  "dependencies": {
+    "@firebase/remote-config": "0.4.4",
+    "@firebase/remote-config-types": "0.3.0",
+    "@firebase/util": "1.9.3",
+    "@firebase/logger": "0.4.0",
+    "@firebase/component": "0.6.4",
+    "tslib": "^2.1.0"
+  },
+  "devDependencies": {
+    "rollup": "2.79.1",
+    "@rollup/plugin-json": "4.1.0",
+    "rollup-plugin-replace": "2.2.0",
+    "rollup-plugin-typescript2": "0.31.2",
+    "typescript": "4.7.4",
+    "@firebase/app-compat": "0.2.4"
+  },
+  "repository": {
+    "directory": "packages/remote-config-compat",
+    "type": "git",
+    "url": "https://github.com/firebase/firebase-js-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/firebase/firebase-js-sdk/issues"
+  },
+  "typings": "dist/src/index.d.ts",
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "reportDir": "./coverage/node"
+  }
+}

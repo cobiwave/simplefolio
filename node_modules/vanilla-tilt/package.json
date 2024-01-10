@@ -1,0 +1,64 @@
+{
+  "name": "vanilla-tilt",
+  "version": "1.8.0",
+  "description": "A smooth 3D tilt javascript library forked from Tilt.js",
+  "main": "lib/vanilla-tilt.js",
+  "module_es2015": "lib/vanilla-tilt.es2015.js",
+  "jsnext:main": "lib/vanilla-tilt.es2015.js",
+  "distrib": "dist/vanilla-tilt.js",
+  "types": "vanilla-tilt.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build:lib && cp ./README.md ./lib",
+    "build:lib": "cross-env NODE_ENV=production babel-node ./build.js",
+    "build:babel": "cross-env NODE_ENV=production babel src -d lib",
+    "deploy": "npm run build && gh-pages demo",
+    "release:patch": "release patch",
+    "release:minor": "release minor",
+    "release:major": "release major",
+    "release": "release"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-class-properties": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babelrc-rollup": "^3.0.0",
+    "cash-cp": "^0.2.0",
+    "cross-env": "^3.1.4",
+    "gh-pages": "^4.0.0",
+    "release-script": "^1.0.2",
+    "rollup": "^0.41.4",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^7.0.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-uglify": "^1.0.1",
+    "run-proxy": "^1.0.1",
+    "uglify-es": "github:mishoo/UglifyJS2#harmony"
+  },
+  "release-script": {
+    "altPkgRootFolder": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/micku7zu/vanilla-tilt.js.git"
+  },
+  "keywords": [
+    "tilt",
+    "effect",
+    "vanilla",
+    "js",
+    "60fps",
+    "smooth",
+    "tilt.js"
+  ],
+  "author": "Sergiu Șandor <micku7zu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/micku7zu/vanilla-tilt.js/issues"
+  },
+  "homepage": "https://github.com/micku7zu/vanilla-tilt.js#readme"
+}

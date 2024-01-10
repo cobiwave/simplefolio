@@ -1,0 +1,21 @@
+{
+  "name": "@lmdb/lmdb-darwin-arm64",
+  "version": "2.8.5",
+  "os": [
+    "darwin"
+  ],
+  "cpu": [
+    "arm64"
+  ],
+  "license": "MIT",
+  "author": "Kris Zyp",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kriszyp/lmdb-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kriszyp/lmdb-js/issues"
+  },
+  "homepage": "https://github.com/kriszyp/lmdb-js#readme",
+  "description": "Platform specific binary for lmdb on darwin OS with arm64 architecture"
+}

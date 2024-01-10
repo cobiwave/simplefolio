@@ -1,0 +1,338 @@
+import * as modularAPIs from '@firebase/app';
+import { _addComponent, deleteApp, _DEFAULT_ENTRY_NAME, registerVersion } from '@firebase/app';
+import { Component } from '@firebase/component';
+import { ErrorFactory, contains, deepExtend } from '@firebase/util';
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Global context object for a collection of services using
+ * a shared authentication state.
+ */
+class FirebaseAppLiteImpl {
+    constructor(_delegate, firebase) {
+        this._delegate = _delegate;
+        this.firebase = firebase;
+        // add itself to container
+        _addComponent(_delegate, new Component('app-compat', () => this, "PUBLIC" /* ComponentType.PUBLIC */));
+    }
+    get automaticDataCollectionEnabled() {
+        return this._delegate.automaticDataCollectionEnabled;
+    }
+    set automaticDataCollectionEnabled(val) {
+        this.automaticDataCollectionEnabled = val;
+    }
+    get name() {
+        return this._delegate.name;
+    }
+    get options() {
+        return this._delegate.options;
+    }
+    delete() {
+        this.firebase.INTERNAL.removeApp(this.name);
+        return deleteApp(this._delegate);
+    }
+    /**
+     * Return a service instance associated with this app (creating it
+     * on demand), identified by the passed instanceIdentifier.
+     *
+     * NOTE: Currently storage is the only one that is leveraging this
+     * functionality. They invoke it by calling:
+     *
+     * ```javascript
+     * firebase.app().storage('STORAGE BUCKET ID')
+     * ```
+     *
+     * The service name is passed to this already
+     * @internal
+     */
+    _getService(name, instanceIdentifier = _DEFAULT_ENTRY_NAME) {
+        this._delegate.checkDestroyed();
+        // getImmediate will always succeed because _getService is only called for registered components.
+        return this._delegate.container.getProvider(name).getImmediate({
+            identifier: instanceIdentifier
+        });
+    }
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+const ERRORS = {
+    ["no-app" /* AppError.NO_APP */]: "No Firebase App '{$appName}' has been created - " +
+        'call Firebase App.initializeApp()',
+    ["invalid-app-argument" /* AppError.INVALID_APP_ARGUMENT */]: 'firebase.{$appName}() takes either no argument or a ' +
+        'Firebase App instance.'
+};
+const ERROR_FACTORY = new ErrorFactory('app-compat', 'Firebase', ERRORS);
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Because auth can't share code with other components, we attach the utility functions
+ * in an internal namespace to share code.
+ * This function return a firebase namespace object without
+ * any utility functions, so it can be shared between the regular firebaseNamespace and
+ * the lite version.
+ */
+function createFirebaseNamespaceCore(firebaseAppImpl) {
+    const apps = {};
+    // // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // const components = new Map<string, Component<any>>();
+    // A namespace is a plain JavaScript Object.
+    const namespace = {
+        // Hack to prevent Babel from modifying the object returned
+        // as the firebase namespace.
+        // @ts-ignore
+        __esModule: true,
+        initializeApp: initializeAppCompat,
+        // @ts-ignore
+        app,
+        registerVersion: modularAPIs.registerVersion,
+        setLogLevel: modularAPIs.setLogLevel,
+        onLog: modularAPIs.onLog,
+        // @ts-ignore
+        apps: null,
+        SDK_VERSION: modularAPIs.SDK_VERSION,
+        INTERNAL: {
+            registerComponent: registerComponentCompat,
+            removeApp,
+            useAsService,
+            modularAPIs
+        }
+    };
+    // Inject a circular default export to allow Babel users who were previously
+    // using:
+    //
+    //   import firebase from 'firebase';
+    //   which becomes: var firebase = require('firebase').default;
+    //
+    // instead of
+    //
+    //   import * as firebase from 'firebase';
+    //   which becomes: var firebase = require('firebase');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    namespace['default'] = namespace;
+    // firebase.apps is a read-only getter.
+    Object.defineProperty(namespace, 'apps', {
+        get: getApps
+    });
+    /**
+     * Called by App.delete() - but before any services associated with the App
+     * are deleted.
+     */
+    function removeApp(name) {
+        delete apps[name];
+    }
+    /**
+     * Get the App object for a given name (or DEFAULT).
+     */
+    function app(name) {
+        name = name || modularAPIs._DEFAULT_ENTRY_NAME;
+        if (!contains(apps, name)) {
+            throw ERROR_FACTORY.create("no-app" /* AppError.NO_APP */, { appName: name });
+        }
+        return apps[name];
+    }
+    // @ts-ignore
+    app['App'] = firebaseAppImpl;
+    /**
+     * Create a new App instance (name must be unique).
+     *
+     * This function is idempotent. It can be called more than once and return the same instance using the same options and config.
+     */
+    function initializeAppCompat(options, rawConfig = {}) {
+        const app = modularAPIs.initializeApp(options, rawConfig);
+        if (contains(apps, app.name)) {
+            return apps[app.name];
+        }
+        const appCompat = new firebaseAppImpl(app, namespace);
+        apps[app.name] = appCompat;
+        return appCompat;
+    }
+    /*
+     * Return an array of all the non-deleted FirebaseApps.
+     */
+    function getApps() {
+        // Make a copy so caller cannot mutate the apps list.
+        return Object.keys(apps).map(name => apps[name]);
+    }
+    function registerComponentCompat(component) {
+        const componentName = component.name;
+        const componentNameWithoutCompat = componentName.replace('-compat', '');
+        if (modularAPIs._registerComponent(component) &&
+            component.type === "PUBLIC" /* ComponentType.PUBLIC */) {
+            // create service namespace for public components
+            // The Service namespace is an accessor function ...
+            const serviceNamespace = (appArg = app()) => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                if (typeof appArg[componentNameWithoutCompat] !== 'function') {
+                    // Invalid argument.
+                    // This happens in the following case: firebase.storage('gs:/')
+                    throw ERROR_FACTORY.create("invalid-app-argument" /* AppError.INVALID_APP_ARGUMENT */, {
+                        appName: componentName
+                    });
+                }
+                // Forward service instance lookup to the FirebaseApp.
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                return appArg[componentNameWithoutCompat]();
+            };
+            // ... and a container for service-level properties.
+            if (component.serviceProps !== undefined) {
+                deepExtend(serviceNamespace, component.serviceProps);
+            }
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            namespace[componentNameWithoutCompat] = serviceNamespace;
+            // Patch the FirebaseAppImpl prototype
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            firebaseAppImpl.prototype[componentNameWithoutCompat] =
+                // TODO: The eslint disable can be removed and the 'ignoreRestArgs'
+                // option added to the no-explicit-any rule when ESlint releases it.
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                function (...args) {
+                    const serviceFxn = this._getService.bind(this, componentName);
+                    return serviceFxn.apply(this, component.multipleInstances ? args : []);
+                };
+        }
+        return component.type === "PUBLIC" /* ComponentType.PUBLIC */
+            ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                namespace[componentNameWithoutCompat]
+            : null;
+    }
+    // Map the requested service to a registered service name
+    // (used to map auth to serverAuth service when needed).
+    function useAsService(app, name) {
+        if (name === 'serverAuth') {
+            return null;
+        }
+        const useService = name;
+        return useService;
+    }
+    return namespace;
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+function createFirebaseNamespaceLite() {
+    const namespace = createFirebaseNamespaceCore(FirebaseAppLiteImpl);
+    namespace.SDK_VERSION = `${namespace.SDK_VERSION}_LITE`;
+    const registerComponent = namespace.INTERNAL.registerComponent;
+    namespace.INTERNAL.registerComponent = registerComponentForLite;
+    /**
+     * This is a special implementation, so it only works with performance.
+     * only allow performance SDK to register.
+     */
+    function registerComponentForLite(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    component) {
+        // only allow performance to register with firebase lite
+        if (component.type === "PUBLIC" /* ComponentType.PUBLIC */ &&
+            !component.name.includes('performance') &&
+            !component.name.includes('installations')) {
+            throw Error(`${name} cannot register with the standalone perf instance`);
+        }
+        return registerComponent(component);
+    }
+    return namespace;
+}
+
+const name$1 = "@firebase/app-compat";
+const version = "0.2.25";
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+function registerCoreComponents(variant) {
+    // Register `app` package.
+    registerVersion(name$1, version, variant);
+}
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+const firebase = createFirebaseNamespaceLite();
+registerCoreComponents('lite');
+
+export { firebase as default };
+//# sourceMappingURL=index.lite.js.map

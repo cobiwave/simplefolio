@@ -1,0 +1,120 @@
+{
+  "name": "lmdb",
+  "author": "Kris Zyp",
+  "version": "2.8.5",
+  "description": "Simple, efficient, scalable, high-performance LMDB interface",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kriszyp/lmdb-js.git"
+  },
+  "keywords": [
+    "lmdb",
+    "database",
+    "mdb",
+    "lightning",
+    "key-value store",
+    "storage",
+    "adapter",
+    "performance"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "index.js",
+  "exports": {
+    ".": {
+      "types": {
+        "require": "./index.d.cts",
+        "import": "./index.d.ts"
+      },
+      "node": {
+        "require": "./dist/index.cjs",
+        "import": "./node-index.js"
+      },
+      "default": "./index.js"
+    }
+  },
+  "files": [
+    "/dist",
+    "/util",
+    "/dict",
+    "/dependencies",
+    "/src",
+    "*.md",
+    "/*.js",
+    "index.d.ts",
+    "index.d.cts",
+    "/*.ts",
+    "/*.gyp",
+    "/bin"
+  ],
+  "types": "./index.d.ts",
+  "tsd": {
+    "directory": "test/types"
+  },
+  "bin": {
+    "download-lmdb-prebuilds": "./bin/download-prebuilds.js"
+  },
+  "scripts": {
+    "install": "node-gyp-build-optional-packages",
+    "build": "node-gyp --debug configure && node-gyp --debug build && rollup -c",
+    "rebuild": "node-gyp build && rollup -c && cpy index.d.ts . --rename=index.d.cts",
+    "build-js": "rollup -c",
+    "prepare": "rollup -c",
+    "before-publish": "rollup -c && prebuildify-ci download && node util/set-optional-deps.cjs && npm run test",
+    "prebuild-libc-musl": "ENABLE_V8_FUNCTIONS=false prebuildify-platform-packages --tag-libc --napi --platform-packages --target 16.18.0",
+    "prebuild-libc": "prebuildify-platform-packages --tag-libc --target 20.0.0 || true && prebuildify-platform-packages --tag-libc --target 18.15.0 && prebuildify-platform-packages --platform-packages --tag-libc --target 16.18.0 && ENABLE_V8_FUNCTIONS=false prebuildify-platform-packages --napi --platform-packages --tag-libc --target 16.18.0",
+    "prebuild-macos": "prebuildify-platform-packages --target 20.0.0 && prebuildify-platform-packages --target 18.15.0 && prebuildify-platform-packages --platform-packages --target 16.18.0 && ENABLE_V8_FUNCTIONS=false prebuildify-platform-packages --napi --platform-packages --target 16.18.0",
+    "prebuild-win32": "prebuildify-platform-packages --target 20.0.0 && prebuildify-platform-packages --target 18.15.0 && prebuildify-platform-packages --target 16.18.0 && set ENABLE_V8_FUNCTIONS=false&& prebuildify-platform-packages --napi --platform-packages --target 16.18.0",
+    "prebuild-libc-arm7": "ENABLE_V8_FUNCTIONS=false prebuildify-platform-packages --napi --platform-packages --tag-libc --target 16.18.0",
+    "prebuildify": "prebuildify-platform-packages --napi --target 18.15.0",
+    "full-publish": "cd prebuilds/win32-x64 && npm publish --access public && cd ../darwin-x64 && npm publish --access public && cd ../darwin-arm64 && npm publish --access public && cd ../linux-x64 && npm publish --access public && cd ../linux-arm64 && npm publish --access public  && cd ../linux-arm && npm publish --access public && cd ../.. && npm publish",
+    "recompile": "node-gyp clean && node-gyp configure && node-gyp build",
+    "test": "mocha test/**.test.js --expose-gc --recursive",
+    "deno-test": "deno run --allow-ffi --allow-write --allow-read --allow-env --allow-net --unstable test/deno.ts",
+    "test2": "mocha test/performance.js -u tdd",
+    "test:types": "tsd",
+    "benchmark": "node ./benchmark/index.js"
+  },
+  "gypfile": true,
+  "dependencies": {
+    "msgpackr": "^1.9.5",
+    "node-addon-api": "^6.1.0",
+    "node-gyp-build-optional-packages": "5.1.1",
+    "ordered-binary": "^1.4.1",
+    "weak-lru-cache": "^1.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.10",
+    "benchmark": "^2.1.4",
+    "chai": "^4.3.4",
+    "cpy-cli": "^4.1.0",
+    "fs-extra": "^9.0.1",
+    "mocha": "^10.1.0",
+    "prebuildify-ci": "^1.0.5",
+    "prebuildify-platform-packages": "5.0.4",
+    "prettier": "^3.0.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.61.1",
+    "tsd": "^0.14.0"
+  },
+  "bugs": {
+    "url": "https://github.com/kriszyp/lmdb-js/issues"
+  },
+  "homepage": "https://github.com/kriszyp/lmdb-js#readme",
+  "directories": {
+    "test": "tests"
+  },
+  "prettier": {
+    "useTabs": true,
+    "singleQuote": true
+  },
+  "optionalDependencies": {
+    "@lmdb/lmdb-darwin-arm64": "2.8.5",
+    "@lmdb/lmdb-darwin-x64": "2.8.5",
+    "@lmdb/lmdb-linux-arm": "2.8.5",
+    "@lmdb/lmdb-linux-arm64": "2.8.5",
+    "@lmdb/lmdb-linux-x64": "2.8.5",
+    "@lmdb/lmdb-win32-x64": "2.8.5"
+  }
+}

@@ -1,0 +1,1202 @@
+import firebase from '@firebase/app-compat';
+import { __assign, __extends, __spreadArray } from 'tslib';
+import { FirestoreError, Bytes, _isBase64Available, _logWarn, connectFirestoreEmulator, enableNetwork, disableNetwork, _validateIsNotUsedTogether, waitForPendingWrites, onSnapshotsInSync, collection, doc, collectionGroup, runTransaction, ensureFirestoreConfigured, WriteBatch as WriteBatch$1, executeWrite, loadBundle, namedQuery, AbstractUserDataWriter, DocumentReference as DocumentReference$1, _DocumentKey, refEqual, setDoc, updateDoc, deleteDoc, onSnapshot, getDocFromCache, getDocFromServer, getDoc, DocumentSnapshot as DocumentSnapshot$1, snapshotEqual, _debugAssert, addDoc, _DatabaseId, QueryDocumentSnapshot as QueryDocumentSnapshot$1, query, where, orderBy, limit, limitToLast, startAt, startAfter, endBefore, endAt, queryEqual, getDocsFromCache, getDocsFromServer, getDocs, QuerySnapshot as QuerySnapshot$1, _cast, enableIndexedDbPersistence, enableMultiTabIndexedDbPersistence, clearIndexedDbPersistence, setLogLevel as setLogLevel$1, _FieldPath, FieldPath as FieldPath$1, serverTimestamp, deleteField, arrayUnion, arrayRemove, increment, GeoPoint, Timestamp, CACHE_SIZE_UNLIMITED } from '@firebase/firestore';
+import { getModularInstance } from '@firebase/util';
+import { Component } from '@firebase/component';
+
+const name = "@firebase/firestore-compat";
+const version = "0.3.23";
+
+/**
+ * @license
+ * Copyright 2021 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+function validateSetOptions(methodName, options) {
+    if (options === undefined) {
+        return {
+            merge: false
+        };
+    }
+    if (options.mergeFields !== undefined && options.merge !== undefined) {
+        throw new FirestoreError('invalid-argument', "Invalid options passed to function ".concat(methodName, "(): You cannot ") +
+            'specify both "merge" and "mergeFields".');
+    }
+    return options;
+}
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/** Helper function to assert Uint8Array is available at runtime. */
+function assertUint8ArrayAvailable() {
+    if (typeof Uint8Array === 'undefined') {
+        throw new FirestoreError('unimplemented', 'Uint8Arrays are not available in this environment.');
+    }
+}
+/** Helper function to assert Base64 functions are available at runtime. */
+function assertBase64Available() {
+    if (!_isBase64Available()) {
+        throw new FirestoreError('unimplemented', 'Blobs are unavailable in Firestore in this environment.');
+    }
+}
+/** Immutable class holding a blob (binary data) */
+var Blob = /** @class */ (function () {
+    function Blob(_delegate) {
+        this._delegate = _delegate;
+    }
+    Blob.fromBase64String = function (base64) {
+        assertBase64Available();
+        return new Blob(Bytes.fromBase64String(base64));
+    };
+    Blob.fromUint8Array = function (array) {
+        assertUint8ArrayAvailable();
+        return new Blob(Bytes.fromUint8Array(array));
+    };
+    Blob.prototype.toBase64 = function () {
+        assertBase64Available();
+        return this._delegate.toBase64();
+    };
+    Blob.prototype.toUint8Array = function () {
+        assertUint8ArrayAvailable();
+        return this._delegate.toUint8Array();
+    };
+    Blob.prototype.isEqual = function (other) {
+        return this._delegate.isEqual(other._delegate);
+    };
+    Blob.prototype.toString = function () {
+        return 'Blob(base64: ' + this.toBase64() + ')';
+    };
+    return Blob;
+}());
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+function isPartialObserver(obj) {
+    return implementsAnyMethods(obj, ['next', 'error', 'complete']);
+}
+/**
+ * Returns true if obj is an object and contains at least one of the specified
+ * methods.
+ */
+function implementsAnyMethods(obj, methods) {
+    if (typeof obj !== 'object' || obj === null) {
+        return false;
+    }
+    var object = obj;
+    for (var _i = 0, methods_1 = methods; _i < methods_1.length; _i++) {
+        var method = methods_1[_i];
+        if (method in object && typeof object[method] === 'function') {
+            return true;
+        }
+    }
+    return false;
+}
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * The persistence provider included with the full Firestore SDK.
+ */
+var IndexedDbPersistenceProvider = /** @class */ (function () {
+    function IndexedDbPersistenceProvider() {
+    }
+    IndexedDbPersistenceProvider.prototype.enableIndexedDbPersistence = function (firestore, forceOwnership) {
+        return enableIndexedDbPersistence(firestore._delegate, { forceOwnership: forceOwnership });
+    };
+    IndexedDbPersistenceProvider.prototype.enableMultiTabIndexedDbPersistence = function (firestore) {
+        return enableMultiTabIndexedDbPersistence(firestore._delegate);
+    };
+    IndexedDbPersistenceProvider.prototype.clearIndexedDbPersistence = function (firestore) {
+        return clearIndexedDbPersistence(firestore._delegate);
+    };
+    return IndexedDbPersistenceProvider;
+}());
+/**
+ * Compat class for Firestore. Exposes Firestore Legacy API, but delegates
+ * to the functional API of firestore-exp.
+ */
+var Firestore = /** @class */ (function () {
+    function Firestore(databaseIdOrApp, _delegate, _persistenceProvider) {
+        var _this = this;
+        this._delegate = _delegate;
+        this._persistenceProvider = _persistenceProvider;
+        this.INTERNAL = {
+            delete: function () { return _this.terminate(); }
+        };
+        if (!(databaseIdOrApp instanceof _DatabaseId)) {
+            this._appCompat = databaseIdOrApp;
+        }
+    }
+    Object.defineProperty(Firestore.prototype, "_databaseId", {
+        get: function () {
+            return this._delegate._databaseId;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Firestore.prototype.settings = function (settingsLiteral) {
+        var currentSettings = this._delegate._getSettings();
+        if (!settingsLiteral.merge &&
+            currentSettings.host !== settingsLiteral.host) {
+            _logWarn('You are overriding the original host. If you did not intend ' +
+                'to override your settings, use {merge: true}.');
+        }
+        if (settingsLiteral.merge) {
+            settingsLiteral = __assign(__assign({}, currentSettings), settingsLiteral);
+            // Remove the property from the settings once the merge is completed
+            delete settingsLiteral.merge;
+        }
+        this._delegate._setSettings(settingsLiteral);
+    };
+    Firestore.prototype.useEmulator = function (host, port, options) {
+        if (options === void 0) { options = {}; }
+        connectFirestoreEmulator(this._delegate, host, port, options);
+    };
+    Firestore.prototype.enableNetwork = function () {
+        return enableNetwork(this._delegate);
+    };
+    Firestore.prototype.disableNetwork = function () {
+        return disableNetwork(this._delegate);
+    };
+    Firestore.prototype.enablePersistence = function (settings) {
+        var synchronizeTabs = false;
+        var experimentalForceOwningTab = false;
+        if (settings) {
+            synchronizeTabs = !!settings.synchronizeTabs;
+            experimentalForceOwningTab = !!settings.experimentalForceOwningTab;
+            _validateIsNotUsedTogether('synchronizeTabs', synchronizeTabs, 'experimentalForceOwningTab', experimentalForceOwningTab);
+        }
+        return synchronizeTabs
+            ? this._persistenceProvider.enableMultiTabIndexedDbPersistence(this)
+            : this._persistenceProvider.enableIndexedDbPersistence(this, experimentalForceOwningTab);
+    };
+    Firestore.prototype.clearPersistence = function () {
+        return this._persistenceProvider.clearIndexedDbPersistence(this);
+    };
+    Firestore.prototype.terminate = function () {
+        if (this._appCompat) {
+            this._appCompat._removeServiceInstance('firestore-compat');
+            this._appCompat._removeServiceInstance('firestore');
+        }
+        return this._delegate._delete();
+    };
+    Firestore.prototype.waitForPendingWrites = function () {
+        return waitForPendingWrites(this._delegate);
+    };
+    Firestore.prototype.onSnapshotsInSync = function (arg) {
+        return onSnapshotsInSync(this._delegate, arg);
+    };
+    Object.defineProperty(Firestore.prototype, "app", {
+        get: function () {
+            if (!this._appCompat) {
+                throw new FirestoreError('failed-precondition', "Firestore was not initialized using the Firebase SDK. 'app' is " +
+                    'not available');
+            }
+            return this._appCompat;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Firestore.prototype.collection = function (pathString) {
+        try {
+            return new CollectionReference(this, collection(this._delegate, pathString));
+        }
+        catch (e) {
+            throw replaceFunctionName(e, 'collection()', 'Firestore.collection()');
+        }
+    };
+    Firestore.prototype.doc = function (pathString) {
+        try {
+            return new DocumentReference(this, doc(this._delegate, pathString));
+        }
+        catch (e) {
+            throw replaceFunctionName(e, 'doc()', 'Firestore.doc()');
+        }
+    };
+    Firestore.prototype.collectionGroup = function (collectionId) {
+        try {
+            return new Query(this, collectionGroup(this._delegate, collectionId));
+        }
+        catch (e) {
+            throw replaceFunctionName(e, 'collectionGroup()', 'Firestore.collectionGroup()');
+        }
+    };
+    Firestore.prototype.runTransaction = function (updateFunction) {
+        var _this = this;
+        return runTransaction(this._delegate, function (transaction) {
+            return updateFunction(new Transaction(_this, transaction));
+        });
+    };
+    Firestore.prototype.batch = function () {
+        var _this = this;
+        ensureFirestoreConfigured(this._delegate);
+        return new WriteBatch(new WriteBatch$1(this._delegate, function (mutations) {
+            return executeWrite(_this._delegate, mutations);
+        }));
+    };
+    Firestore.prototype.loadBundle = function (bundleData) {
+        return loadBundle(this._delegate, bundleData);
+    };
+    Firestore.prototype.namedQuery = function (name) {
+        var _this = this;
+        return namedQuery(this._delegate, name).then(function (expQuery) {
+            if (!expQuery) {
+                return null;
+            }
+            return new Query(_this, 
+            // We can pass `expQuery` here directly since named queries don't have a UserDataConverter.
+            // Otherwise, we would have to create a new ExpQuery and pass the old UserDataConverter.
+            expQuery);
+        });
+    };
+    return Firestore;
+}());
+var UserDataWriter = /** @class */ (function (_super) {
+    __extends(UserDataWriter, _super);
+    function UserDataWriter(firestore) {
+        var _this = _super.call(this) || this;
+        _this.firestore = firestore;
+        return _this;
+    }
+    UserDataWriter.prototype.convertBytes = function (bytes) {
+        return new Blob(new Bytes(bytes));
+    };
+    UserDataWriter.prototype.convertReference = function (name) {
+        var key = this.convertDocumentKey(name, this.firestore._databaseId);
+        return DocumentReference.forKey(key, this.firestore, /* converter= */ null);
+    };
+    return UserDataWriter;
+}(AbstractUserDataWriter));
+function setLogLevel(level) {
+    setLogLevel$1(level);
+}
+/**
+ * A reference to a transaction.
+ */
+var Transaction = /** @class */ (function () {
+    function Transaction(_firestore, _delegate) {
+        this._firestore = _firestore;
+        this._delegate = _delegate;
+        this._userDataWriter = new UserDataWriter(_firestore);
+    }
+    Transaction.prototype.get = function (documentRef) {
+        var _this = this;
+        var ref = castReference(documentRef);
+        return this._delegate
+            .get(ref)
+            .then(function (result) {
+            return new DocumentSnapshot(_this._firestore, new DocumentSnapshot$1(_this._firestore._delegate, _this._userDataWriter, result._key, result._document, result.metadata, ref.converter));
+        });
+    };
+    Transaction.prototype.set = function (documentRef, data, options) {
+        var ref = castReference(documentRef);
+        if (options) {
+            validateSetOptions('Transaction.set', options);
+            this._delegate.set(ref, data, options);
+        }
+        else {
+            this._delegate.set(ref, data);
+        }
+        return this;
+    };
+    Transaction.prototype.update = function (documentRef, dataOrField, value) {
+        var _a;
+        var moreFieldsAndValues = [];
+        for (var _i = 3; _i < arguments.length; _i++) {
+            moreFieldsAndValues[_i - 3] = arguments[_i];
+        }
+        var ref = castReference(documentRef);
+        if (arguments.length === 2) {
+            this._delegate.update(ref, dataOrField);
+        }
+        else {
+            (_a = this._delegate).update.apply(_a, __spreadArray([ref,
+                dataOrField,
+                value], moreFieldsAndValues, false));
+        }
+        return this;
+    };
+    Transaction.prototype.delete = function (documentRef) {
+        var ref = castReference(documentRef);
+        this._delegate.delete(ref);
+        return this;
+    };
+    return Transaction;
+}());
+var WriteBatch = /** @class */ (function () {
+    function WriteBatch(_delegate) {
+        this._delegate = _delegate;
+    }
+    WriteBatch.prototype.set = function (documentRef, data, options) {
+        var ref = castReference(documentRef);
+        if (options) {
+            validateSetOptions('WriteBatch.set', options);
+            this._delegate.set(ref, data, options);
+        }
+        else {
+            this._delegate.set(ref, data);
+        }
+        return this;
+    };
+    WriteBatch.prototype.update = function (documentRef, dataOrField, value) {
+        var _a;
+        var moreFieldsAndValues = [];
+        for (var _i = 3; _i < arguments.length; _i++) {
+            moreFieldsAndValues[_i - 3] = arguments[_i];
+        }
+        var ref = castReference(documentRef);
+        if (arguments.length === 2) {
+            this._delegate.update(ref, dataOrField);
+        }
+        else {
+            (_a = this._delegate).update.apply(_a, __spreadArray([ref,
+                dataOrField,
+                value], moreFieldsAndValues, false));
+        }
+        return this;
+    };
+    WriteBatch.prototype.delete = function (documentRef) {
+        var ref = castReference(documentRef);
+        this._delegate.delete(ref);
+        return this;
+    };
+    WriteBatch.prototype.commit = function () {
+        return this._delegate.commit();
+    };
+    return WriteBatch;
+}());
+/**
+ * Wraps a `PublicFirestoreDataConverter` translating the types from the
+ * experimental SDK into corresponding types from the Classic SDK before passing
+ * them to the wrapped converter.
+ */
+var FirestoreDataConverter = /** @class */ (function () {
+    function FirestoreDataConverter(_firestore, _userDataWriter, _delegate) {
+        this._firestore = _firestore;
+        this._userDataWriter = _userDataWriter;
+        this._delegate = _delegate;
+    }
+    FirestoreDataConverter.prototype.fromFirestore = function (snapshot, options) {
+        var expSnapshot = new QueryDocumentSnapshot$1(this._firestore._delegate, this._userDataWriter, snapshot._key, snapshot._document, snapshot.metadata, 
+        /* converter= */ null);
+        return this._delegate.fromFirestore(new QueryDocumentSnapshot(this._firestore, expSnapshot), options !== null && options !== void 0 ? options : {});
+    };
+    FirestoreDataConverter.prototype.toFirestore = function (modelObject, options) {
+        if (!options) {
+            return this._delegate.toFirestore(modelObject);
+        }
+        else {
+            return this._delegate.toFirestore(modelObject, options);
+        }
+    };
+    // Use the same instance of `FirestoreDataConverter` for the given instances
+    // of `Firestore` and `PublicFirestoreDataConverter` so that isEqual() will
+    // compare equal for two objects created with the same converter instance.
+    FirestoreDataConverter.getInstance = function (firestore, converter) {
+        var converterMapByFirestore = FirestoreDataConverter.INSTANCES;
+        var untypedConverterByConverter = converterMapByFirestore.get(firestore);
+        if (!untypedConverterByConverter) {
+            untypedConverterByConverter = new WeakMap();
+            converterMapByFirestore.set(firestore, untypedConverterByConverter);
+        }
+        var instance = untypedConverterByConverter.get(converter);
+        if (!instance) {
+            instance = new FirestoreDataConverter(firestore, new UserDataWriter(firestore), converter);
+            untypedConverterByConverter.set(converter, instance);
+        }
+        return instance;
+    };
+    FirestoreDataConverter.INSTANCES = new WeakMap();
+    return FirestoreDataConverter;
+}());
+/**
+ * A reference to a particular document in a collection in the database.
+ */
+var DocumentReference = /** @class */ (function () {
+    function DocumentReference(firestore, _delegate) {
+        this.firestore = firestore;
+        this._delegate = _delegate;
+        this._userDataWriter = new UserDataWriter(firestore);
+    }
+    DocumentReference.forPath = function (path, firestore, converter) {
+        if (path.length % 2 !== 0) {
+            throw new FirestoreError('invalid-argument', 'Invalid document reference. Document ' +
+                'references must have an even number of segments, but ' +
+                "".concat(path.canonicalString(), " has ").concat(path.length));
+        }
+        return new DocumentReference(firestore, new DocumentReference$1(firestore._delegate, converter, new _DocumentKey(path)));
+    };
+    DocumentReference.forKey = function (key, firestore, converter) {
+        return new DocumentReference(firestore, new DocumentReference$1(firestore._delegate, converter, key));
+    };
+    Object.defineProperty(DocumentReference.prototype, "id", {
+        get: function () {
+            return this._delegate.id;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(DocumentReference.prototype, "parent", {
+        get: function () {
+            return new CollectionReference(this.firestore, this._delegate.parent);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(DocumentReference.prototype, "path", {
+        get: function () {
+            return this._delegate.path;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    DocumentReference.prototype.collection = function (pathString) {
+        try {
+            return new CollectionReference(this.firestore, collection(this._delegate, pathString));
+        }
+        catch (e) {
+            throw replaceFunctionName(e, 'collection()', 'DocumentReference.collection()');
+        }
+    };
+    DocumentReference.prototype.isEqual = function (other) {
+        other = getModularInstance(other);
+        if (!(other instanceof DocumentReference$1)) {
+            return false;
+        }
+        return refEqual(this._delegate, other);
+    };
+    DocumentReference.prototype.set = function (value, options) {
+        options = validateSetOptions('DocumentReference.set', options);
+        try {
+            if (options) {
+                return setDoc(this._delegate, value, options);
+            }
+            else {
+                return setDoc(this._delegate, value);
+            }
+        }
+        catch (e) {
+            throw replaceFunctionName(e, 'setDoc()', 'DocumentReference.set()');
+        }
+    };
+    DocumentReference.prototype.update = function (fieldOrUpdateData, value) {
+        var moreFieldsAndValues = [];
+        for (var _i = 2; _i < arguments.length; _i++) {
+            moreFieldsAndValues[_i - 2] = arguments[_i];
+        }
+        try {
+            if (arguments.length === 1) {
+                return updateDoc(this._delegate, fieldOrUpdateData);
+            }
+            else {
+                return updateDoc.apply(void 0, __spreadArray([this._delegate,
+                    fieldOrUpdateData,
+                    value], moreFieldsAndValues, false));
+            }
+        }
+        catch (e) {
+            throw replaceFunctionName(e, 'updateDoc()', 'DocumentReference.update()');
+        }
+    };
+    DocumentReference.prototype.delete = function () {
+        return deleteDoc(this._delegate);
+    };
+    DocumentReference.prototype.onSnapshot = function () {
+        var _this = this;
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        var options = extractSnapshotOptions(args);
+        var observer = wrapObserver(args, function (result) {
+            return new DocumentSnapshot(_this.firestore, new DocumentSnapshot$1(_this.firestore._delegate, _this._userDataWriter, result._key, result._document, result.metadata, _this._delegate.converter));
+        });
+        return onSnapshot(this._delegate, options, observer);
+    };
+    DocumentReference.prototype.get = function (options) {
+        var _this = this;
+        var snap;
+        if ((options === null || options === void 0 ? void 0 : options.source) === 'cache') {
+            snap = getDocFromCache(this._delegate);
+        }
+        else if ((options === null || options === void 0 ? void 0 : options.source) === 'server') {
+            snap = getDocFromServer(this._delegate);
+        }
+        else {
+            snap = getDoc(this._delegate);
+        }
+        return snap.then(function (result) {
+            return new DocumentSnapshot(_this.firestore, new DocumentSnapshot$1(_this.firestore._delegate, _this._userDataWriter, result._key, result._document, result.metadata, _this._delegate.converter));
+        });
+    };
+    DocumentReference.prototype.withConverter = function (converter) {
+        return new DocumentReference(this.firestore, converter
+            ? this._delegate.withConverter(FirestoreDataConverter.getInstance(this.firestore, converter))
+            : this._delegate.withConverter(null));
+    };
+    return DocumentReference;
+}());
+/**
+ * Replaces the function name in an error thrown by the firestore-exp API
+ * with the function names used in the classic API.
+ */
+function replaceFunctionName(e, original, updated) {
+    e.message = e.message.replace(original, updated);
+    return e;
+}
+/**
+ * Iterates the list of arguments from an `onSnapshot` call and returns the
+ * first argument that may be an `SnapshotListenOptions` object. Returns an
+ * empty object if none is found.
+ */
+function extractSnapshotOptions(args) {
+    for (var _i = 0, args_1 = args; _i < args_1.length; _i++) {
+        var arg = args_1[_i];
+        if (typeof arg === 'object' && !isPartialObserver(arg)) {
+            return arg;
+        }
+    }
+    return {};
+}
+/**
+ * Creates an observer that can be passed to the firestore-exp SDK. The
+ * observer converts all observed values into the format expected by the classic
+ * SDK.
+ *
+ * @param args - The list of arguments from an `onSnapshot` call.
+ * @param wrapper - The function that converts the firestore-exp type into the
+ * type used by this shim.
+ */
+function wrapObserver(args, wrapper) {
+    var _a, _b;
+    var userObserver;
+    if (isPartialObserver(args[0])) {
+        userObserver = args[0];
+    }
+    else if (isPartialObserver(args[1])) {
+        userObserver = args[1];
+    }
+    else if (typeof args[0] === 'function') {
+        userObserver = {
+            next: args[0],
+            error: args[1],
+            complete: args[2]
+        };
+    }
+    else {
+        userObserver = {
+            next: args[1],
+            error: args[2],
+            complete: args[3]
+        };
+    }
+    return {
+        next: function (val) {
+            if (userObserver.next) {
+                userObserver.next(wrapper(val));
+            }
+        },
+        error: (_a = userObserver.error) === null || _a === void 0 ? void 0 : _a.bind(userObserver),
+        complete: (_b = userObserver.complete) === null || _b === void 0 ? void 0 : _b.bind(userObserver)
+    };
+}
+var DocumentSnapshot = /** @class */ (function () {
+    function DocumentSnapshot(_firestore, _delegate) {
+        this._firestore = _firestore;
+        this._delegate = _delegate;
+    }
+    Object.defineProperty(DocumentSnapshot.prototype, "ref", {
+        get: function () {
+            return new DocumentReference(this._firestore, this._delegate.ref);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(DocumentSnapshot.prototype, "id", {
+        get: function () {
+            return this._delegate.id;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(DocumentSnapshot.prototype, "metadata", {
+        get: function () {
+            return this._delegate.metadata;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(DocumentSnapshot.prototype, "exists", {
+        get: function () {
+            return this._delegate.exists();
+        },
+        enumerable: false,
+        configurable: true
+    });
+    DocumentSnapshot.prototype.data = function (options) {
+        return this._delegate.data(options);
+    };
+    DocumentSnapshot.prototype.get = function (fieldPath, options
+    // We are using `any` here to avoid an explicit cast by our users.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ) {
+        return this._delegate.get(fieldPath, options);
+    };
+    DocumentSnapshot.prototype.isEqual = function (other) {
+        return snapshotEqual(this._delegate, other._delegate);
+    };
+    return DocumentSnapshot;
+}());
+var QueryDocumentSnapshot = /** @class */ (function (_super) {
+    __extends(QueryDocumentSnapshot, _super);
+    function QueryDocumentSnapshot() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    QueryDocumentSnapshot.prototype.data = function (options) {
+        var data = this._delegate.data(options);
+        if (this._delegate._converter) {
+            // Undefined is a possible valid value from converter.
+            return data;
+        }
+        else {
+            _debugAssert(data !== undefined, 'Document in a QueryDocumentSnapshot should exist');
+            return data;
+        }
+    };
+    return QueryDocumentSnapshot;
+}(DocumentSnapshot));
+var Query = /** @class */ (function () {
+    function Query(firestore, _delegate) {
+        this.firestore = firestore;
+        this._delegate = _delegate;
+        this._userDataWriter = new UserDataWriter(firestore);
+    }
+    Query.prototype.where = function (fieldPath, opStr, value) {
+        try {
+            // The "as string" cast is a little bit of a hack. `where` accepts the
+            // FieldPath Compat type as input, but is not typed as such in order to
+            // not expose this via our public typings file.
+            return new Query(this.firestore, query(this._delegate, where(fieldPath, opStr, value)));
+        }
+        catch (e) {
+            throw replaceFunctionName(e, /(orderBy|where)\(\)/, 'Query.$1()');
+        }
+    };
+    Query.prototype.orderBy = function (fieldPath, directionStr) {
+        try {
+            // The "as string" cast is a little bit of a hack. `orderBy` accepts the
+            // FieldPath Compat type as input, but is not typed as such in order to
+            // not expose this via our public typings file.
+            return new Query(this.firestore, query(this._delegate, orderBy(fieldPath, directionStr)));
+        }
+        catch (e) {
+            throw replaceFunctionName(e, /(orderBy|where)\(\)/, 'Query.$1()');
+        }
+    };
+    Query.prototype.limit = function (n) {
+        try {
+            return new Query(this.firestore, query(this._delegate, limit(n)));
+        }
+        catch (e) {
+            throw replaceFunctionName(e, 'limit()', 'Query.limit()');
+        }
+    };
+    Query.prototype.limitToLast = function (n) {
+        try {
+            return new Query(this.firestore, query(this._delegate, limitToLast(n)));
+        }
+        catch (e) {
+            throw replaceFunctionName(e, 'limitToLast()', 'Query.limitToLast()');
+        }
+    };
+    Query.prototype.startAt = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        try {
+            return new Query(this.firestore, query(this._delegate, startAt.apply(void 0, args)));
+        }
+        catch (e) {
+            throw replaceFunctionName(e, 'startAt()', 'Query.startAt()');
+        }
+    };
+    Query.prototype.startAfter = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        try {
+            return new Query(this.firestore, query(this._delegate, startAfter.apply(void 0, args)));
+        }
+        catch (e) {
+            throw replaceFunctionName(e, 'startAfter()', 'Query.startAfter()');
+        }
+    };
+    Query.prototype.endBefore = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        try {
+            return new Query(this.firestore, query(this._delegate, endBefore.apply(void 0, args)));
+        }
+        catch (e) {
+            throw replaceFunctionName(e, 'endBefore()', 'Query.endBefore()');
+        }
+    };
+    Query.prototype.endAt = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        try {
+            return new Query(this.firestore, query(this._delegate, endAt.apply(void 0, args)));
+        }
+        catch (e) {
+            throw replaceFunctionName(e, 'endAt()', 'Query.endAt()');
+        }
+    };
+    Query.prototype.isEqual = function (other) {
+        return queryEqual(this._delegate, other._delegate);
+    };
+    Query.prototype.get = function (options) {
+        var _this = this;
+        var query;
+        if ((options === null || options === void 0 ? void 0 : options.source) === 'cache') {
+            query = getDocsFromCache(this._delegate);
+        }
+        else if ((options === null || options === void 0 ? void 0 : options.source) === 'server') {
+            query = getDocsFromServer(this._delegate);
+        }
+        else {
+            query = getDocs(this._delegate);
+        }
+        return query.then(function (result) {
+            return new QuerySnapshot(_this.firestore, new QuerySnapshot$1(_this.firestore._delegate, _this._userDataWriter, _this._delegate, result._snapshot));
+        });
+    };
+    Query.prototype.onSnapshot = function () {
+        var _this = this;
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        var options = extractSnapshotOptions(args);
+        var observer = wrapObserver(args, function (snap) {
+            return new QuerySnapshot(_this.firestore, new QuerySnapshot$1(_this.firestore._delegate, _this._userDataWriter, _this._delegate, snap._snapshot));
+        });
+        return onSnapshot(this._delegate, options, observer);
+    };
+    Query.prototype.withConverter = function (converter) {
+        return new Query(this.firestore, converter
+            ? this._delegate.withConverter(FirestoreDataConverter.getInstance(this.firestore, converter))
+            : this._delegate.withConverter(null));
+    };
+    return Query;
+}());
+var DocumentChange = /** @class */ (function () {
+    function DocumentChange(_firestore, _delegate) {
+        this._firestore = _firestore;
+        this._delegate = _delegate;
+    }
+    Object.defineProperty(DocumentChange.prototype, "type", {
+        get: function () {
+            return this._delegate.type;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(DocumentChange.prototype, "doc", {
+        get: function () {
+            return new QueryDocumentSnapshot(this._firestore, this._delegate.doc);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(DocumentChange.prototype, "oldIndex", {
+        get: function () {
+            return this._delegate.oldIndex;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(DocumentChange.prototype, "newIndex", {
+        get: function () {
+            return this._delegate.newIndex;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return DocumentChange;
+}());
+var QuerySnapshot = /** @class */ (function () {
+    function QuerySnapshot(_firestore, _delegate) {
+        this._firestore = _firestore;
+        this._delegate = _delegate;
+    }
+    Object.defineProperty(QuerySnapshot.prototype, "query", {
+        get: function () {
+            return new Query(this._firestore, this._delegate.query);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(QuerySnapshot.prototype, "metadata", {
+        get: function () {
+            return this._delegate.metadata;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(QuerySnapshot.prototype, "size", {
+        get: function () {
+            return this._delegate.size;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(QuerySnapshot.prototype, "empty", {
+        get: function () {
+            return this._delegate.empty;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(QuerySnapshot.prototype, "docs", {
+        get: function () {
+            var _this = this;
+            return this._delegate.docs.map(function (doc) { return new QueryDocumentSnapshot(_this._firestore, doc); });
+        },
+        enumerable: false,
+        configurable: true
+    });
+    QuerySnapshot.prototype.docChanges = function (options) {
+        var _this = this;
+        return this._delegate
+            .docChanges(options)
+            .map(function (docChange) { return new DocumentChange(_this._firestore, docChange); });
+    };
+    QuerySnapshot.prototype.forEach = function (callback, thisArg) {
+        var _this = this;
+        this._delegate.forEach(function (snapshot) {
+            callback.call(thisArg, new QueryDocumentSnapshot(_this._firestore, snapshot));
+        });
+    };
+    QuerySnapshot.prototype.isEqual = function (other) {
+        return snapshotEqual(this._delegate, other._delegate);
+    };
+    return QuerySnapshot;
+}());
+var CollectionReference = /** @class */ (function (_super) {
+    __extends(CollectionReference, _super);
+    function CollectionReference(firestore, _delegate) {
+        var _this = _super.call(this, firestore, _delegate) || this;
+        _this.firestore = firestore;
+        _this._delegate = _delegate;
+        return _this;
+    }
+    Object.defineProperty(CollectionReference.prototype, "id", {
+        get: function () {
+            return this._delegate.id;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(CollectionReference.prototype, "path", {
+        get: function () {
+            return this._delegate.path;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(CollectionReference.prototype, "parent", {
+        get: function () {
+            var docRef = this._delegate.parent;
+            return docRef ? new DocumentReference(this.firestore, docRef) : null;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    CollectionReference.prototype.doc = function (documentPath) {
+        try {
+            if (documentPath === undefined) {
+                // Call `doc` without `documentPath` if `documentPath` is `undefined`
+                // as `doc` validates the number of arguments to prevent users from
+                // accidentally passing `undefined`.
+                return new DocumentReference(this.firestore, doc(this._delegate));
+            }
+            else {
+                return new DocumentReference(this.firestore, doc(this._delegate, documentPath));
+            }
+        }
+        catch (e) {
+            throw replaceFunctionName(e, 'doc()', 'CollectionReference.doc()');
+        }
+    };
+    CollectionReference.prototype.add = function (data) {
+        var _this = this;
+        return addDoc(this._delegate, data).then(function (docRef) { return new DocumentReference(_this.firestore, docRef); });
+    };
+    CollectionReference.prototype.isEqual = function (other) {
+        return refEqual(this._delegate, other._delegate);
+    };
+    CollectionReference.prototype.withConverter = function (converter) {
+        return new CollectionReference(this.firestore, converter
+            ? this._delegate.withConverter(FirestoreDataConverter.getInstance(this.firestore, converter))
+            : this._delegate.withConverter(null));
+    };
+    return CollectionReference;
+}(Query));
+function castReference(documentRef) {
+    return _cast(documentRef, DocumentReference$1);
+}
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+// The objects that are a part of this API are exposed to third-parties as
+// compiled javascript so we want to flag our private members with a leading
+// underscore to discourage their use.
+/**
+ * A `FieldPath` refers to a field in a document. The path may consist of a
+ * single field name (referring to a top-level field in the document), or a list
+ * of field names (referring to a nested field in the document).
+ */
+var FieldPath = /** @class */ (function () {
+    /**
+     * Creates a FieldPath from the provided field names. If more than one field
+     * name is provided, the path will point to a nested field in a document.
+     *
+     * @param fieldNames - A list of field names.
+     */
+    function FieldPath() {
+        var fieldNames = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            fieldNames[_i] = arguments[_i];
+        }
+        this._delegate = new (FieldPath$1.bind.apply(FieldPath$1, __spreadArray([void 0], fieldNames, false)))();
+    }
+    FieldPath.documentId = function () {
+        /**
+         * Internal Note: The backend doesn't technically support querying by
+         * document ID. Instead it queries by the entire document name (full path
+         * included), but in the cases we currently support documentId(), the net
+         * effect is the same.
+         */
+        return new FieldPath(_FieldPath.keyField().canonicalString());
+    };
+    FieldPath.prototype.isEqual = function (other) {
+        other = getModularInstance(other);
+        if (!(other instanceof FieldPath$1)) {
+            return false;
+        }
+        return this._delegate._internalPath.isEqual(other._internalPath);
+    };
+    return FieldPath;
+}());
+
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+var FieldValue = /** @class */ (function () {
+    function FieldValue(_delegate) {
+        this._delegate = _delegate;
+    }
+    FieldValue.serverTimestamp = function () {
+        var delegate = serverTimestamp();
+        delegate._methodName = 'FieldValue.serverTimestamp';
+        return new FieldValue(delegate);
+    };
+    FieldValue.delete = function () {
+        var delegate = deleteField();
+        delegate._methodName = 'FieldValue.delete';
+        return new FieldValue(delegate);
+    };
+    FieldValue.arrayUnion = function () {
+        var elements = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            elements[_i] = arguments[_i];
+        }
+        var delegate = arrayUnion.apply(void 0, elements);
+        delegate._methodName = 'FieldValue.arrayUnion';
+        return new FieldValue(delegate);
+    };
+    FieldValue.arrayRemove = function () {
+        var elements = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            elements[_i] = arguments[_i];
+        }
+        var delegate = arrayRemove.apply(void 0, elements);
+        delegate._methodName = 'FieldValue.arrayRemove';
+        return new FieldValue(delegate);
+    };
+    FieldValue.increment = function (n) {
+        var delegate = increment(n);
+        delegate._methodName = 'FieldValue.increment';
+        return new FieldValue(delegate);
+    };
+    FieldValue.prototype.isEqual = function (other) {
+        return this._delegate.isEqual(other._delegate);
+    };
+    return FieldValue;
+}());
+
+/**
+ * @license
+ * Copyright 2021 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+var firestoreNamespace = {
+    Firestore: Firestore,
+    GeoPoint: GeoPoint,
+    Timestamp: Timestamp,
+    Blob: Blob,
+    Transaction: Transaction,
+    WriteBatch: WriteBatch,
+    DocumentReference: DocumentReference,
+    DocumentSnapshot: DocumentSnapshot,
+    Query: Query,
+    QueryDocumentSnapshot: QueryDocumentSnapshot,
+    QuerySnapshot: QuerySnapshot,
+    CollectionReference: CollectionReference,
+    FieldPath: FieldPath,
+    FieldValue: FieldValue,
+    setLogLevel: setLogLevel,
+    CACHE_SIZE_UNLIMITED: CACHE_SIZE_UNLIMITED
+};
+/**
+ * Configures Firestore as part of the Firebase SDK by calling registerComponent.
+ *
+ * @param firebase - The FirebaseNamespace to register Firestore with
+ * @param firestoreFactory - A factory function that returns a new Firestore
+ *    instance.
+ */
+function configureForFirebase(firebase, firestoreFactory) {
+    firebase.INTERNAL.registerComponent(new Component('firestore-compat', function (container) {
+        var app = container.getProvider('app-compat').getImmediate();
+        var firestoreExp = container.getProvider('firestore').getImmediate();
+        return firestoreFactory(app, firestoreExp);
+    }, 'PUBLIC').setServiceProps(__assign({}, firestoreNamespace)));
+}
+
+/**
+ * @license
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Registers the main Firestore build with the components framework.
+ * Persistence can be enabled via `firebase.firestore().enablePersistence()`.
+ */
+function registerFirestore(instance) {
+    configureForFirebase(instance, function (app, firestoreExp) {
+        return new Firestore(app, firestoreExp, new IndexedDbPersistenceProvider());
+    });
+    instance.registerVersion(name, version);
+}
+registerFirestore(firebase);
+
+export { registerFirestore };
+//# sourceMappingURL=index.esm5.js.map

@@ -1,0 +1,79 @@
+{
+  "name": "@firebase/messaging",
+  "version": "0.12.5",
+  "description": "",
+  "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)",
+  "main": "dist/index.cjs.js",
+  "browser": "dist/esm/index.esm2017.js",
+  "module": "dist/esm/index.esm2017.js",
+  "sw": "dist/esm/index.sw.esm2017.js",
+  "sw-main": "dist/index.sw.cjs",
+  "esm5": "dist/esm/index.esm.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index-public.d.ts",
+      "require": "./dist/index.cjs.js",
+      "module": "./dist/esm/index.esm2017.js",
+      "esm5": "./dist/esm/index.esm.js",
+      "default": "./dist/esm/index.esm2017.js"
+    },
+    "./sw": {
+      "types": "./dist/sw/index-public.d.ts",
+      "require": "./dist/index.sw.cjs",
+      "default": "./dist/esm/index.sw.esm2017.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "typings": "./dist/index-public.d.ts",
+  "files": [
+    "dist",
+    "sw/package.json"
+  ],
+  "scripts": {
+    "lint": "eslint -c .eslintrc.js '**/*.ts' --ignore-path '../../.gitignore'",
+    "lint:fix": "eslint --fix -c .eslintrc.js '**/*.ts' --ignore-path '../../.gitignore'",
+    "build": "rollup -c && yarn api-report",
+    "build:deps": "lerna run --scope @firebase/'{app,messaging}' --include-dependencies build",
+    "build:release": "yarn build && yarn typings:public",
+    "dev": "rollup -c -w",
+    "test": "run-p --npm-path npm test:karma type-check lint ",
+    "test:integration": "run-p --npm-path npm test:karma type-check lint && cd ../../integration/messaging && npm run-script test",
+    "test:ci": "node ../../scripts/run_tests_in_ci.js",
+    "test:karma": "karma start --single-run",
+    "test:debug": "karma start --browsers=Chrome --auto-watch",
+    "api-report": "yarn api-report:main && yarn api-report:sw && yarn api-report:api-json",
+    "api-report:main": "ts-node-script ../../repo-scripts/prune-dts/extract-public-api.ts --package messaging --packageRoot . --typescriptDts ./dist/src/index.d.ts --rollupDts ./dist/private.d.ts --untrimmedRollupDts ./dist/internal.d.ts --publicDts ./dist/index-public.d.ts",
+    "api-report:sw": "ts-node-script ../../repo-scripts/prune-dts/extract-public-api.ts --package messaging-sw --packageRoot . --typescriptDts ./dist/src/index.sw.d.ts --rollupDts ./dist/sw/private.d.ts --untrimmedRollupDts ./dist/sw/internal.d.ts --publicDts ./dist/sw/index-public.d.ts",
+    "api-report:api-json": "api-extractor run --local --verbose",
+    "type-check": "tsc --noEmit",
+    "typings:public": "node ../../scripts/build/use_typings.js ./dist/index-public.d.ts"
+  },
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "@firebase/app": "0.x"
+  },
+  "dependencies": {
+    "@firebase/installations": "0.6.4",
+    "@firebase/messaging-interop-types": "0.2.0",
+    "@firebase/util": "1.9.3",
+    "@firebase/component": "0.6.4",
+    "idb": "7.1.1",
+    "tslib": "^2.1.0"
+  },
+  "devDependencies": {
+    "@firebase/app": "0.9.24",
+    "rollup": "2.79.1",
+    "rollup-plugin-typescript2": "0.31.2",
+    "@rollup/plugin-json": "4.1.0",
+    "ts-essentials": "9.3.0",
+    "typescript": "4.7.4"
+  },
+  "repository": {
+    "directory": "packages/messaging",
+    "type": "git",
+    "url": "https://github.com/firebase/firebase-js-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/firebase/firebase-js-sdk/issues"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "name": "@firebase/auth",
+  "version": "1.5.1",
+  "description": "The Firebase Authenticaton component of the Firebase JS SDK.",
+  "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)",
+  "main": "dist/node/index.js",
+  "react-native": "dist/rn/index.js",
+  "browser": "dist/esm2017/index.js",
+  "module": "dist/esm2017/index.js",
+  "cordova": "dist/cordova/index.js",
+  "webworker": "dist/index.webworker.esm5.js",
+  "esm5": "dist/esm5/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/auth-public.d.ts",
+      "node": {
+        "types": "./dist/node/index.d.ts",
+        "import": "./dist/node-esm/index.js",
+        "require": "./dist/node/index.js"
+      },
+      "react-native": {
+        "types": "./dist/rn/index.rn.d.ts",
+        "default": "./dist/rn/index.js"
+      },
+      "cordova": {
+        "types": "./dist/cordova/index.cordova.d.ts",
+        "default": "./dist/cordova/index.js"
+      },
+      "webworker": {
+        "types": "./dist/index.webworker.d.ts",
+        "default": "./dist/index.webworker.esm5.js"
+      },
+      "esm5": "./dist/esm5/index.js",
+      "browser": {
+        "require": "./dist/browser-cjs/index.js",
+        "import": "./dist/esm2017/index.js"
+      },
+      "default": "./dist/esm2017/index.js"
+    },
+    "./cordova": {
+      "types": "./dist/cordova/index.cordova.d.ts",
+      "default": "./dist/cordova/index.js"
+    },
+    "./internal": {
+      "types": "./dist/internal/index.d.ts",
+      "node": {
+        "types": "./dist/node/internal/index.d.ts",
+        "import": "./dist/node-esm/internal.js",
+        "require": "./dist/node/internal.js"
+      },
+      "react-native": {
+        "types": "./dist/rn/internal/index.d.ts",
+        "default": "./dist/rn/internal.js"
+      },
+      "cordova": {
+        "types": "./dist/cordova/internal/index.d.ts",
+        "default": "./dist/cordova/internal.js"
+      },
+      "esm5": "./dist/esm5/internal.js",
+      "browser": {
+        "require": "./dist/browser-cjs/internal.js",
+        "import": "./dist/esm2017/internal.js"
+      },
+      "default": "./dist/esm2017/internal.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "cordova/package.json",
+    "internal/package.json"
+  ],
+  "scripts": {
+    "lint": "eslint -c .eslintrc.js '**/*.ts' --ignore-path '../../.gitignore'",
+    "lint:fix": "eslint --fix -c .eslintrc.js '**/*.ts' --ignore-path '../../.gitignore'",
+    "build": "rollup -c && yarn api-report",
+    "build:deps": "lerna run --scope @firebase/auth --include-dependencies build",
+    "build:release": "yarn build && yarn typings:public",
+    "build:scripts": "tsc -moduleResolution node --module commonjs scripts/*.ts && ls scripts/*.js | xargs -I % sh -c 'terser %  -o %'",
+    "dev": "rollup -c -w",
+    "test": "run-p --npm-path npm lint test:all",
+    "test:all": "run-p --npm-path npm test:browser:unit test:node:unit test:integration test:browser:integration:prodbackend",
+    "test:integration": "firebase emulators:exec --project emulatedproject --only auth \"run-s --npm-path npm test:browser:integration:local test:node:integration:local test:webdriver\"",
+    "test:ci": "node ../../scripts/run_tests_in_ci.js -s test:all",
+    "test:integration:local": "run-s --npm-path npm test:node:integration:local test:browser:integration:local test:webdriver",
+    "test:browser": "karma start --single-run --local",
+    "test:browser:unit": "karma start --single-run --unit",
+    "test:browser:integration": "karma start --single-run --integration",
+    "test:browser:integration:local": "karma start --single-run --integration --local",
+    "test:browser:integration:prodbackend": "karma start --single-run --integration --prodbackend",
+    "test:browser:debug": "karma start --auto-watch",
+    "test:browser:unit:debug": "karma start --auto-watch --unit",
+    "test:cordova": "karma start --single-run --cordova",
+    "test:cordova:debug": "karma start --auto-watch --cordova",
+    "test:node": "run-s --npm-path npm test:node:unit test:node:integration:local",
+    "test:node:unit": "ts-node -O '{\"module\": \"commonjs\", \"target\": \"es6\"}' scripts/run_node_tests.ts",
+    "test:node:integration": "ts-node -O '{\"module\": \"commonjs\", \"target\": \"es6\"}' scripts/run_node_tests.ts --integration",
+    "test:node:integration:local": "ts-node -O '{\"module\": \"commonjs\", \"target\": \"es6\"}' scripts/run_node_tests.ts --integration --local",
+    "test:webdriver": "rollup -c test/integration/webdriver/static/rollup.config.js && ts-node -O '{\"module\": \"commonjs\", \"target\": \"es6\"}' scripts/run_node_tests.ts --webdriver",
+    "api-report": "api-extractor run --local --verbose",
+    "doc": "api-documenter markdown --input temp --output docs",
+    "build:doc": "yarn build && yarn doc",
+    "typings:public": "node ../../scripts/build/use_typings.js ./dist/auth-public.d.ts"
+  },
+  "peerDependencies": {
+    "@firebase/app": "0.x",
+    "@react-native-async-storage/async-storage": "^1.18.1"
+  },
+  "peerDependenciesMeta": {
+    "@react-native-async-storage/async-storage": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@firebase/component": "0.6.4",
+    "@firebase/logger": "0.4.0",
+    "@firebase/util": "1.9.3",
+    "undici": "5.26.5",
+    "tslib": "^2.1.0"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@firebase/app": "0.9.25",
+    "@rollup/plugin-json": "4.1.0",
+    "@rollup/plugin-strip": "2.1.0",
+    "@types/express": "4.17.17",
+    "chromedriver": "114.0.2",
+    "rollup": "2.79.1",
+    "rollup-plugin-sourcemaps": "0.6.3",
+    "rollup-plugin-typescript2": "0.31.2",
+    "selenium-webdriver": "4.8.0",
+    "totp-generator": "0.0.14",
+    "typescript": "4.7.4"
+  },
+  "repository": {
+    "directory": "packages/auth",
+    "type": "git",
+    "url": "https://github.com/firebase/firebase-js-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/firebase/firebase-js-sdk/issues"
+  },
+  "typings": "./dist/auth-public.d.ts",
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "reportDir": "./coverage/node"
+  }
+}

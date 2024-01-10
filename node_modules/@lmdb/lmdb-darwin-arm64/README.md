@@ -1,0 +1,1 @@
+Platform specific binary for lmdb on darwin OS with arm64 architecture

@@ -1,0 +1,50 @@
+{
+  "name": "long",
+  "version": "5.2.3",
+  "author": "Daniel Wirtz <dcode@dcode.io>",
+  "description": "A Long class for representing a 64-bit two's-complement integer value.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dcodeIO/long.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dcodeIO/long.js/issues"
+  },
+  "keywords": [
+    "math",
+    "long",
+    "int64"
+  ],
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "umd/index.js",
+  "types": "umd/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./index.d.ts",
+        "default": "./index.js"
+      },
+      "require": {
+        "types": "./umd/index.d.ts",
+        "default": "./umd/index.js"
+      }
+    }
+  },
+  "scripts": {
+    "build": "esm2umd Long index.js > umd/index.js",
+    "test": "node tests"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "umd/index.js",
+    "umd/index.d.ts",
+    "umd/package.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "devDependencies": {
+    "esm2umd": "^0.2.1"
+  }
+}

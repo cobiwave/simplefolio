@@ -1,0 +1,75 @@
+{
+    "name": "htmlparser2",
+    "description": "Fast & forgiving HTML/XML parser",
+    "version": "7.2.0",
+    "author": "Felix Boehm <me@feedic.com>",
+    "funding": [
+        "https://github.com/fb55/htmlparser2?sponsor=1",
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/fb55"
+        }
+    ],
+    "license": "MIT",
+    "sideEffects": false,
+    "keywords": [
+        "html",
+        "parser",
+        "streams",
+        "xml",
+        "dom",
+        "rss",
+        "feed",
+        "atom"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/fb55/htmlparser2.git"
+    },
+    "directories": {
+        "lib": "lib/"
+    },
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "files": [
+        "lib/**/*"
+    ],
+    "scripts": {
+        "test": "npm run test:jest && npm run lint",
+        "test:jest": "jest",
+        "lint": "npm run lint:es && npm run lint:prettier",
+        "lint:es": "eslint src",
+        "lint:prettier": "npm run format:prettier:raw -- --check",
+        "format": "npm run format:es && npm run format:prettier",
+        "format:es": "npm run lint:es -- --fix",
+        "format:prettier": "npm run format:prettier:raw -- --write",
+        "format:prettier:raw": "prettier '**/*.{ts,md,json,yml}'",
+        "build": "tsc",
+        "prepare": "npm run build"
+    },
+    "dependencies": {
+        "domelementtype": "^2.0.1",
+        "domhandler": "^4.2.2",
+        "domutils": "^2.8.0",
+        "entities": "^3.0.1"
+    },
+    "devDependencies": {
+        "@types/jest": "^27.0.2",
+        "@types/node": "^16.11.7",
+        "@typescript-eslint/eslint-plugin": "^5.3.1",
+        "@typescript-eslint/parser": "^5.3.1",
+        "eslint": "^8.2.0",
+        "eslint-config-prettier": "^8.1.0",
+        "jest": "^27.3.1",
+        "prettier": "^2.4.1",
+        "ts-jest": "^27.0.7",
+        "typescript": "^4.4.4"
+    },
+    "jest": {
+        "preset": "ts-jest",
+        "testEnvironment": "node"
+    },
+    "prettier": {
+        "tabWidth": 4
+    }
+}

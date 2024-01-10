@@ -1,0 +1,25 @@
+{
+  "name": "@firebase/performance-types",
+  "version": "0.2.0",
+  "description": "@firebase/performance Types",
+  "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "tsc",
+    "test:ci": "node ../../scripts/run_tests_in_ci.js"
+  },
+  "files": [
+    "index.d.ts"
+  ],
+  "devDependencies": {
+    "typescript": "4.7.4"
+  },
+  "repository": {
+    "directory": "packages/performance-types",
+    "type": "git",
+    "url": "https://github.com/firebase/firebase-js-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/firebase/firebase-js-sdk/issues"
+  }
+}

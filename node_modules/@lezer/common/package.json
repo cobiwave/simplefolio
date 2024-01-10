@@ -1,0 +1,36 @@
+{
+  "name": "@lezer/common",
+  "version": "0.15.12",
+  "description": "Syntax tree data structure and parser interfaces for the lezer parser",
+  "main": "dist/index.cjs",
+  "type": "module",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Marijn Haverbeke <marijnh@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "ist": "^1.1.1",
+    "rollup": "^2.52.2",
+    "@rollup/plugin-commonjs": "^15.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "typescript": "^4.3.4",
+    "@types/mocha": "^5.2.6",
+    "ts-node": "^10.0.0",
+    "mocha": "^9.0.1"
+  },
+  "files": ["dist"],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/lezer-parser/common.git"
+  },
+  "scripts": {
+    "watch": "rollup -w -c rollup.config.js",
+    "prepare": "rollup -c rollup.config.js",
+    "test": "mocha"
+  }
+}

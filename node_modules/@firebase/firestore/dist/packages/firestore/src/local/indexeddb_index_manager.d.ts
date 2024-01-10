@@ -1,0 +1,137 @@
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+import { User } from '../auth/user';
+import { DatabaseId } from '../core/database_info';
+import { Target } from '../core/target';
+import { IndexEntry } from '../index/index_entry';
+import { DocumentMap } from '../model/collections';
+import { DocumentKey } from '../model/document_key';
+import { FieldIndex, IndexOffset } from '../model/field_index';
+import { ResourcePath } from '../model/path';
+import { IndexManager, IndexType } from './index_manager';
+import { PersistencePromise } from './persistence_promise';
+import { PersistenceTransaction } from './persistence_transaction';
+/**
+ * A persisted implementation of IndexManager.
+ *
+ * PORTING NOTE: Unlike iOS and Android, the Web SDK does not memoize index
+ * data as it supports multi-tab access.
+ */
+export declare class IndexedDbIndexManager implements IndexManager {
+    private user;
+    private readonly databaseId;
+    /**
+     * An in-memory copy of the index entries we've already written since the SDK
+     * launched. Used to avoid re-writing the same entry repeatedly.
+     *
+     * This is *NOT* a complete cache of what's in persistence and so can never be
+     * used to satisfy reads.
+     */
+    private collectionParentsCache;
+    private uid;
+    /**
+     * Maps from a target to its equivalent list of sub-targets. Each sub-target
+     * contains only one term from the target's disjunctive normal form (DNF).
+     */
+    private targetToDnfSubTargets;
+    constructor(user: User, databaseId: DatabaseId);
+    /**
+     * Adds a new entry to the collection parent index.
+     *
+     * Repeated calls for the same collectionPath should be avoided within a
+     * transaction as IndexedDbIndexManager only caches writes once a transaction
+     * has been committed.
+     */
+    addToCollectionParentIndex(transaction: PersistenceTransaction, collectionPath: ResourcePath): PersistencePromise<void>;
+    getCollectionParents(transaction: PersistenceTransaction, collectionId: string): PersistencePromise<ResourcePath[]>;
+    addFieldIndex(transaction: PersistenceTransaction, index: FieldIndex): PersistencePromise<void>;
+    deleteFieldIndex(transaction: PersistenceTransaction, index: FieldIndex): PersistencePromise<void>;
+    deleteAllFieldIndexes(transaction: PersistenceTransaction): PersistencePromise<void>;
+    createTargetIndexes(transaction: PersistenceTransaction, target: Target): PersistencePromise<void>;
+    getDocumentsMatchingTarget(transaction: PersistenceTransaction, target: Target): PersistencePromise<DocumentKey[] | null>;
+    private getSubTargets;
+    /**
+     * Constructs a key range query on `DbIndexEntryStore` that unions all
+     * bounds.
+     */
+    private generateIndexRanges;
+    /** Generates the lower bound for `arrayValue` and `directionalValue`. */
+    private generateLowerBound;
+    /** Generates the upper bound for `arrayValue` and `directionalValue`. */
+    private generateUpperBound;
+    private getFieldIndex;
+    getIndexType(transaction: PersistenceTransaction, target: Target): PersistencePromise<IndexType>;
+    /**
+     * Returns the byte encoded form of the directional values in the field index.
+     * Returns `null` if the document does not have all fields specified in the
+     * index.
+     */
+    private encodeDirectionalElements;
+    /** Encodes a single value to the ascending index format. */
+    private encodeSingleElement;
+    /**
+     * Returns an encoded form of the document key that sorts based on the key
+     * ordering of the field index.
+     */
+    private encodeDirectionalKey;
+    /**
+     * Encodes the given field values according to the specification in `target`.
+     * For IN queries, a list of possible values is returned.
+     */
+    private encodeValues;
+    /**
+     * Encodes the given bounds according to the specification in `target`. For IN
+     * queries, a list of possible values is returned.
+     */
+    private encodeBound;
+    /** Returns the byte representation for the provided encoders. */
+    private getEncodedBytes;
+    /**
+     * Creates a separate encoder for each element of an array.
+     *
+     * The method appends each value to all existing encoders (e.g. filter("a",
+     * "==", "a1").filter("b", "in", ["b1", "b2"]) becomes ["a1,b1", "a1,b2"]). A
+     * list of new encoders is returned.
+     */
+    private expandIndexValues;
+    private isInFilter;
+    getFieldIndexes(transaction: PersistenceTransaction, collectionGroup?: string): PersistencePromise<FieldIndex[]>;
+    getNextCollectionGroupToUpdate(transaction: PersistenceTransaction): PersistencePromise<string | null>;
+    updateCollectionGroup(transaction: PersistenceTransaction, collectionGroup: string, offset: IndexOffset): PersistencePromise<void>;
+    updateIndexEntries(transaction: PersistenceTransaction, documents: DocumentMap): PersistencePromise<void>;
+    private addIndexEntry;
+    private deleteIndexEntry;
+    private getExistingIndexEntries;
+    /** Creates the index entries for the given document. */
+    private computeIndexEntries;
+    /**
+     * Updates the index entries for the provided document by deleting entries
+     * that are no longer referenced in `newEntries` and adding all newly added
+     * entries.
+     */
+    private updateEntries;
+    private getNextSequenceNumber;
+    /**
+     * Returns a new set of IDB ranges that splits the existing range and excludes
+     * any values that match the `notInValue` from these ranges. As an example,
+     * '[foo > 2 && foo != 3]` becomes  `[foo > 2 && < 3, foo > 3]`.
+     */
+    private createRange;
+    isRangeMatchable(lowerBound: IndexEntry, upperBound: IndexEntry): boolean;
+    getMinOffsetFromCollectionGroup(transaction: PersistenceTransaction, collectionGroup: string): PersistencePromise<IndexOffset>;
+    getMinOffset(transaction: PersistenceTransaction, target: Target): PersistencePromise<IndexOffset>;
+}

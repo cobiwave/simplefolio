@@ -1,0 +1,75 @@
+{
+  "name": "@firebase/storage",
+  "version": "0.12.0",
+  "description": "",
+  "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)",
+  "main": "dist/index.node.cjs.js",
+  "module": "dist/index.esm2017.js",
+  "browser": "dist/index.esm2017.js",
+  "esm5": "dist/index.esm5.js",
+  "exports": {
+    ".": {
+      "types": "./dist/storage-public.d.ts",
+      "node": {
+        "import": "./dist/node-esm/index.node.esm.js",
+        "default": "./dist/index.node.cjs.js"
+      },
+      "esm5": "./dist/index.esm5.js",
+      "browser": {
+        "require": "./dist/index.cjs.js",
+        "import": "./dist/index.esm2017.js"
+      },
+      "default": "./dist/index.esm2017.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "bundle": "rollup -c",
+    "lint": "eslint -c .eslintrc.js '**/*.ts' --ignore-path '../../.gitignore'",
+    "lint:fix": "eslint --fix -c .eslintrc.js '**/*.ts' --ignore-path '../../.gitignore'",
+    "build": "rollup -c rollup.config.js && yarn api-report",
+    "build:deps": "lerna run --scope @firebase/storage --include-dependencies build",
+    "dev": "rollup -c -w",
+    "test": "run-p --npm-path npm test:browser test:node lint",
+    "test:ci": "node ../../scripts/run_tests_in_ci.js -s test:browser test:node",
+    "test:browser:unit": "karma start --single-run --unit",
+    "test:browser:integration": "karma start --single-run --integration",
+    "test:browser": "karma start --single-run",
+    "test:node": "TS_NODE_FILES=true TS_NODE_CACHE=NO TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' nyc --reporter lcovonly -- mocha 'test/{,!(browser)/**/}*.test.ts' --file src/index.node.ts --config ../../config/mocharc.node.js",
+    "test:debug": "karma start --browser=Chrome",
+    "prettier": "prettier --write 'src/**/*.ts' 'test/**/*.ts'",
+    "api-report": "api-extractor run --local --verbose && ts-node-script ../../repo-scripts/prune-dts/prune-dts.ts --input dist/storage-public.d.ts --output dist/storage-public.d.ts",
+    "typings:public": "node ../../scripts/build/use_typings.js ./dist/storage-public.d.ts"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@firebase/util": "1.9.3",
+    "@firebase/component": "0.6.4",
+    "undici": "5.26.5",
+    "tslib": "^2.1.0"
+  },
+  "peerDependencies": {
+    "@firebase/app": "0.x"
+  },
+  "devDependencies": {
+    "@firebase/app": "0.9.24",
+    "@firebase/auth": "1.5.0",
+    "rollup": "2.79.1",
+    "@rollup/plugin-alias": "3.1.9",
+    "@rollup/plugin-json": "4.1.0",
+    "rollup-plugin-typescript2": "0.31.2",
+    "typescript": "4.7.4"
+  },
+  "repository": {
+    "directory": "packages/storage",
+    "type": "git",
+    "url": "https://github.com/firebase/firebase-js-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/firebase/firebase-js-sdk/issues"
+  },
+  "typings": "./dist/storage-public.d.ts"
+}

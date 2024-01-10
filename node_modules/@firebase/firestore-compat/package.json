@@ -1,0 +1,77 @@
+{
+  "name": "@firebase/firestore-compat",
+  "version": "0.3.23",
+  "description": "The Cloud Firestore component of the Firebase JS SDK.",
+  "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)",
+  "main": "dist/index.node.cjs.js",
+  "react-native": "dist/index.rn.js",
+  "browser": "dist/index.esm2017.js",
+  "module": "dist/index.esm2017.js",
+  "esm5": "dist/index.esm5.js",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "node": {
+        "import": "./dist/node-esm/index.node.esm.js",
+        "require": "./dist/index.node.cjs.js"
+      },
+      "react-native": "./dist/index.rn.js",
+      "esm5": "./dist/index.esm5.js",
+      "browser": {
+        "require": "./dist/index.cjs.js",
+        "import": "./dist/index.esm2017.js"
+      },
+      "default": "./dist/index.esm2017.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint -c .eslintrc.js '**/*.ts' --ignore-path '../../.gitignore'",
+    "lint:fix": "eslint --fix -c .eslintrc.js '**/*.ts' --ignore-path '../../.gitignore'",
+    "prettier": "prettier --write '*.js' '@(src|test)/**/*.ts'",
+    "build": "rollup -c ./rollup.config.js",
+    "build:console": "node tools/console.build.js",
+    "build:deps": "lerna run --scope @firebase/firestore-compat --include-dependencies build",
+    "build:release": "yarn build && yarn add-compat-overloads",
+    "test": "run-s --npm-path npm lint test:all",
+    "test:ci": "node ../../scripts/run_tests_in_ci.js -s test:all",
+    "test:all": "run-p --npm-path npm test:browser test:node",
+    "test:browser": "karma start --single-run",
+    "test:node": "mocha --require babel-register.js --require src/index.node.ts --timeout 5000 'test/*.test.ts'",
+    "add-compat-overloads": "ts-node-script ../../scripts/build/create-overloads.ts -i ../firestore/dist/index.d.ts -o dist/src/index.d.ts -a -r Firestore:types.FirebaseFirestore -r CollectionReference:types.CollectionReference -r DocumentReference:types.DocumentReference -r Query:types.Query -r FirebaseApp:FirebaseAppCompat --moduleToEnhance @firebase/firestore"
+  },
+  "peerDependencies": {
+    "@firebase/app-compat": "0.x"
+  },
+  "dependencies": {
+    "@firebase/component": "0.6.4",
+    "@firebase/firestore": "4.4.0",
+    "@firebase/util": "1.9.3",
+    "@firebase/firestore-types": "3.0.0",
+    "tslib": "^2.1.0"
+  },
+  "devDependencies": {
+    "@firebase/app-compat": "0.2.24",
+    "@types/eslint": "7.29.0",
+    "rollup": "2.79.1",
+    "rollup-plugin-sourcemaps": "0.6.3",
+    "rollup-plugin-terser": "7.0.2",
+    "rollup-plugin-typescript2": "0.31.2",
+    "@rollup/plugin-node-resolve": "13.3.0",
+    "ts-node": "10.9.1",
+    "typescript": "4.7.4"
+  },
+  "license": "Apache-2.0",
+  "typings": "dist/src/index.d.ts",
+  "repository": {
+    "directory": "packages/firestore-compat",
+    "type": "git",
+    "url": "https://github.com/firebase/firebase-js-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/firebase/firebase-js-sdk/issues"
+  }
+}

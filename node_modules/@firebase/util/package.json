@@ -1,0 +1,68 @@
+{
+  "name": "@firebase/util",
+  "version": "1.9.3",
+  "description": "",
+  "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)",
+  "main": "dist/index.node.cjs.js",
+  "browser": "dist/index.esm2017.js",
+  "module": "dist/index.esm2017.js",
+  "esm5": "dist/index.esm5.js",
+  "exports": {
+    ".": {
+      "types": "./dist/util-public.d.ts",
+      "node": {
+        "import": "./dist/node-esm/index.node.esm.js",
+        "require": "./dist/index.node.cjs.js"
+      },
+      "esm5": "./dist/index.esm5.js",
+      "browser": {
+        "require": "./dist/index.cjs.js",
+        "import": "./dist/index.esm2017.js"
+      },
+      "default": "./dist/index.esm2017.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint -c .eslintrc.js '**/*.ts' --ignore-path '../../.gitignore'",
+    "lint:fix": "eslint --fix -c .eslintrc.js '**/*.ts' --ignore-path '../../.gitignore'",
+    "build": "rollup -c && yarn api-report",
+    "build:deps": "lerna run --scope @firebase/util --include-dependencies build",
+    "dev": "rollup -c -w",
+    "prettier": "prettier --write 'src/**/*.ts' 'test/**/*.ts'",
+    "test": "run-p lint test:all",
+    "test:ci": "node ../../scripts/run_tests_in_ci.js -s test:all",
+    "test:all": "run-p test:browser test:node",
+    "test:browser": "karma start --single-run",
+    "test:node": "TS_NODE_CACHE=NO TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' nyc --reporter lcovonly -- mocha test/**/*.test.* --config ../../config/mocharc.node.js",
+    "api-report": "api-extractor run --local --verbose",
+    "typings:public": "node ../../scripts/build/use_typings.js ./dist/util-public.d.ts"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "tslib": "^2.1.0"
+  },
+  "devDependencies": {
+    "rollup": "2.79.1",
+    "rollup-plugin-typescript2": "0.31.2",
+    "typescript": "4.7.4"
+  },
+  "repository": {
+    "directory": "packages/util",
+    "type": "git",
+    "url": "https://github.com/firebase/firebase-js-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/firebase/firebase-js-sdk/issues"
+  },
+  "typings": "./dist/util-public.d.ts",
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "reportDir": "./coverage/node"
+  }
+}

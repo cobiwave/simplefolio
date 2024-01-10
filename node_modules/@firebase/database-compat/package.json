@@ -1,0 +1,72 @@
+{
+  "name": "@firebase/database-compat",
+  "version": "1.0.2",
+  "description": "The Realtime Database component of the Firebase JS SDK.",
+  "author": "Firebase <firebase-support@google.com> (https://firebase.google.com/)",
+  "main": "dist/index.js",
+  "browser": "dist/index.esm2017.js",
+  "module": "dist/index.esm2017.js",
+  "esm5": "dist/index.esm5.js",
+  "license": "Apache-2.0",
+  "typings": "dist/database-compat/src/index.d.ts",
+  "files": [
+    "dist",
+    "standalone/package.json"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/database-compat/src/index.d.ts",
+      "node": {
+        "types": "./dist/database-compat/src/index.node.d.ts",
+        "import": "./dist/node-esm/index.js",
+        "require": "./dist/index.js"
+      },
+      "esm5": "./dist/index.esm5.js",
+      "browser": {
+        "require": "./dist/index.js",
+        "import": "./dist/index.esm2017.js"
+      },
+      "default": "./dist/index.esm2017.js"
+    },
+    "./standalone": {
+      "types": "./dist/database-compat/src/index.standalone.d.ts",
+      "node": "./dist/index.standalone.js",
+      "default": "./dist/index.standalone.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "lint": "eslint -c .eslintrc.js '**/*.ts' --ignore-path '../../.gitignore'",
+    "lint:fix": "eslint --fix -c .eslintrc.js '**/*.ts'  --ignore-path '../../.gitignore'",
+    "prettier": "prettier --write '*.js' '*.ts' '@(src|test)/**/*.ts'",
+    "build": "rollup -c rollup.config.js",
+    "build:release": "yarn build && yarn add-compat-overloads",
+    "build:deps": "lerna run --scope @firebase/database-compat --include-dependencies build",
+    "dev": "rollup -c -w",
+    "test": "run-p --npm-path npm lint test:browser test:node",
+    "test:ci": "node ../../scripts/run_tests_in_ci.js -s test",
+    "test:browser": "karma start --single-run",
+    "test:node": "TS_NODE_FILES=true TS_NODE_CACHE=NO TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' nyc --reporter lcovonly -- mocha 'test/{,!(browser)/**/}*.test.ts' --file src/index.node.ts --config ../../config/mocharc.node.js",
+    "add-compat-overloads": "ts-node-script ../../scripts/build/create-overloads.ts -i ../database/dist/public.d.ts -o dist/database-compat/src/index.d.ts -a -r Database:types.FirebaseDatabase -r Query:types.Query -r DatabaseReference:types.Reference -r FirebaseApp:FirebaseAppCompat --moduleToEnhance @firebase/database"
+  },
+  "dependencies": {
+    "@firebase/database": "1.0.2",
+    "@firebase/database-types": "1.0.0",
+    "@firebase/logger": "0.4.0",
+    "@firebase/util": "1.9.3",
+    "@firebase/component": "0.6.4",
+    "tslib": "^2.1.0"
+  },
+  "devDependencies": {
+    "@firebase/app-compat": "0.2.25",
+    "typescript": "4.7.4"
+  },
+  "repository": {
+    "directory": "packages/database-compat",
+    "type": "git",
+    "url": "https://github.com/firebase/firebase-js-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/firebase/firebase-js-sdk/issues"
+  }
+}
