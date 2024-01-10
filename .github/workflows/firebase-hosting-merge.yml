@@ -19,4 +19,4 @@ jobs:
           channelId: live
           projectId: portfoliowebsite-226ba
         env:
-          FIREBASE_CLI_PREVIEWS: webframeworks
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
