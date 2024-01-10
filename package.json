@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "private": "true",
   "description": "A clean, beautiful and responsive portfolio template for Developers!",
-  "source": "src/index.html",
+  "source": ".out/src/index.html",
   "scripts": {
     "start": "parcel",
     "build": "parcel build"
