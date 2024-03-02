@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  myapp:
+    image: simplefoliolunajedu
+    ports:
+      - "1234:1234"
+    volumes:
+      - ./src/:/app/src/

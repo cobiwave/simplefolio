@@ -1,25 +1,22 @@
 FROM node:latest
 
 # Set the working directory
-WORKDIR /usr
+WORKDIR /app
 
 # Copy only the package.json and package-lock.json to leverage Docker caching
 COPY package.json ./
 
-# Install dependencies
-RUN npm install
-
-# Copy the rest of the application code
-COPY . .
-
-# Run npm audit fix
-RUN npm audit fix
+# Install dependencies and fix audit issues
+RUN npm install && npm audit fix
 
 # Install additional dependencies if needed
 RUN npm i @parcel/transformer-sass
 
-# Expose the port your app runs on
-EXPOSE 3000
+# Update dependencies to the latest versions allowed by version constraints
+RUN npm update
+
+# Copy the rest of the application code
+COPY . .
 
 # Start the application
 CMD ["npm", "start"]
