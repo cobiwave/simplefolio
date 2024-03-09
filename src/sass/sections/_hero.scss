@@ -20,9 +20,9 @@
 
   // If you want to set a background image on the hero section, uncomment these with your custom image
 
-  background: url("/src/assets/background.png");
+  /* background: url("/src/assets/background.png");
   background-position: center;
-  background-size: cover;
+  background-size: cover; */
 
   @include respond(phone) {
     padding: 0rem $default-font-size;
