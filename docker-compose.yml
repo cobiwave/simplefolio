@@ -2,7 +2,7 @@ version: '3'
 
 services:
   myapp:
-    image: simplefoliolunajedu
+    image: simplefoliolunajedu:20.11.1
     ports:
       - "1234:1234"
     volumes:
