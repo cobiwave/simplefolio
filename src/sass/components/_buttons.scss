@@ -29,24 +29,24 @@
   -moz-border-image: -moz-linear-gradient(
     135deg,
     $primary-color 0%,
-    $secondary-color 100%
+    $third-color 100%
   );
   -webkit-border-image: -webkit-linear-gradient(
     135deg,
     $primary-color 0%,
-    $secondary-color 100%
+    $third-color 100%
   );
   border-image: linear-gradient(
     135deg,
     $primary-color 0%,
-    $secondary-color 100%
+    $third-color 100%
   );
   -webkit-border-image-slice: 1;
   border-image-slice: 1;
   @include supportIE11() {
-    color: $secondary-color !important;
+    color: $third-color !important;
     &:hover {
-      color: $black-color !important;
+      color: $white-color !important;
     }
   }
 
@@ -73,7 +73,7 @@
     text-decoration: none;
 
     @include respond(phone) {
-      -webkit-text-fill-color: $secondary-color;
+      -webkit-text-fill-color: $dark-grey;
     }
 
     &::after {

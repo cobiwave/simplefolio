@@ -39,9 +39,12 @@ a:hover {
 }
 
 .text-color-main {
-  @include supportColorForIE11();
-
-  // Responsive text purple style
+  @include supportIE11() {
+    color: $dark-grey !important;
+  }
+    &:hover {
+      color: $black-color !important;
+    }
   @include respond(phone) {
     background-image: none;
     -webkit-text-fill-color: $third-color;
@@ -49,7 +52,7 @@ a:hover {
 
   &:hover {
     transform: translateX(2px);
-  }
+  } 
 }
 
 .text-small-main {

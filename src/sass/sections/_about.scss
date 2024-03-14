@@ -58,7 +58,7 @@
         }
 
         &--important {
-          background: darken($secondary-color, 1%);
+          background: darken($secondary-color, 80%);
           display: inline-block;
           font-style: italic;
           padding: 0 0.3rem;
