@@ -46,7 +46,7 @@
   @include supportIE11() {
     color: $secondary-color !important;
     &:hover {
-      color: $white-color !important;
+      color: $black-color !important;
     }
   }
 

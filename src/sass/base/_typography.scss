@@ -44,8 +44,16 @@ a:hover {
   // Responsive text purple style
   @include respond(phone) {
     background-image: none;
-    -webkit-text-fill-color: $secondary-color;
+    -webkit-text-fill-color: $third-color;
   }
+
+  &:hover {
+    transform: translateX(2px);
+  }
+}
+
+.text-small-main {
+  font-size: $small-font-size;
 
   &:hover {
     transform: translateX(2px);
