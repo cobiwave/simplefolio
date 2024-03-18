@@ -1,0 +1,132 @@
+.navbar-brand  {
+  margin-left: 5rem;
+  margin-right: 5rem;
+  &__text {
+    color: darken($white-color, 50%);
+    font-size: 1.3rem;
+    a {
+      color: darken($white-color, 50%);
+      font-size: 1.3rem;
+      transition: all 0.4s;
+      background-color: $dark-grey;
+      &:hover,
+      &:active {
+        color: $primary-color;
+        -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+        box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+  & hr {
+    margin: 5rem auto;
+    border: 0;
+    border-top: 2px solid grey;
+  }
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 1rem;
+  a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: $dark-grey;
+    margin: $default-font-size $default-font-size;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.back-to-top i {
+  color: $white-color;
+  margin: 1rem 0 $default-font-size;
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+@media (max-width: 100px) {
+    .navbar-scroll {
+      background-color: #000000;
+    }
+       
+    .navbar-scroll .navbar-brand,
+    .navbar-scroll .nav-link,
+    .navbar-scroll .fa-bars {
+      color: #4f4f4f !important;
+    }         
+  }
+  
+  .navbar {
+    transition: all 0.4s;
+  }
+  
+  .navbar-brand {
+    letter-spacing: 3px;
+    font-size: 4rem;
+    font-weight: 200;
+    transition: all 0.4s;
+
+    &:hover{
+      color: #fdfffd;
+    }
+
+  }
+  .navbar-scroll .navbar-brand,
+  .navbar-scroll .nav-link,
+  .navbar-scroll .fa-bars {
+    color: #87f39b;
+    &:hover{
+      color: #fdfffd;
+    }
+  }
+
+  .nav-link{
+    font-size: $default-font-size;
+    font-weight: 500;
+
+    padding: 0;
+
+    &:hover{
+      color: #fdfffd;
+    }
+
+  }
+  
+  .navbar-scroll {
+    box-shadow: none;
+    &:hover{
+      color: #fdfffd;
+    }
+  }
+  
+  .navbar-scrolled {
+    box-shadow: 0 10px 20px 0 rgb(58, 248, 137);
+    &:hover{
+      color: #fdfffd;
+    }
+  }
+  
+  .navbar-scrolled .navbar-brand,
+  .navbar-scrolled .nav-link,
+  .navbar-scrolled .fa-bars {
+    color: #4f4f4f;
+    &:hover{
+      color: #fdfffd;
+    }
+  }
+  
+  .navbar-scrolled {
+    background-color:#87f39b;
+    &:hover{
+      color: #fdfffd;
+    }
+  }

@@ -64,7 +64,7 @@
     );
 
     @include respond(phone) {
-      background-image: none;
+      background-image: black;
     }
   }
 

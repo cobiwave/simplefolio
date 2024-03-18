@@ -1,9 +1,9 @@
 #about {
-  background-color: $primary-color;
+  background-color: $white-color;
   background-image: linear-gradient(
     135deg,
-    $primary-color 0%,
-    $secondary-color 100%
+    $primary-color 100%,
+    $secondary-color 0%
   );
   color: $white-color;
   height: 100%;
