@@ -29,22 +29,22 @@
   -moz-border-image: -moz-linear-gradient(
     135deg,
     $primary-color 0%,
-    $secondary-color 100%
+    $third-color 100%
   );
   -webkit-border-image: -webkit-linear-gradient(
     135deg,
     $primary-color 0%,
-    $secondary-color 100%
+    $third-color 100%
   );
   border-image: linear-gradient(
     135deg,
     $primary-color 0%,
-    $secondary-color 100%
+    $third-color 100%
   );
   -webkit-border-image-slice: 1;
   border-image-slice: 1;
   @include supportIE11() {
-    color: $secondary-color !important;
+    color: $third-color !important;
     &:hover {
       color: $white-color !important;
     }
@@ -59,21 +59,21 @@
   &::after {
     background-image: linear-gradient(
       135deg,
-      $primary-color 0%,
-      $secondary-color 100%
+      $third-color 0%,
+      $fourth-color 100%
     );
 
     @include respond(phone) {
-      background-image: none;
+      background-image: black;
     }
   }
 
   &:hover {
-    -webkit-text-fill-color: $white-color;
+    -webkit-text-fill-color: $black-color;
     text-decoration: none;
 
     @include respond(phone) {
-      -webkit-text-fill-color: $secondary-color;
+      -webkit-text-fill-color: $dark-grey;
     }
 
     &::after {
@@ -84,11 +84,11 @@
 
 /* Resume Style */
 .cta-btn--resume {
-  color: $white-color;
-  border: 2px solid $white-color;
+  color: $black-color;
+  border: 2px solid $black-color;
 
   &::after {
-    background: $white-color;
+    background: $black-color;
   }
 
   &:hover {
@@ -103,5 +103,5 @@
 
 /* Arrow Button */
 .up i {
-  color: #272727;
+  color: #105229;
 }

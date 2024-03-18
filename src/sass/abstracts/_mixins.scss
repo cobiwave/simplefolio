@@ -60,8 +60,8 @@ ORDER: Base + Typography > Generar Layout + Grid > Page Layout > Components
 
 @mixin supportColorForIE11 {
   // Fall for text-gradient not supported in IE11
-  color: $secondary-color;
-  -webkit-text-fill-color: $secondary-color; // fallback
+  color: $third-color;
+  -webkit-text-fill-color: $third-color; // fallback
   @supports (-webkit-background-clip: text) or (background-clip: text) {
     background-image: linear-gradient(
       135deg,
