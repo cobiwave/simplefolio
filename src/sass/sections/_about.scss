@@ -27,7 +27,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      max-width: 100%;
 
       @include respond(tab-land) {
         height: 100%;
@@ -39,10 +38,11 @@
     }
 
     &__info {
-      display: flex;
       height: 100%;
       justify-content: center;
       flex-direction: column;
+      padding-bottom: 100px;
+      padding-right: 50px;
 
       @include respond(tab-port-sm) {
         align-items: center;
