@@ -163,11 +163,10 @@ Go to `/src/index.html` and put your information, there are 5 sections:
       <div class="col-md-6 col-sm-12">
         <div class="about-wrapper__info load-hidden">
           <p class="about-wrapper__info-text">
-            This is where you can describe about yourself. The more you describe
-            about yourself, the more chances you can!
+            Hello, I’m <strong>Ali Husham</strong>—a fullstack developer and creative technologist passionate about building resilient, user-centric digital products.
           </p>
           <p class="about-wrapper__info-text">
-            Extra Information about you! like hobbies and your goals.
+            With expertise in <strong>JavaScript, Node.js, React, MongoDB, and Python</strong>, I build scalable web applications and lead cross-functional teams to deliver accessible, secure, and visually compelling solutions.
           </p>
           <span class="d-flex mt-3">
             <a
