@@ -1,3 +1,6 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/mixins" as *;
+
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
 
 h1 {
@@ -29,7 +32,7 @@ a:hover {
   font-weight: bold;
   text-transform: uppercase;
 
-  @include respond(phone) {
+  @include media-mobile-only {
     font-size: 2.8rem;
   }
 }
@@ -42,7 +45,7 @@ a:hover {
   @include supportColorForIE11();
 
   // Responsive text purple style
-  @include respond(phone) {
+  @include media-mobile-only {
     background-image: none;
     -webkit-text-fill-color: $secondary-color;
   }

@@ -1,0 +1,91 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/mixins" as *;
+@use "../layout/grid" as *;
+
+.debug-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  display: none; // Hidden by default
+
+  &__container {
+    @include horizontal-container;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat($mobile-columns, 1fr);
+    gap: $mobile-grid-gap;
+    outline: 1px solid #000;
+
+    @include media-tablet {
+      grid-template-columns: repeat($tablet-columns, 1fr);
+      gap: $tablet-grid-gap;
+    }
+
+    @include media-desktop {
+      grid-template-columns: repeat($desktop-columns, 1fr);
+      gap: $desktop-grid-gap;
+    }
+  }
+
+  &__column {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    outline: 1px solid rgba(#000, 0.7);
+
+    // Dashed line in mobile
+    @include media-mobile-only {
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 100%;
+        border: 1px dashed #000;
+        opacity: 0.2;
+      }
+    }
+
+    // Alternate colors
+    &:nth-child(odd) {
+      background-color: rgba(#ff9e9e, 0.2);
+    }
+
+    &:nth-child(even) {
+      background-color: rgba(#f8d099, 0.2);
+    }
+
+    // Hide extra columns on mobile/tablet (6 columns only)
+    @include media-mobile-and-tablet-only {
+      &:nth-child(n + 7) {
+        display: none;
+      }
+    }
+  }
+
+  &__col-num {
+    width: fit-content;
+    font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+    font-size: 1.8rem;
+    color: #000;
+    margin-bottom: 2rem;
+    font-weight: 600;
+
+    @include media-mobile-only {
+      font-size: 1.4rem;
+    }
+  }
+}

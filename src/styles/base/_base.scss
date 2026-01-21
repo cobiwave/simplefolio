@@ -1,7 +1,9 @@
+@use "../abstracts/vars" as *;
+
 html {
   font-size: 62.5%;
 
-  &.sr .load-hidden {
+  .load-hidden {
     visibility: hidden;
   }
 }
@@ -10,6 +12,8 @@ body {
   font-family: "Montserrat", sans-serif;
   text-align: center;
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
 }
 
 /* Scrollbar */

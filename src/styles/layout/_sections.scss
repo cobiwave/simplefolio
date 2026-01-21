@@ -1,8 +1,10 @@
+@use "../abstracts/mixins" as *;
+
 // Section
 section {
   padding: 5rem 0rem;
 
-  @include respond(phone) {
+  @include media-mobile-only {
     border: none;
     padding-left: 1rem;
     padding-right: 1rem;

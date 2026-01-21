@@ -1,37 +1,48 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/mixins" as *;
+@use "../layout/grid" as *;
+
 #projects {
   background-color: $white-color;
   color: $dark-blue-text;
   margin-top: -10rem;
   padding-top: 15rem;
 
-  @include respond(tab-land) {
+  @include media-mobile-and-tablet-only {
     margin-top: 0;
     padding-top: 5rem;
   }
 
-  .project-wrapper {
-    margin-bottom: 15rem;
+  .section-title {
+    margin-bottom: 4.5rem;
+    inline-size: 100%;
+  }
 
-    @include respond(phone) {
-      margin-bottom: 0rem;
-    }
+  .project {
+    @include horizontal-container;
 
-    .row {
-      margin-bottom: 8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 8rem;
 
-      @include respond(phone) {
-        margin-bottom: 4rem;
-      }
+    @include media-mobile-and-tablet-only {
+      grid-template-columns: 1fr;
+      margin-bottom: 4rem;
     }
 
     &__text {
       text-align: left;
+      inline-size: phone-columns(6);
 
-      @include respond(phone) {
-        margin-bottom: 2.5rem !important;
+      @include media-tablet {
+        inline-size: tablet-columns(6);
+
       }
-      @include respond(tab-land) {
-        margin-bottom: 4.8rem;
+
+      @include media-desktop {
+        inline-size: desktop-columns(4);
+
       }
 
       &-title {
@@ -39,23 +50,27 @@
         margin-bottom: 1.8rem;
         font-size: $mid-font-size;
 
-        @include respond(phone) {
+        @include media-mobile-only {
           font-size: 2rem;
         }
       }
 
-      & p > a {
+      & p>a {
         color: $secondary-color;
       }
     }
 
     &__image {
-      width: 90%;
-      margin: 0 auto;
+      inline-size: phone-columns(6);
 
-      @include respond(tab-land) {
-        width: 100%;
-        margin: 0;
+      border: 1px solid red;
+
+      @include media-tablet {
+        inline-size: tablet-columns(6);
+      }
+
+      @include media-desktop {
+        inline-size: desktop-columns(8);
       }
 
       & .thumbnail {
@@ -67,7 +82,7 @@
           0.5s box-shadow,
           0.5s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
 
-        @include respond(phone) {
+        @include media-mobile-only {
           border: 1px solid $light-grey;
           box-shadow: none;
           margin-bottom: 3.2rem;

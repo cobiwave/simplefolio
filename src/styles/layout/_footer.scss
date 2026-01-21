@@ -1,18 +1,25 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/mixins" as *;
+@use "../layout/grid" as *;
+@use "sass:color";
+
 .footer {
+  @include horizontal-container;
   background-color: $dark-grey;
   color: $white-color;
-  padding: 4.8rem 0;
+  padding-top: 4.8rem;
+  padding-bottom: 4.8rem;
 
-  @include respond(phone) {
+  @include media-mobile-only {
     border: 0px;
   }
 
   &__text {
-    color: darken($white-color, 50%);
+    color: color.adjust($white-color, $lightness: -50%);
     font-size: 1.3rem;
 
     a {
-      color: darken($white-color, 50%);
+      color: color.adjust($white-color, $lightness: -50%);
       font-size: 1.3rem;
       transition: all 0.4s;
       display: inline-block;

@@ -1,0 +1,107 @@
+@use 'sass:list';
+@use 'sass:string';
+@use './vars' as *;
+
+// ====================================================================
+// Media queries (from pasajero.studio)
+// ====================================================================
+@mixin media-mobile-only {
+  @media (max-width: #{$breakpoint-tablet - 1}px) {
+    @content;
+  }
+}
+
+@mixin media-tablet-only {
+  @media (min-width: #{$breakpoint-tablet}px) and (max-width: #{$breakpoint-desktop - 1}px) {
+    @content;
+  }
+}
+
+@mixin media-mobile-and-tablet-only {
+  @media (max-width: #{$breakpoint-desktop - 1}px) {
+    @content;
+  }
+}
+
+@mixin media-tablet {
+  @media (min-width: #{$breakpoint-tablet}px) {
+    @content;
+  }
+}
+
+@mixin media-desktop {
+  @media (min-width: #{$breakpoint-desktop}px) {
+    @content;
+  }
+}
+
+@mixin media-desktop-large {
+  @media (min-width: #{$breakpoint-desktop-large}px) {
+    @content;
+  }
+}
+
+// ====================================================================
+// Utility functions
+// ====================================================================
+
+/// Convert pixels to rem (1px = 0.1rem at base 62.5%)
+@function px($px) {
+  @return $px * 0.1rem;
+}
+
+/// Set exactly the same width and height
+@mixin box($width, $height: $width) {
+  inline-size: $width;
+  block-size: $height;
+}
+
+/// Set full size and position
+@mixin position-100($position: relative) {
+  position: $position;
+  top: 0;
+  left: 0;
+  @include box(100%);
+}
+
+/// Display flex and center children
+@mixin flex-center($direction: null) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @if $direction {
+    flex-direction: $direction;
+  }
+}
+
+/// Set z-index value
+@mixin z-index($id) {
+  $elements: background, pages, footer, nav, overlay, hamburger, modal, notification, debug-grid;
+  z-index: list.index($elements, $id);
+}
+
+// ====================================================================
+// Color support for gradients
+// ====================================================================
+@mixin supportColorForIE11 {
+  color: $secondary-color;
+  -webkit-text-fill-color: $secondary-color;
+  @supports (-webkit-background-clip: text) or (background-clip: text) {
+    background-image: linear-gradient(
+      135deg,
+      $primary-color 0%,
+      $secondary-color 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
+@mixin supportIE11 {
+  @media screen and (-ms-high-contrast: active),
+    screen and (-ms-high-contrast: none) {
+    @content;
+  }
+}

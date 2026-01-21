@@ -1,4 +1,10 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/mixins" as *;
+@use "../layout/grid" as *;
+@use "sass:color";
+
 #about {
+  @include horizontal-container;
   background-color: $primary-color;
   background-image: linear-gradient(
     135deg,
@@ -10,16 +16,27 @@
   border-top: 0px;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  padding-top: 15rem;
   padding-bottom: 10%;
 
-  @include respond(tab-land) {
+  @include media-mobile-and-tablet-only {
     height: 100%;
     -webkit-clip-path: none;
     clip-path: none;
+    padding-top: 5rem;
+  }
+
+  .section-title {
+    margin-bottom: 4.5rem;
   }
 
   .about-wrapper {
-    @include respond(phone) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: grid-gap();
+
+    @include media-mobile-and-tablet-only {
+      grid-template-columns: 1fr;
       padding-bottom: 5rem;
     }
 
@@ -28,11 +45,21 @@
       height: 100%;
       align-items: center;
       justify-content: center;
+      width: phone-columns(6);
 
-      @include respond(tab-land) {
+      @include media-tablet {
+        width: tablet-columns(6);
+      }
+
+      @include media-desktop {
+        width: desktop-columns(6);
+      }
+
+      @include media-mobile-and-tablet-only {
         height: 100%;
       }
-      @include respond(tab-port-sm) {
+
+      @include media-mobile-only {
         padding-bottom: 6.4rem;
       }
     }
@@ -42,30 +69,36 @@
       height: 100%;
       justify-content: center;
       flex-direction: column;
+      width: phone-columns(6);
 
-      @include respond(tab-port-sm) {
+      @include media-tablet {
+        width: tablet-columns(6);
+      }
+
+      @include media-desktop {
+        width: desktop-columns(6);
+      }
+
+      @include media-mobile-only {
         align-items: center;
       }
 
       &-text {
         text-align: left;
 
-        @include respond(tab-port) {
-          text-align: left;
-        }
-        @include respond(tab-port-sm) {
+        @include media-mobile-only {
           text-align: center;
         }
 
         &--important {
-          background: darken($secondary-color, 1%);
+          background: color.adjust($secondary-color, $lightness: -1%);
           display: inline-block;
           font-style: italic;
           padding: 0 0.3rem;
           margin: 0.3rem 0;
           line-height: 1.6;
 
-          @include respond(phone) {
+          @include media-mobile-only {
             display: inline;
             margin: 0;
             padding: 0;

@@ -1,4 +1,9 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/mixins" as *;
+@use "../layout/grid" as *;
+
 #contact {
+  @include horizontal-container;
   background-image: linear-gradient(
     135deg,
     $primary-color 0%,
@@ -6,16 +11,22 @@
   );
   -webkit-clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
   clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
-  padding: 15rem 0 10rem 0;
+  padding-top: 15rem;
+  padding-bottom: 10rem;
   margin-top: -10rem;
   margin-bottom: -1px;
   color: $white-color;
 
-  @include respond(tab-land) {
-    padding: 10rem 0;
+  @include media-mobile-and-tablet-only {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
     clip-path: none;
     margin-top: 0;
     -webkit-clip-path: none;
+  }
+
+  .section-title {
+    margin-bottom: 4.5rem;
   }
 
   .contact-wrapper {
@@ -31,7 +42,7 @@
     a {
       font-size: 2.4rem;
 
-      @include respond(phone) {
+      @include media-mobile-only {
         font-size: 2rem;
       }
     }

@@ -1,0 +1,50 @@
+@use 'sass:map';
+
+// ====================================================================
+// Breakpoints
+// ====================================================================
+$breakpoint-mobile: 390;
+$breakpoint-tablet: 768;
+$breakpoint-desktop: 1080;
+$breakpoint-desktop-large: 1440;
+
+// ====================================================================
+// Spacing variables
+// ====================================================================
+$spacing-desktop-xsmall: px(30);
+$spacing-desktop-small: px(60);
+$spacing-desktop-medium: px(80);
+$spacing-desktop-large: px(160);
+$spacing-mobile-xsmall: px(25);
+$spacing-mobile-small: px(40);
+$spacing-mobile-medium: px(60);
+$spacing-mobile-large: px(100);
+
+// ====================================================================
+// Colors (from original simplefolio)
+// ====================================================================
+$primary-color: #02aab0;
+$secondary-color: #00cdac;
+
+$white-color: #fff;
+$black: #0d1212;
+
+$dark-grey: #333333;
+$light-grey: #d2d2d2;
+
+$dark-blue-text: #272341; // For Headings
+
+// ====================================================================
+// Font Size
+// ====================================================================
+$default-font-size: 1.6rem;
+$big-font-size: 4rem;
+$mid-font-size: 2.5rem;
+
+// ====================================================================
+// Standard Eases
+// ====================================================================
+$ease-sine-in: cubic-bezier(0.12, 0, 0.39, 0);
+$ease-sine-out: cubic-bezier(0.61, 1, 0.88, 1);
+$ease-sine-in-out: cubic-bezier(0.37, 0, 0.63, 1);
+$ease-power3-out: cubic-bezier(0.25, 1, 0.5, 1);

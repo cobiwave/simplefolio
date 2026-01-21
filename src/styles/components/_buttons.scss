@@ -1,3 +1,6 @@
+@use "../abstracts/vars" as *;
+@use "../abstracts/mixins" as *;
+
 /* Call to Action Button */
 .cta-btn {
   display: inline-block;
@@ -50,7 +53,7 @@
     }
   }
 
-  @include respond(phone) {
+  @include media-mobile-only {
     background-image: none;
     border: 2px solid $secondary-color;
     -webkit-text-fill-color: $secondary-color;
@@ -63,7 +66,7 @@
       $secondary-color 100%
     );
 
-    @include respond(phone) {
+    @include media-mobile-only {
       background-image: none;
     }
   }
@@ -72,7 +75,7 @@
     -webkit-text-fill-color: $white-color;
     text-decoration: none;
 
-    @include respond(phone) {
+    @include media-mobile-only {
       -webkit-text-fill-color: $secondary-color;
     }
 

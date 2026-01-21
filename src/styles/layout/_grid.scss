@@ -1,0 +1,218 @@
+@use '../abstracts/vars' as *;
+@use '../abstracts/mixins' as *;
+
+// ====================================================================
+// Grid System (from pasajero.studio)
+// ====================================================================
+
+// Mobile
+$mobile-columns: 6;
+$mobile-grid-gap: px(8);
+$mobile-side-padding: px(20);
+$mobile-max-content-width: 100%;
+
+// Tablet
+$tablet-columns: 6;
+$tablet-grid-gap: px(12);
+$tablet-side-padding: px(20);
+$tablet-max-content-width: px(1120);
+
+// Desktop
+$desktop-columns: 12;
+$desktop-grid-gap: px(16);
+$desktop-side-padding: px(20);
+$desktop-max-content-width: px(1440);
+
+// ====================================================================
+// Container mixin
+// ====================================================================
+@mixin horizontal-container(
+  $desktop-width: $desktop-max-content-width,
+  $tablet-width: $tablet-max-content-width,
+  $mobile-width: $mobile-max-content-width
+) {
+  margin-inline: auto;
+
+  --side-padding: #{$mobile-side-padding};
+  --max-width: #{$mobile-width};
+
+  @include media-tablet {
+    --side-padding: #{$tablet-side-padding};
+    --max-width: #{$tablet-width};
+  }
+
+  @include media-desktop {
+    --side-padding: #{$desktop-side-padding};
+    --max-width: #{$desktop-width};
+  }
+
+  padding-left: var(--side-padding);
+  padding-right: var(--side-padding);
+  max-width: var(--max-width);
+}
+
+// ====================================================================
+// Spacing mixins
+// ====================================================================
+@mixin top-spacing($size: 'md') {
+  padding-top: var(--hz-padding-top-mobile);
+
+  @include media-tablet {
+    padding-top: var(--hz-padding-top-desktop);
+  }
+
+  @if $size == 'xs' {
+    --hz-padding-top-mobile: #{$spacing-mobile-xsmall};
+    --hz-padding-top-desktop: #{$spacing-desktop-xsmall};
+  }
+
+  @if $size == 'sm' {
+    --hz-padding-top-mobile: #{$spacing-mobile-small};
+    --hz-padding-top-desktop: #{$spacing-desktop-small};
+  }
+
+  @if $size == 'md' {
+    --hz-padding-top-mobile: #{$spacing-mobile-medium};
+    --hz-padding-top-desktop: #{$spacing-desktop-medium};
+  }
+
+  @if $size == 'lg' {
+    --hz-padding-top-mobile: #{$spacing-mobile-large};
+    --hz-padding-top-desktop: #{$spacing-desktop-large};
+  }
+
+  @if $size == 'none' {
+    --hz-padding-top-mobile: 0;
+    --hz-padding-top-desktop: 0;
+  }
+}
+
+@mixin bottom-spacing($size: 'md') {
+  padding-bottom: var(--hz-padding-bottom-mobile);
+
+  @include media-tablet {
+    padding-bottom: var(--hz-padding-bottom-desktop);
+  }
+
+  @if $size == 'xs' {
+    --hz-padding-bottom-mobile: #{$spacing-mobile-xsmall};
+    --hz-padding-bottom-desktop: #{$spacing-desktop-xsmall};
+  }
+
+  @if $size == 'sm' {
+    --hz-padding-bottom-mobile: #{$spacing-mobile-small};
+    --hz-padding-bottom-desktop: #{$spacing-desktop-small};
+  }
+
+  @if $size == 'md' {
+    --hz-padding-bottom-mobile: #{$spacing-mobile-medium};
+    --hz-padding-bottom-desktop: #{$spacing-desktop-medium};
+  }
+
+  @if $size == 'lg' {
+    --hz-padding-bottom-mobile: #{$spacing-mobile-large};
+    --hz-padding-bottom-desktop: #{$spacing-desktop-large};
+  }
+
+  @if $size == 'none' {
+    --hz-padding-bottom-mobile: 0;
+    --hz-padding-bottom-desktop: 0;
+  }
+}
+
+// ====================================================================
+// Column functions
+// ====================================================================
+
+/// Set element size based on columns for phone
+@function phone-columns($numCols: 1, $gutters: 0) {
+  @if $numCols > $mobile-columns {
+    @warn "Number of columns exceeds the maximum number of columns for mobile";
+  }
+
+  $container-size: calc(100svw - $mobile-side-padding * 2);
+  $columns-gutter-space: calc($mobile-grid-gap * ($mobile-columns - 1));
+  $columns-space: calc($container-size - $columns-gutter-space);
+
+  $inline-gutter-space: calc($columns-gutter-space / ($mobile-columns - 1) * ($numCols + $gutters - 1));
+  $width: calc($columns-space * $numCols / $mobile-columns + $inline-gutter-space);
+
+  @return $width;
+}
+
+/// Set element size based on columns for tablet
+@function tablet-columns($numCols: 1, $gutters: 0) {
+  @if $numCols > $tablet-columns {
+    @warn "Number of columns exceeds the maximum number of columns for tablet";
+  }
+
+  $container-size: min(
+    calc($tablet-max-content-width - $tablet-side-padding * 2),
+    calc(100svw - $tablet-side-padding * 2)
+  );
+  $columns-gutter-space: calc($tablet-grid-gap * ($tablet-columns - 1));
+  $columns-space: calc($container-size - $columns-gutter-space);
+
+  $inline-gutter-space: calc($columns-gutter-space / ($tablet-columns - 1) * ($numCols + $gutters - 1));
+  $width: calc($columns-space * $numCols / $tablet-columns + $inline-gutter-space);
+
+  @return $width;
+}
+
+/// Set desktop columns
+@function desktop-columns($numCols: 1, $gutters: 0) {
+  @if $numCols > $desktop-columns {
+    @warn "Number of columns exceeds the maximum number of columns for desktop";
+  }
+
+  $container-size: min(
+    calc($desktop-max-content-width - $desktop-side-padding * 2),
+    calc(100svw - $desktop-side-padding * 2)
+  );
+  $columns-gutter-space: calc($desktop-grid-gap * ($desktop-columns - 1));
+  $columns-space: calc($container-size - $columns-gutter-space);
+
+  $inline-gutter-space: calc($columns-gutter-space / ($desktop-columns - 1) * ($numCols + $gutters - 1));
+  $width: calc($columns-space * $numCols / $desktop-columns + $inline-gutter-space);
+
+  @return $width;
+}
+
+// ====================================================================
+// Grid gap helper function
+// ====================================================================
+@function grid-gap() {
+  @return $mobile-grid-gap;
+}
+
+// ====================================================================
+// Utility classes
+// ====================================================================
+.d-flex {
+  display: flex !important;
+}
+
+.mt-3 {
+  margin-top: 1rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.pt-3 {
+  padding-top: 1rem !important;
+}
+
+.rounded {
+  border-radius: 0.25rem !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}

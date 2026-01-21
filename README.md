@@ -9,12 +9,15 @@
 
 ## Features
 
-⚡️ Modern UI Design + Reveal Animations\
+⚡️ Modern UI Design + Smooth Animations\
 ⚡️ One Page Layout\
-⚡️ Styled with Bootstrap v4.3 + Custom SCSS\
+⚡️ Styled with SCSS (Custom Grid System)\
 ⚡️ Fully Responsive\
 ⚡️ Valid HTML5 & CSS3\
-⚡️ Optimized with Parcel\
+⚡️ Built with Vite for Lightning Fast Development\
+⚡️ Smooth Scroll Animations with GSAP\
+⚡️ Custom Vanilla JavaScript Tilt Effect (No external libraries)\
+⚡️ TypeScript Support\
 ⚡️ Well organized documentation
 
 To view the demo: **[click here](https://the-simplefolio.netlify.app/)**
@@ -25,26 +28,20 @@ To view the demo: **[click here](https://the-simplefolio.netlify.app/)**
 
 - Professional way to showcase your work
 - Increases your visibility and online presence
-- Shows you’re more than just a resume
+- Shows you're more than just a resume
 
 ## Getting Started 🚀
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites 📋
 
-You'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [NPM](http://npmjs.com)) installed on your computer.
+You'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [pnpm](https://pnpm.io/)) installed on your computer.
 
 ```
-node@v16.4.2 or higher
-npm@7.18.1 or higher
+node@v18.0.0 or higher
+pnpm@v8.0.0 or higher
 git@2.30.1 or higher
-```
-
-Also, you can use [Yarn](https://yarnpkg.com/) instead of NPM ☝️
-
-```
-yarn@v1.22.10 or higher
 ```
 
 ---
@@ -57,52 +54,34 @@ From your command line, first clone Simplefolio:
 # Clone the repository
 $ git clone https://github.com/cobiwave/simplefolio
 
-# Move into the repository
-$ cd simplefolio
+# Move into the new-version directory
+$ cd simplefolio/new-version
 
 # Remove the current origin repository
 $ git remote remove origin
 ```
 
-After that, you can install the dependencies either using NPM or Yarn.
-
-Using NPM: Simply run the below commands.
-
-```bash
-# 2022 Update - Fix Dependencies
-$ npm audit fix
-$ npm i @parcel/transformer-sass
-
-# Install dependencies
-$ npm install
-
-# Start the development server
-$ npm start
-```
-
-Using Yarn: Be aware of that you'll need to delete the `package-lock.json` file before executing the below commands.
+After that, you can install the dependencies using pnpm:
 
 ```bash
 # Install dependencies
-$ yarn
+$ pnpm install
 
 # Start the development server
-$ yarn start
+$ pnpm dev
 ```
 
-**NOTE**:
-If your run into issues installing the dependencies with NPM, use this below command:
+Once your server has started, go to `http://localhost:5173/` to see the portfolio locally.
+
+### Building for Production
 
 ```bash
-# Install dependencies with all permissions
-$ sudo npm install --unsafe-perm=true --allow-root
+# Build the project
+$ pnpm build
+
+# Preview the production build
+$ pnpm preview
 ```
-
-Once your server has started, go to this url `http://localhost:1234/` to see the portfolio locally. It should look like the below screenshot.
-
-<h2 align="center">
-  <img src="https://github.com/cobiwave/gatsby-simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="100%">
-</h2>
 
 ---
 
@@ -110,7 +89,7 @@ Once your server has started, go to this url `http://localhost:1234/` to see the
 
 ### Step 1 - STRUCTURE
 
-Go to `/src/index.html` and put your information, there are 5 sections:
+Go to `index.html` and put your information, there are 4 sections:
 
 ### (1) Hero Section
 
@@ -138,9 +117,9 @@ Go to `/src/index.html` and put your information, there are 5 sections:
 
 ### (2) About Section
 
-- On `<img>` tag, fill the `src` property with your profile picture path, your picture must be located inside `/src/assets/` folder.
-- On `<p>` tag with class name `.about-wrapper__info-text`, include information about you, I recommend to put 2 paragraphs in order to work well and a maximum of 3 paragraphs.
-- On last `<a>` tag, include your CV (.pdf) path on `href` property, your resume CV must be located inside `/src/assets/` folder.
+- On `<img>` tag, fill the `src` property with your profile picture path, your picture must be located inside `/public/` folder.
+- On `<p>` tag with class name `.about-wrapper__info-text`, include information about you. I recommend putting 2 paragraphs to work well and a maximum of 3 paragraphs.
+- On last `<a>` tag, include your CV (.pdf) path on `href` property, your resume CV must be located inside `/public/` folder.
 
 ```html
 <!-- **** About Section **** -->
@@ -155,7 +134,7 @@ Go to `/src/index.html` and put your information, there are 5 sections:
             class="img-fluid rounded shadow-lg"
             height="auto"
             width="300px"
-            src="assets/profile.jpg"
+            src="/profile.jpg"
             alt="Profile Image"
           />
         </div>
@@ -163,8 +142,8 @@ Go to `/src/index.html` and put your information, there are 5 sections:
       <div class="col-md-6 col-sm-12">
         <div class="about-wrapper__info load-hidden">
           <p class="about-wrapper__info-text">
-            This is where you can describe about yourself. The more you describe
-            about yourself, the more chances you can!
+            This is where you can describe yourself. The more you describe
+            yourself, the more chances you have!
           </p>
           <p class="about-wrapper__info-text">
             Extra Information about you! like hobbies and your goals.
@@ -174,7 +153,7 @@ Go to `/src/index.html` and put your information, there are 5 sections:
               rel="noreferrer"
               target="_blank"
               class="cta-btn cta-btn--resume"
-              href="assets/resume.pdf"
+              href="/resume.pdf"
             >
               View Resume
             </a>
@@ -191,14 +170,14 @@ Go to `/src/index.html` and put your information, there are 5 sections:
 
 - Each project lives inside a `row`.
 - On `<h3>` tag with class name `.project-wrapper__text-title`, include your project title.
-- On `<p>` tag with `loremp ipsum` text, include your project description.
+- On `<p>` tag with `lorem ipsum` text, include your project description.
 - On first `<a>` tag, put your project url on `href` property.
 - On second `<a>` tag, put your project repository url on `href` property.
 
 ---
 
 - Inside `<div>` tag with class name `.project-wrapper__image`, put your project image url on the `src` of the `<img>` and put again your project url in the `href` property of the `<a>` tag.
-- Recommended size for project image (1366 x 767), your project image must be located inside `/src/assets/` folder.
+- Recommended size for project image (1366 x 767), your project image must be located inside `/public/` folder.
 
 ```html
 <!-- **** Projects Section **** -->
@@ -248,7 +227,7 @@ Go to `/src/index.html` and put your information, there are 5 sections:
             <img
               alt="Project Image"
               class="img-fluid"
-              src="assets/project.jpg"
+              src="/project.jpg"
             />
           </div>
         </a>
@@ -288,8 +267,8 @@ Go to `/src/index.html` and put your information, there are 5 sections:
 ### (5) Footer Section
 
 - Put your Social Media URL on each `href` attribute of the `<a>` tags.
-- If you an additional Social Media account different than Twitter, Linkedin or GitHub, then go to [Font Awesome Icons](https://fontawesome.com/v4.7.0/icons/) and search for the icon's class name you are looking.
-- You can delete or add as many `<a>` tags your want.
+- If you have an additional Social Media account different than Twitter, LinkedIn, or GitHub, go to [Font Awesome Icons](https://fontawesome.com/v4.7.0/icons/) and search for the icon's class name you are looking for.
+- You can delete or add as many `<a>` tags as you want.
 
 ```html
 <footer class="footer navbar-static-bottom">
@@ -313,43 +292,70 @@ Go to `/src/index.html` and put your information, there are 5 sections:
 
 Change the color theme of the website - (choose 2 colors to create a gradient)
 
-Go to `/src/sass/abstracts/_variables.scss` and only change the values for this variables `$main-color` and `$secondary-color` with your prefered HEX color.
+Go to `src/styles/abstracts/_variables.scss` and only change the values for these variables `$primary-color` and `$secondary-color` with your preferred HEX color.
+
 If you want to get some gradients inspiration I highly recommend you to check this website [UI Gradient](https://uigradients.com/#BrightVault)
 
 ```scss
 // Default values
-$main-color: #02aab0;
+$primary-color: #02aab0;
 $secondary-color: #00cdac;
 ```
+
+### Step 3 - ANIMATIONS (Optional)
+
+You can customize the GSAP animations by modifying the configuration in `src/scripts/scrollAnimations.ts`. Adjust timing, easing, and other animation properties to match your preferences.
 
 ---
 
 ## Deployment 📦
 
-Once you finish your setup. You need to put your website online!
+Once you finish your setup, you need to put your website online!
 
-I highly recommend to use [Netlify](https://netlify.com) because it is super easy.
+I highly recommend using [Netlify](https://netlify.com) or [Vercel](https://vercel.com) because they are super easy and free.
 
-## Others versions 👥
+### Deploy to Netlify
 
-[Gatsby Simplefolio](https://github.com/cobiwave/gatsby-simplefolio) by [Jacobo Martinez](https://github.com/cobiwave)\
-[Ember.js Simplefolio](https://github.com/sernadesigns/simplefolio-ember) by [Michael Serna](https://github.com/sernadesigns)
+```bash
+# Build your project
+$ pnpm build
+
+# The dist folder will contain your built site
+# Drag and drop it to Netlify or use the CLI
+```
+
+### Deploy to Vercel
+
+```bash
+# Install Vercel CLI
+$ npm i -g vercel
+
+# Deploy
+$ vercel
+```
 
 ## Technologies used 🛠️
 
-- [Parcel](https://parceljs.org/) - Bundler
-- [Bootstrap 4](https://getbootstrap.com/docs/4.3/getting-started/introduction/) - Frontend component library
+- [Vite](https://vitejs.dev/) - Next Generation Frontend Tooling
+- [TypeScript](https://www.typescriptlang.org/) - JavaScript with syntax for types
+- [GSAP](https://greensock.com/gsap/) - Professional-grade JavaScript animation
 - [Sass](https://sass-lang.com/documentation) - CSS extension language
-- [ScrollReveal.js](https://scrollrevealjs.org/) - JavaScript library
-- [Tilt.js](https://gijsroge.github.io/tilt.js/) - JavaScript tiny parallax library
+- Custom Vanilla JavaScript Tilt Effect - No external dependencies
+
+## Differences from v1
+
+This version includes several improvements over the original:
+
+- ⚡️ **Vite instead of Parcel** - Much faster development and build times
+- 🎨 **No Bootstrap** - Lightweight custom grid system
+- 🎭 **GSAP instead of ScrollReveal** - More powerful and flexible animations
+- 🎯 **Custom Tilt Effect** - No vanilla-tilt dependency, pure TypeScript implementation
+- 📦 **TypeScript** - Better developer experience with type safety
+- 🚫 **No jQuery or Popper.js** - Modern vanilla JavaScript only
 
 ## Authors
 
 - **Jacobo Martinez** - [https://github.com/cobiwave](https://github.com/cobiwave)
-
-## Status
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/3a029bfd-575c-41e5-8249-c864d482c2e5/deploy-status)](https://app.netlify.com/sites/the-simplefolio/deploys)
 
 ## License 📄
 
@@ -357,4 +363,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments 🎁
 
-I was motivated to create this project because I wanted to contribute on something useful for the dev community, thanks to [ZTM Community](https://github.com/zero-to-mastery) and [Andrei](https://github.com/aneagoie)
+I was motivated to create this project because I wanted to contribute something useful for the dev community, thanks to [ZTM Community](https://github.com/zero-to-mastery) and [Andrei](https://github.com/aneagoie)

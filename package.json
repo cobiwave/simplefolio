@@ -1,34 +1,19 @@
 {
-  "name": "simplefolio",
-  "version": "1.0.1",
-  "private": "true",
-  "description": "A clean, beautiful and responsive portfolio template for Developers!",
-  "source": "src/index.html",
+  "name": "simplefolio-v2",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
   "scripts": {
-    "start": "parcel",
-    "build": "parcel build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cobiwave/simplefolio"
-  },
-  "keywords": [],
-  "author": "Jacobo Martinez",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cobiwave/simplefolio/issues"
-  },
-  "homepage": "https://github.com/cobiwave/simplefolio#readme",
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.8.2",
-    "parcel": "^2.8.2",
-    "prettier": "^2.8.1"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.6",
-    "bootstrap": "^5.2.3",
-    "jquery": "^3.6.3",
-    "popper.js": "^1.16.1",
-    "vanilla-tilt": "^1.8.0"
+    "gsap": "^3.12.5"
+  },
+  "devDependencies": {
+    "sass": "^1.83.4",
+    "typescript": "~5.9.3",
+    "vite": "^7.2.4"
   }
 }
