@@ -24,6 +24,7 @@
     "parcel": "latest",
     "prettier": "^2.8.1"
   },
+  "@parcel/resolver-default": { "packageExports": true },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
