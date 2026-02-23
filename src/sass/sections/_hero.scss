@@ -1,11 +1,11 @@
 #hero {
-  min-height: 100vh;
-  height: 100vh;
+      min-height: 50vh;
+    max-height: 109vh;
   display: flex;
   align-items: center;
   border-bottom: 0px;
   background: $white-color;
-  font-weight: 400;
+  font-weight: 300;
   color: $dark-blue-text;
   padding: 0rem 5.6rem;
   margin-bottom: 0;
@@ -29,8 +29,7 @@
   }
 
   .hero-title {
-    font-size: 5.6rem;
-    font-weight: 700;
+    font-weight: 300;
     margin-bottom: 3.2rem;
     text-align: left;
 
