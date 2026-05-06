@@ -1,0 +1,48 @@
+---
+const navItems = [
+  { href: "/development", label: "Development" },
+  { href: "/music-theory", label: "Music Theory" },
+  { href: "/projects", label: "Projects" },
+  { href: "/contact", label: "Contact" },
+  { href: "/cv", label: "CV" }
+];
+
+const currentPath = Astro.url.pathname; 
+---
+
+<header class="border-b border-neutral-950">
+  <div class="mx-auto grid max-w-7xl gap-4 px-6 py-5 text-sm md:flex md:items-center md:justify-between md:px-10">
+    <a href="/" class="text-base font-semibold tracking-tight md:text-sm">
+      <img src="/favicon.svg" alt="" class="h-8 w-auto">
+      Alexis Millares Thomson
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul class="flex flex-wrap gap-x-3 gap-y-2">
+        {
+          navItems.map((item) => {
+            const isActive =
+              item.href === "/"
+                ? currentPath === "/"
+                : currentPath.startsWith(item.href);
+
+            return (
+              <li>
+                <a
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                  class:list={[
+                    "hover:underline",
+                    isActive && "underline underline-offset-4",
+                  ]}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
