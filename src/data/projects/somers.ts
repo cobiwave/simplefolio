@@ -9,7 +9,7 @@ export const somers: Project = {
   featured: true,
   year: "2025",
   summary:
-    "A static event website for a University of Toronto music symposium.",
+    "A static event website for a symposium commemorating Harry Somers, held at the University of Toronto.",
   description:
     "A responsive Eleventy and Tailwind CSS website for Harry Somers at 100: Reflections on His Life and Legacy, a University of Toronto symposium marking the centennial of Canadian composer Harry Somers.",
   role:

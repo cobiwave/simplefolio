@@ -17,11 +17,11 @@ export type {
 
 export const projects: Project[] = [
   sonataDatabase,
+  cognitive,
   ermic,
+  somers,
   spiral,
   lattice,
   tonnetz,
-  somers,
   calculator,
-  cognitive
 ];

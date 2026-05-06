@@ -7,7 +7,7 @@ export const sonataDatabase: Project = {
   kind: "research-database",
   status: "in-progress",
   featured: true,
-  year: "2026-present",
+  year: "2026",
   summary:
     "A React and Contentful research platform for browsing, editing, and producing sonata-form analyses.",
   description:

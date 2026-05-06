@@ -9,7 +9,7 @@ export const spiral: Project = {
   featured: true,
   year: "2025",
   summary:
-    "An interactive spiral diagram for exploring pitch ratios in just intonation.",
+    "An interactive spiral diagram for exploring the harmonic series and intervals and sets in just intonation.",
   description:
     "A React and SVG visualization tool for plotting musical ratios on a logarithmic spiral. The tool grew out of my academic work on just intonation, harmonic complexity, and the representation of pitch relationships in continuous harmonic space.",
   role:

@@ -9,7 +9,7 @@ export const lattice: Project = {
   featured: true,
   year: "2025",
   summary:
-    "A 3D lattice for exploring just-intonation ratios through prime factors.",
+    "An interactive 3D lattice for exploring just-intonation ratios through prime factors.",
   description:
     "An interactive React and Three.js visualization that represents musical ratios as points in a spatial lattice. Each ratio is positioned according to its prime-factor structure, making it possible to compare intervals, chords, and harmonic regions visually.",
   role:
