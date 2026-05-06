@@ -1,0 +1,39 @@
+---
+import PageIntro from "../../components/PageIntro.astro";
+import ProjectList from "../../components/ProjectList.astro";
+import { projects } from "../../data/projects";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const featuredProjects = projects.filter(project => project.featured);
+const otherProjects = projects.filter(project => !project.featured);
+---
+
+<BaseLayout title="Projects">
+  <main class="mx-auto max-w-7xl px-6 py-16 md:px-10">
+    <a href='/' class="text-sm font-semibold hover:underline">
+      ← Back to home
+    </a>
+
+    <PageIntro
+      eyebrow="Projects"
+      title="Web apps, research tools, and music theory."
+      description="A selection of development work, research databases, static sites, and interactive tools."
+    />
+
+    <ProjectList
+      projects={featuredProjects}
+      heading="Featured projects"
+      description="Projects that best represent my current development and research work."
+    />
+
+    {
+      otherProjects.length > 0 && (
+        <ProjectList
+          projects={otherProjects}
+          heading="Other projects"
+          description="Earlier, smaller, or more experimental work."
+        />
+      )
+    }
+  </main>
+</BaseLayout>
