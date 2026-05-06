@@ -1,25 +1,26 @@
 ---
-import type { Project } from '../../data/projects';
+import type { Project } from "../../data/projects";
 
 type Props = {
   project: Project;
 };
 
 const { project } = Astro.props;
+
 const sections = [
-  { heading: 'Overview', body: project.description },
-  { heading: 'Role', body: project.role },
-  { heading: 'Context', body: project.context },
-  { heading: 'Problem', body: project.problem },
-  { heading: 'Outcome', body: project.outcome },
+  { heading: "Overview", body: project.description },
+  { heading: "Role", body: project.role },
+  { heading: "Context", body: project.context },
+  { heading: "Problem", body: project.problem },
+  { heading: "Outcome", body: project.outcome },
 ].filter(section => section.body);
 ---
 
-<div class="mt-12">
+<div class="mt-12 divide-y divide-neutral-200 border-t border-neutral-200">
   {
     sections.map(section => (
-      <section class="grid gap-5 border-t border-neutral-950 py-8 md:grid-cols-[12rem_1fr]">
-        <h2 class="text-sm font-semibold uppercase tracking-[0.22em]">
+      <section class="grid gap-5 py-8 md:grid-cols-[10rem_1fr]">
+        <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-(--color-accent)">
           {section.heading}
         </h2>
 
@@ -32,17 +33,18 @@ const sections = [
 
   {
     project.approach && project.approach.length > 0 && (
-      <section class="grid gap-5 border-t border-neutral-950 py-8 md:grid-cols-[12rem_1fr]">
-        <h2 class="text-sm font-semibold uppercase tracking-[0.22em]">
+      <section class="grid gap-5 py-8 md:grid-cols-[10rem_1fr]">
+        <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-(--color-accent)">
           Approach
         </h2>
 
         <ol class="max-w-3xl space-y-4 text-lg leading-8 text-neutral-800">
           {project.approach.map((item, index) => (
-            <li class="grid grid-cols-[2.5rem_1fr] gap-4 border-l border-neutral-950 pl-4">
-              <span class="text-sm font-semibold text-neutral-500">
-                {String(index + 1).padStart(2, '0')}
+            <li class="grid grid-cols-[2.5rem_1fr] gap-4">
+              <span class="font-(--font-serif) text-2xl leading-8 text-neutral-400">
+                {String(index + 1).padStart(2, "0")}
               </span>
+
               <span>{item}</span>
             </li>
           ))}

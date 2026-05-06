@@ -1,6 +1,6 @@
 ---
-import type { Project } from '../../data/projects';
-import { getProjectAreaLabel } from './projectLabels';
+import type { Project } from "../../data/projects";
+import { getProjectAreaLabel } from "./projectLabels";
 
 type Props = {
   project: Project;
@@ -10,31 +10,29 @@ const { project } = Astro.props;
 const areaLabel = getProjectAreaLabel(project.area);
 ---
 
-<header>
-  <p class="mb-5 text-sm uppercase tracking-[0.22em] text-neutral-600">
+<header class="max-w-5xl">
+  <p class="mb-5 text-sm font-semibold uppercase tracking-[0.22em] text-(--color-accent)">
     {areaLabel} / Project
   </p>
   
-  <h1 class="max-w-5xl text-5xl font-semibold tracking-[-0.055em] md:text-5xl">
+  <h1 class="font-(--font-serif) text-3xl leading-[1.02] tracking-[-0.04em] text-neutral-950 md:text-4xl">
     {project.title}
   </h1>
   
-  <p class="mt-8 max-w-3xl text-2xl leading-9 text-neutral-800">
+  <p class="mt-7 max-w-3xl text-lg leading-8 text-neutral-700 md:text-2xl md:leading-9">
     {project.summary}
   </p>
   
   {
-  project.image && (
-    <figure class="mt-10 border border-neutral-950 bg-neutral-50 p-2">
-      <div class="bg-white">
+    project.image && (
+      <figure class="mt-10 overflow-hidden rounded-sm border border-neutral-200 bg-white">
         <img
           src={project.image}
           alt=""
           loading="lazy"
           class="block w-full"
         />
-      </div>
-    </figure>
+      </figure>
     )
   }
 </header>
