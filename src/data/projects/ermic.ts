@@ -40,10 +40,6 @@ export const ermic: Project = {
   image: "/assets/ermic.png",
   links: [
     {
-      label: "Project details",
-      href: "/projects/ermic-online-biographical-dictionary",
-    },
-    {
       label: "Live site",
       href: "https://ermic.ca",
     },
