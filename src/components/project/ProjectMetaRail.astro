@@ -1,0 +1,86 @@
+---
+import type { Project } from '../../data/projects'
+import { getProjectAreaLabel, kindLabels, statusLabels } from './projectLabels';
+
+type Props = {
+  project: Project;
+};
+
+const { project } = Astro.props;
+const areaLabel = getProjectAreaLabel(project.area);
+---
+
+<aside class="order-2 border-t border-neutral-950 pt-6 text-sm lg:order-1 lg:border-t-0 lg:pt-0">
+  <dl class="grid gap-5 text-neutral-700">
+    <div>
+      <dt class="text-xs uppercase tracking-[0.18em] text-neutral-500">
+        Area
+      </dt>
+      <dd class="mt-1 font-medium text-neutral-950">{areaLabel}</dd>
+    </div>
+    
+    <div>
+      <dt class="text-xs uppercase tracking-[0.18em] text-neutral-500">
+        Year
+      </dt>
+      <dd class="mt-1 font-medium text-neutral-950">{project.year}</dd>
+    </div>
+    
+    <div>
+      <dt class="text-xs uppercase tracking-[0.18em] text-neutral-500">
+        Status
+      </dt>
+      <dd class="mt-1 font-medium text-neutral-950">
+        {statusLabels[project.status]}
+      </dd>
+    </div>
+    
+    <div>
+      <dt class="text-xs uppercase tracking-[0.18em] text-neutral-500">
+        Type
+      </dt>
+      <dd class="mt-1 font-medium text-neutral-950">
+        {kindLabels[project.kind]}
+      </dd>
+    </div>
+  </dl>
+
+  <div class="mt-8">
+    <h2 class="text-xs uppercaset tracking-[0.18em] text-neutral-500">
+      Stack / Topics
+    </h2>
+
+    <ul class="mt-3 flex flex-wrap gap-2 lg:block lg:space-y-2">
+      {
+        project.tags.map(tag => (
+          <li class="inline-block border border-neutral-950 px-2 py-1 text-xs uppercase tracking-[0.14em]">
+            {tag}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  {
+    project.links && project.links.length > 0 && (
+      <div class="mt-8">
+        <h2 class="text-xs uppercase tracking-[0.18em] text-neutral-500">
+          Links
+        </h2>
+
+        <ul class="mt-3 divide-y divide-neutral-300 border-y border-neutral-300">
+          {project.links.map(link => (
+            <li>
+              <a
+                href={link.href}
+                class="block py-3 font-semibold hover:underline"
+              >
+                {link.label} →
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+</aside>
