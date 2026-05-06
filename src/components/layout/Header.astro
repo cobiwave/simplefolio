@@ -2,23 +2,26 @@
 const navItems = [
   { href: "/development", label: "Development" },
   { href: "/music-theory", label: "Music Theory" },
-  { href: "/projects", label: "Projects" },
   { href: "/contact", label: "Contact" },
-  { href: "/cv", label: "CV" }
+  { href: "/cv.pdf", label: "CV", target: '_blank' }
 ];
 
 const currentPath = Astro.url.pathname; 
 ---
 
-<header class="border-b border-neutral-950">
-  <div class="mx-auto grid max-w-7xl gap-4 px-6 py-5 text-sm md:flex md:items-center md:justify-between md:px-10">
-    <a href="/" class="text-base font-semibold tracking-tight md:text-sm">
-      <img src="/favicon.svg" alt="" class="h-8 w-auto">
-      Alexis Millares Thomson
+<header class="border-b border-neutral-200 bg-stone-50/90 backdrop-blur">
+  <div class="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-5 text-sm md:flex-row md:items-center md:justify-between md:px-10">
+    <a
+      href="/"
+      class="flex items-center gap-3 text-base font-semibold tracking-tight text-neutral-950"
+      aria-label="Alexis Millares Thomson home"
+    >
+      <img src="/favicon.svg" alt="" class="h-8 w-auto" />
+      <span>Alexis Millares Thomson</span>
     </a>
 
     <nav aria-label="Main navigation">
-      <ul class="flex flex-wrap gap-x-3 gap-y-2">
+      <ul class="flex flex-wrap gap-x-1 gap-y-2">
         {
           navItems.map((item) => {
             const isActive =
@@ -30,10 +33,12 @@ const currentPath = Astro.url.pathname;
               <li>
                 <a
                   href={item.href}
+                  target={item.target}
+                  rel={item.target === '_blank' ? 'noopener noreferrer' : undefined}
                   aria-current={isActive ? "page" : undefined}
                   class:list={[
-                    "hover:underline",
-                    isActive && "underline underline-offset-4",
+                    "rounded-full px-2 py-1.5 text-neutral-700 transition hover:bg-neutral-200/70 hover:text-neutral-950",
+                    isActive && "bg-(--color-accent) text-white hover:bg-(--color-accent) hover:text-white",
                   ]}
                 >
                   {item.label}

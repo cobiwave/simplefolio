@@ -1,21 +1,43 @@
-<footer class="border-t border-neutral-950">
-  <div class="mx-auto grid max-w-7xl gap-6 px-6 py-8 text-sm md:grid-cols-[1fr_auto] md:px-10">
+<footer class="border-t border-neutral-200 bg-stone-100/70">
+  <div class="mx-auto grid max-w-7xl gap-8 px-6 py-10 text-sm md:grid-cols-[1fr_auto] md:px-10">
     <div>
-      <p class="font-semibold">Alexis Millares Thomson</p>
-      <p class="mt-1 max-w-xl text-neutral-600">
+      <p class="font-semibold tracking-tight text-neutral-950">
+        Alexis Millares Thomson
+      </p>
+
+      <p class="mt-2 max-w-xl leading-6 text-neutral-600">
         Full-stack web developer and music theorist based in Toronto.
       </p>
-      <p class="mt-4 text-xs text-neutral-500">
+
+      <p class="mt-5 text-xs text-neutral-500">
         © {new Date().getFullYear()} Alexis Millares Thomson · amusictheorist.com
       </p>
     </div>
 
-    <nav aria-label="Footer navigation" class="flex flex-wrap gap-x-5 gap-y-2 md:justify-end">
-      <a href="/development" class="hover:underline">Development</a>
-      <a href="/music-theory" class="hover:underline">Music Theory</a>
-      <a href="/projects" class="hover:underline">Projects</a>
-      <a href="/contact" class="hover:underline">Contact</a>
-      <a href="/cv" class="hover:underline">CV</a>
+    <nav
+      aria-label="Footer navigation"
+      class="flex flex-wrap gap-x-5 gap-y-2 text-neutral-700 md:justify-end"
+    >
+      <a href="/development" class="hover:text-(--color-accent) hover:underline">
+        Development
+      </a>
+
+      <a href="/music-theory" class="hover:text-(--color-accent) hover:underline">
+        Music Theory
+      </a>
+
+      <a href="/contact" class="hover:text-(--color-accent) hover:underline">
+        Contact
+      </a>
+
+      <a
+        href="/cv.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-(--color-accent) hover:underline"
+      >
+        CV
+      </a>
     </nav>
   </div>
 </footer>
