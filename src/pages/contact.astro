@@ -3,61 +3,60 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Contact">
-  <main class="mx-auto max-w-7xl px-6 py-16 md:px-10">
-    <section class="grid gap-12 border-t border-neutral-950 pt-8 md:grid-cols-[0.35fr_1fr] md:pt-12">
-      <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-600">
-          Contact
-        </p>
-      </div>
+  <main class="mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16">
+    <section class="max-w-4xl">
+      <p class="mb-5 text-sm font-semibold uppercase tracking-[0.22em] text-(--color-accent)">
+        Contact
+      </p>
 
-      <div>
-        <h1 class="max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] md:text-6xl">
-          Get in touch
-        </h1>
+      <h1 class="font-(--font-serif) text-5xl leading-[1.02] tracking-[-0.035em] text-neutral-950 md:text-6xl">
+        Get in touch.
+      </h1>
 
-        <p class="mt-6 max-w-2xl text-lg leading-8 text-neutral-800">
-          I’m open to web development work, research projects, music-theory collaborations, and conversations about tools for structured content.
-        </p>
+      <p class="mt-7 max-w-2xl text-xl leading-8 text-neutral-700">
+        I'm open to web development work, research projects, music-theory collaborations, and conversations about tools for structured content.
+      </p>
+    </section>
 
-        <div class="mt-12 max-w-2xl border-t border-neutral-950 text-lg">
-          <a
-            href="mailto:a_millaresthomson@outlook.com"
-            class="group grid gap-2 border-b border-neutral-300 py-5 hover:border-neutral-950 md:grid-cols-[10rem_1fr]"
-          >
-            <span class="text-sm uppercase tracking-[0.16em] text-neutral-500">
-              Email
-            </span>
-            <span class="group-hover:underline">
-              a_millaresthomson@outlook.com
-            </span>
-          </a>
+    <section class="mt-12 max-w-3xl divide-y divide-neutral-200 border-t border-neutral-200 text-lg">
+      <a
+        href="mailto:a_millaresthomson@outlook.com"
+        class="group grid gap-2 py-5 md:grid-cols-[8rem_1fr]"
+      >
+        <span class="text-sm font-semibold uppercase tracking-[0.16em] text-neutral-500">
+          Email
+        </span>
 
-          <a
-            href="https://github.com/amusictheorist"
-            class="group grid gap-2 border-b border-neutral-300 py-5 hover:border-neutral-950 md:grid-cols-[10rem_1fr]"
-          >
-            <span class="text-sm uppercase tracking-[0.16em] text-neutral-500">
-              GitHub
-            </span>
-            <span class="group-hover:underline">
-              github.com/amusictheorist
-            </span>
-          </a>
+        <span class="text-neutral-950 group-hover:text-(--color-accent) group-hover:underline">
+          a_millaresthomson@outlook.com
+        </span>
+      </a>
 
-          <a
-            href="https://www.linkedin.com/in/alexis-millares-thomson"
-            class="group grid gap-2 border-b border-neutral-300 py-5 hover:border-neutral-950 md:grid-cols-[10rem_1fr]"
-          >
-            <span class="text-sm uppercase tracking-[0.16em] text-neutral-500">
-              LinkedIn
-            </span>
-            <span class="group-hover:underline">
-              linkedin.com/in/alexis-millares-thomson
-            </span>
-          </a>
-        </div>
-      </div>
+      <a
+        href="https://github.com/amusictheorist"
+        class="group grid gap-2 py-5 md:grid-cols-[8rem_1fr]"
+      >
+        <span class="text-sm font-semibold uppercase tracking-[0.16em] text-neutral-500">
+          GitHub
+        </span>
+
+        <span class="text-neutral-950 group-hover:text-(--color-accent) group-hover:underline">
+          github.com/amusictheorist
+        </span>
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/alexis-millares-thomson"
+        class="group grid gap-2 py-5 md:grid-cols-[8rem_1fr]"
+      >
+        <span class="text-sm font-semibold uppercase tracking-[0.16em] text-neutral-500">
+          LinkedIn
+        </span>
+
+        <span class="text-neutral-950 group-hover:text-(--color-accent) group-hover:underline">
+          linkedin.com/in/alexis-millares-thomson
+        </span>
+      </a>
     </section>
   </main>
 </BaseLayout>
