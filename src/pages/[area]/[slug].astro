@@ -8,7 +8,10 @@ import ProjectCaseStudySections from "../../components/project/ProjectCaseStudyS
 
 export function getStaticPaths() {
   return projects.map((project) => ({
-    params: { slug: project.slug },
+    params: {
+      area: project.area,
+      slug: project.slug
+    },
     props: { project },
   }));
 }
@@ -18,13 +21,16 @@ const areaLabel = getProjectAreaLabel(project.area);
 ---
 
 <BaseLayout title={project.title} description={project.summary}>
-  <main class="mx-auto max-w-7xl px-6 py-10 md:px-10 md:py-16">
-    <a href={`/${project.area}`} class="text-sm font-semibold hover:underline">
+  <main class="mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16">
+    <a
+      href={`/${project.area}`}
+      class="text-sm font-medium text-neutral-600 hover:text-(--color-accent) hover:underline"
+    >
       ← Back to {areaLabel}
     </a>
 
-    <section class="mt-8 border-t border-neutral-950 pt-8 md:pt-12">
-      <div class="grid gap-10 lg:grid-cols-[0.32fr_1fr]">
+    <section class="mt-10">
+      <div class="grid gap-10 lg:grid-cols-[12rem_1fr] xl:grid-cols-[14rem_1fr]">
         <ProjectMetaRail project={project} />
 
         <div class="order-1 lg:order-2">
