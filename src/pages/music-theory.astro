@@ -1,0 +1,30 @@
+---
+import PageIntro from "../components/PageIntro.astro";
+import ProjectList from "../components/ProjectList.astro";
+import { projects } from "../data/projects";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const musicTheoryProjects = projects.filter(
+  project => project.area === 'music-theory' && project.featured
+);
+---
+
+<BaseLayout title="Music Theorist">
+  <main class="mx-auto max-w-7xl px-6 py-16 md:px-10">
+    <a href='/' class="text-sm font-semibold hover:underline">
+      ← Back to home
+    </a>
+    
+    <PageIntro
+      eyebrow="02 / Music Theory"
+      title="Research on tuning and musical structure."
+      description="My academic work focuses on just intonation, harmonic complexity, post-tonal theory, and musical form. I also build interactive tools for exploring tuning systems and analytical models."
+    />
+
+    <ProjectList
+      projects={musicTheoryProjects}
+      heading="Music theory projects"
+      description="Research projects, interactive tools, and visual models for thinking about tuning, harmony, and musical structure."
+    />
+  </main>
+</BaseLayout>
