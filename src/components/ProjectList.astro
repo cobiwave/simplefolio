@@ -8,29 +8,29 @@ type Props = {
   description?: string;
 };
 
-const { projects, heading = 'Projects', description } = Astro.props;
+const { projects, heading = "Projects", description } = Astro.props;
 ---
 
 <section class="mt-12">
-  <div class="mb-4 flex items-end justify-between border-b border-neutral-950 pb-3">
-    <h2 class="text-sm font-semibold uppercase tracking-[0.22em]">
+  <div class="mb-5 flex flex-wrap items-end justify-between gap-3">
+    <h2 class="text-sm font-semibold uppercase tracking-[0.22em] text-(--color-accent)">
       {heading}
     </h2>
 
-    <p class="text-sm text-neutral-600">
-      {projects.length} {projects.length === 1 ? 'project' : 'projects'}
+    <p class="text-sm text-neutral-500">
+      {projects.length} {projects.length === 1 ? "project" : "projects"}
     </p>
   </div>
 
   {
     description && (
-      <p class="mt-4 max-w-2xl leading-7 text-neutral-700">
+      <p class="max-w-2xl leading-7 text-neutral-700">
         {description}
       </p>
     )
   }
 
-  <div>
+  <div class="mt-8 divide-y divide-neutral-200">
     {
       projects.map(project => (
         <ProjectListItem project={project} />

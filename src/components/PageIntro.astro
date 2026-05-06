@@ -8,22 +8,22 @@ type Props = {
 const { eyebrow, title, description } = Astro.props;
 ---
 
-<section class="border-b border-neutral-950 pb-10 mt-10">
+<section class="mt-10 mb-14 max-w-7xl border-l-4 border-(--color-accent) pl-6">
   {
     eyebrow && (
-      <p class="mb-4 text-sm uppercase tracking-[0.22em] text-neutral-600">
+      <p class="mb-5 text-sm font-semibold uppercase tracking-[0.22em] text-(--color-accent)">
         {eyebrow}
       </p>
     )
   }
 
-  <h1 class="max-w-4xl text-5xl font-semibold tracking-tighter md:text-5xl">
+  <h1 class="font-(--font-serif) text-5xl leading-[1.02] tracking-[-0.035em] text-neutral-950 md:text-6xl">
     {title}
   </h1>
 
   {
     description && (
-      <p class="mt-8 max-w-3xl text-xl leading-8 text-neutral-800">
+      <p class="mt-7 max-w-3xl text-xl leading-8 text-neutral-700">
         {description}
       </p>
     )
