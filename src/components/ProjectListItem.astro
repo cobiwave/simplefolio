@@ -1,0 +1,75 @@
+---
+import type { Project } from "../data/projects";
+import { kindLabels, statusLabels } from "./project/projectLabels";
+
+type Props = {
+  project: Project;
+};
+
+const { project } = Astro.props;
+---
+
+<article class="grid gap-5 border-t border-neutral-950 py-7 md:grid-cols-[0.32fr_1fr]">
+  <aside class="text-sm text-neutral-600">
+    <p>{project.year}</p>
+
+    <p class="mt-2 uppercase tracking-[0.16em]">
+      {statusLabels[project.status]}
+    </p>
+
+    <p class="mt-2 text-neutral-500">
+      {kindLabels[project.kind]}
+    </p>
+  </aside>
+
+  <div class="grid gap-6 lg:grid-cols-[1fr_18rem]">
+    <div>
+      <h3 class="max-w-3xl text-2xl font-semibold tracking-tight">
+        <a href={`/projects/${project.slug}`} class="hover:underline">
+          {project.title}
+        </a>
+      </h3>
+
+      <p class="mt-3 max-w-3xl text-lg leading-8 text-neutral-800">
+        {project.summary}
+      </p>
+
+      <p class="mt-3 max-w-3xl leading-7 text-neutral-700">
+        {project.description}
+      </p>
+
+      <ul class="mt-5 flex flex-wrap gap-2">
+        {
+          project.tags.map((tag) => (
+            <li class="border border-neutral-950 px-2 py-1 text-xs uppercase tracking-[0.14em]">
+              {tag}
+            </li>
+          ))
+        }
+      </ul>
+
+      {
+        project.links && project.links.length > 0 && (
+          <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
+            {project.links.map((link) => (
+              <a href={link.href} class="hover:underline">
+                {link.label} →
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </div>
+
+    {
+      project.image && (
+        <img
+          src={project.image}
+          alt=""
+          loading="lazy"
+          class="block w-full"
+        />
+      )
+    }
+  </div>
+</article>
