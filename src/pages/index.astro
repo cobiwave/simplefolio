@@ -4,104 +4,34 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout title="Alexis Millares Thomson">
   <main>
-    <section class="mx-auto grid min-h-[calc(100vh-73px)] max-w-7xl grid-rows-[1fr_auto] px-6 py-8 md:px-10">
-      <div class="grid items-center gap-12 py-16 md:grid-cols-[1.1fr_0.9fr]">
-        <section>
-          <p class="mb-6 max-w-xl text-sm uppercase tracking-[0.22em] text-neutral-600">
-            Web developer · React · CMS
+    <section class="mx-auto max-w-7xl px-6 py-10 md:px-10 md:py-14">
+      <section class="grid min-h-[calc(100vh-120px)] items-center gap-12 md:grid-cols-[1.15fr_0.85fr]">
+        <div>
+          <p class="mb-6 max-w-xl text-sm uppercase tracking-[0.22em] text-neutral-700">
+            Web developer · Music Theorist
           </p>
 
-          <h1 class="max-w-4xl text-4xl font-semibold leading-[1.04] tracking-[-0.03em] sm:text-5xl md:text-[3.35rem] lg:text-[3.6rem]">
-            I build websites and tools<br class="hidden md:block" />
-            for structured information.
+          <h1 class="max-w-4xl font-(--font-serif) text-3xl leading-[1.03] tracking-[-0.035em] text-neutral-950 sm:text-5xl md:text-[3rem] lg:text-[3rem]">
+            I build clear digital tools for complex information.
           </h1>
-        </section>
 
-        <section class="border-l border-neutral-950 pl-6 md:pl-10">
-          <p class="max-w-md text-xl leading-8 text-neutral-800">
-            I'm a full-stack web developer based in Toronto. I work on React applications, CMS-backed websites, research databases, and interfaces for browsing complex content.
-          </p>
-        </section>
-      </div>
+          <div class="mt-8 max-w-2xl space-y-5 text-lg leading-8 text-neutral-800">
+            <p>
+              I'm a full-stack web developer with a background in music theory, research, and teaching. I work on React applications, CMS-backed websites, research databases, and interfaces for browsing complex content.
+            </p>
 
-      <section class="grid border-t border-neutral-950 md:grid-cols-2">
-        <a
-          href="/development"
-          class="group border-b border-neutral-950 py-8 md:border-b-0 md:border-r md:pr-8"
-        >
-          <p class="mb-3 text-sm uppercase tracking-[0.22em] text-neutral-600">
-            01 / Development
-          </p>
+            <p>
+              I'm especially interested in projects where the material is detailed, relational, or challenging to organize: archives, catalogues, research databases, educational tools, and editorial workflows.
+            </p>
+          </div>
 
-          <h2 class="text-3xl font-semibold tracking-tight">
-            Web applications, content systems, and searchable interfaces.
-          </h2>
-
-          <p class="mt-4 max-w-xl leading-7 text-neutral-700">
-            React, JavaScript, TypeScript, Tailwind, Contentful, Netlify, and custom data workflows for projects that need more than a static site.
-          </p>
-
-          <p class="mt-6 text-sm font-semibold group-hover:underline">
-            View development work →
-          </p>
-        </a>
-
-        <a href="/music-theory" class="group py-8 md:pl-8">
-          <p class="mb-3 text-sm uppercase tracking-[0.22em] text-neutral-600">
-            02 / Music Theory
-          </p>
-
-          <h2 class="text-3xl font-semibold tracking-tight">
-            Research, teaching, and interactive music-theory tools.
-          </h2>
-
-          <p class="mt-4 max-w-xl leading-7 text-neutral-700">
-            My academic work focuses on musical structure, tuning systems, and analysis. Some of that work has become interactive software.
-          </p>
-
-          <p class="mt-6 text-sm font-semibold group-hover:underline">
-            View music-theory work →
-          </p>
-        </a>
-      </section>
-
-      <section class="grid border-t border-neutral-950 py-10 md:grid-cols-[0.45fr_1fr] md:gap-12">
-        <div class="max-w-xs">
-          <img
-            src="/assets/profile.jpg"
-            alt="Alexis Millares Thomson"
-            class="w-full border border-neutral-950"
-          />
-        </div>
-
-        <div class="mt-8 md:mt-0">
-          <p class="mb-4 text-sm uppercase tracking-[0.22em] text-neutral-600">
-            About
-          </p>
-
-          <h2 class="max-w-3xl text-3xl font-semibold leading-[1.12] tracking-tighter md:text-4xl">
-            I came to web development through music theory, research, and teaching.
-          </h2>
-
-          <p class="mt-6 max-w-3xl text-lg leading-8 text-neutral-800">
-            I hold a PhD in Music Theory and a professional diploma in web development. My recent work includes React applications, CMS-backed research platforms, static sites, search and filtering systems, and tools for exploring musical structure.
-          </p>
-
-          <p class="mt-5 max-w-3xl text-lg leading-8 text-neutral-800">
-            I'm especially interested in projects where the content is detailed, relational, or challenging to organize: archives, catalogues, research databases, educational tools, and editorial workflows.
-          </p>
-
-          <div class="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
-            <a href="/development" class="hover:underline">
+          <div class="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
+            <a href="/development" class="text-(--color-accent) hover:underline">
               Development work →
             </a>
 
-            <a href="/music-theory" class="hover:underline">
+            <a href="/music-theory" class="text-(--color-accent) hover:underline">
               Music-theory work →
-            </a>
-
-            <a href="/projects" class="hover:underline">
-              All projects →
             </a>
 
             <a href="/cv.pdf" class="hover:underline">
@@ -109,6 +39,66 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             </a>
           </div>
         </div>
+
+        <div class="md:justify-self-end">
+          <div class="max-w-sm">
+            <img
+              src="/assets/profile.jpg"
+              alt="Alexis Millares Thomson"
+              class="w-full rounded-sm border border-neutral-950"
+            />
+
+            <p class="mt-4 border-l-4 border-(--color-accent) pl-4 text-sm leading-6 text-neutral-700">
+              PhD in Music Theory. Professional diploma in web development. Based in Toronto.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-10 grid gap-5 border-t border-neutral-300 pt-8 md:grid-cols-2">
+        <a
+          href="/development"
+          class="group rounded-sm bg-(--color-accent-dark) p-7 text-white transition hover:-translate-y-0.5 md:p-8"
+        >
+          <p class="mb-4 text-sm uppercase tracking-[0.22em] text-white/65">
+            Development
+          </p>
+
+          <h2 class="max-w-xl text-3xl font-(--font-serif) leading-tight tracking-tight">
+            Web applications, content systems, and searchable interfaces.
+          </h2>
+
+          <p class="mt-5 max-w-xl leading-7 text-white/78">
+            React, JavaScript, TypeScript, Tailwind, Contentful, Netlify, and
+            custom data workflows for projects that need more than a static site.
+          </p>
+
+          <p class="mt-7 text-sm font-semibold group-hover:underline">
+            View development work →
+          </p>
+        </a>
+
+        <a
+          href="/music-theory"
+          class="group rounded-sm border border-neutral-300 bg-neutral-50 p-7 transition hover:-translate-y-0.5 md:p-8"
+        >
+          <p class="mb-4 text-sm uppercase tracking-[0.22em] text-neutral-500">
+            Music Theory
+          </p>
+
+          <h2 class="max-w-xl text-3xl font-(--font-serif) leading-tight tracking-tight text-neutral-950">
+            Research, teaching, and interactive music-theory tools.
+          </h2>
+
+          <p class="mt-5 max-w-xl leading-7 text-neutral-700">
+            My academic work focuses on musical structure, tuning systems, and
+            analysis. Some of that work has become interactive software.
+          </p>
+
+          <p class="mt-7 text-sm font-semibold text-(--color-accent) group-hover:underline">
+            View music-theory work →
+          </p>
+        </a>
       </section>
     </section>
   </main>

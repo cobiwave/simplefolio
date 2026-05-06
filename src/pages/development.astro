@@ -5,18 +5,21 @@ import { projects } from "../data/projects";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const developmentProjects = projects.filter(
-  project => project.area === 'development' && project.featured
+  project => project.area === "development" && project.featured
 );
 ---
 
 <BaseLayout title="Web Developer">
-  <main class="mx-auto max-w-7xl px-6 py-16 md:px-10">
-    <a href='/' class="text-sm font-semibold hover:underline">
+  <main class="mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16">
+    <a
+      href="/"
+      class="text-sm font-medium text-neutral-600 hover:text-(--color-accent) hover:underline"
+    >
       ← Back to home
     </a>
 
     <PageIntro
-      eyebrow="01 / Web Development"
+      eyebrow="Web Development"
       title="Web applications for structured information."
       description="I build React applications, CMS-backed websites, static sites, and search interfaces for projects with detailed content and complex relationships."
     />
