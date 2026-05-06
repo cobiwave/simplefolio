@@ -1,0 +1,40 @@
+---
+import type { Project } from "../data/projects";
+import ProjectListItem from "./ProjectListItem.astro";
+
+type Props = {
+  projects: Project[];
+  heading?: string;
+  description?: string;
+};
+
+const { projects, heading = 'Projects', description } = Astro.props;
+---
+
+<section class="mt-12">
+  <div class="mb-4 flex items-end justify-between border-b border-neutral-950 pb-3">
+    <h2 class="text-sm font-semibold uppercase tracking-[0.22em]">
+      {heading}
+    </h2>
+
+    <p class="text-sm text-neutral-600">
+      {projects.length} {projects.length === 1 ? 'project' : 'projects'}
+    </p>
+  </div>
+
+  {
+    description && (
+      <p class="mt-4 max-w-2xl leading-7 text-neutral-700">
+        {description}
+      </p>
+    )
+  }
+
+  <div>
+    {
+      projects.map(project => (
+        <ProjectListItem project={project} />
+      ))
+    }
+  </div>
+</section>
