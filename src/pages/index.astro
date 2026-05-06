@@ -1,17 +1,115 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Alexis Millares Thomson">
+  <main>
+    <section class="mx-auto grid min-h-[calc(100vh-73px)] max-w-7xl grid-rows-[1fr_auto] px-6 py-8 md:px-10">
+      <div class="grid items-center gap-12 py-16 md:grid-cols-[1.1fr_0.9fr]">
+        <section>
+          <p class="mb-6 max-w-xl text-sm uppercase tracking-[0.22em] text-neutral-600">
+            Web developer · React · CMS
+          </p>
+
+          <h1 class="max-w-4xl text-4xl font-semibold leading-[1.04] tracking-[-0.03em] sm:text-5xl md:text-[3.35rem] lg:text-[3.6rem]">
+            I build websites and tools<br class="hidden md:block" />
+            for structured information.
+          </h1>
+        </section>
+
+        <section class="border-l border-neutral-950 pl-6 md:pl-10">
+          <p class="max-w-md text-xl leading-8 text-neutral-800">
+            I'm a full-stack web developer based in Toronto. I work on React applications, CMS-backed websites, research databases, and interfaces for browsing complex content.
+          </p>
+        </section>
+      </div>
+
+      <section class="grid border-t border-neutral-950 md:grid-cols-2">
+        <a
+          href="/development"
+          class="group border-b border-neutral-950 py-8 md:border-b-0 md:border-r md:pr-8"
+        >
+          <p class="mb-3 text-sm uppercase tracking-[0.22em] text-neutral-600">
+            01 / Development
+          </p>
+
+          <h2 class="text-3xl font-semibold tracking-tight">
+            Web applications, content systems, and searchable interfaces.
+          </h2>
+
+          <p class="mt-4 max-w-xl leading-7 text-neutral-700">
+            React, JavaScript, TypeScript, Tailwind, Contentful, Netlify, and custom data workflows for projects that need more than a static site.
+          </p>
+
+          <p class="mt-6 text-sm font-semibold group-hover:underline">
+            View development work →
+          </p>
+        </a>
+
+        <a href="/music-theory" class="group py-8 md:pl-8">
+          <p class="mb-3 text-sm uppercase tracking-[0.22em] text-neutral-600">
+            02 / Music Theory
+          </p>
+
+          <h2 class="text-3xl font-semibold tracking-tight">
+            Research, teaching, and interactive music-theory tools.
+          </h2>
+
+          <p class="mt-4 max-w-xl leading-7 text-neutral-700">
+            My academic work focuses on musical structure, tuning systems, and analysis. Some of that work has become interactive software.
+          </p>
+
+          <p class="mt-6 text-sm font-semibold group-hover:underline">
+            View music-theory work →
+          </p>
+        </a>
+      </section>
+
+      <section class="grid border-t border-neutral-950 py-10 md:grid-cols-[0.45fr_1fr] md:gap-12">
+        <div class="max-w-xs">
+          <img
+            src="/assets/profile.jpg"
+            alt="Alexis Millares Thomson"
+            class="w-full border border-neutral-950"
+          />
+        </div>
+
+        <div class="mt-8 md:mt-0">
+          <p class="mb-4 text-sm uppercase tracking-[0.22em] text-neutral-600">
+            About
+          </p>
+
+          <h2 class="max-w-3xl text-3xl font-semibold leading-[1.12] tracking-tighter md:text-4xl">
+            I came to web development through music theory, research, and teaching.
+          </h2>
+
+          <p class="mt-6 max-w-3xl text-lg leading-8 text-neutral-800">
+            I hold a PhD in Music Theory and a professional diploma in web development. My recent work includes React applications, CMS-backed research platforms, static sites, search and filtering systems, and tools for exploring musical structure.
+          </p>
+
+          <p class="mt-5 max-w-3xl text-lg leading-8 text-neutral-800">
+            I'm especially interested in projects where the content is detailed, relational, or challenging to organize: archives, catalogues, research databases, educational tools, and editorial workflows.
+          </p>
+
+          <div class="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
+            <a href="/development" class="hover:underline">
+              Development work →
+            </a>
+
+            <a href="/music-theory" class="hover:underline">
+              Music-theory work →
+            </a>
+
+            <a href="/projects" class="hover:underline">
+              All projects →
+            </a>
+
+            <a href="/cv.pdf" class="hover:underline">
+              View CV →
+            </a>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+</BaseLayout>
