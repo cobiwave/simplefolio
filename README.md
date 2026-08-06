@@ -3,7 +3,7 @@
 ## A minimal portfolio template for Developers!
 
 <h2 align="center">
-  <img src="https://github.com/cobiwave/gatsby-simplefolio/blob/master/examples/example.gif" alt="Simplefolio" width="600px" />
+  <img src="./examples/example.gif" alt="Simplefolio" width="600px" />
   <br>
 </h2>
 
@@ -101,7 +101,7 @@ $ sudo npm install --unsafe-perm=true --allow-root
 Once your server has started, go to this url `http://localhost:1234/` to see the portfolio locally. It should look like the below screenshot.
 
 <h2 align="center">
-  <img src="https://github.com/cobiwave/gatsby-simplefolio/blob/master/examples/example.png" alt="Simplefolio" width="100%">
+  <img src="./examples/example.png" alt="Simplefolio" width="100%">
 </h2>
 
 ---
@@ -334,6 +334,7 @@ I highly recommend to use [Netlify](https://netlify.com) because it is super eas
 
 [Gatsby Simplefolio](https://github.com/cobiwave/gatsby-simplefolio) by [Jacobo Martinez](https://github.com/cobiwave)\
 [Ember.js Simplefolio](https://github.com/sernadesigns/simplefolio-ember) by [Michael Serna](https://github.com/sernadesigns)
+[Simplefolio React](https://github.com/dyyllaann/simplefolio-react) by [Dylan Arveson](https://github.com/dyyllaann)
 
 ## Technologies used 🛠️
 
