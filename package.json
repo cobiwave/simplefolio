@@ -9,7 +9,7 @@
     "predeploy": "parcel build src/index.html --public-url ./",
     "deploy": "gh-pages -d dist",
     "start": "parcel ",
-    "build": "parcel build"
+    "build": "parcel build --public-url ./"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.9.3",
