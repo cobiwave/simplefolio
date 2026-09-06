@@ -30,7 +30,7 @@
 
       @include respond(tab-land) {
         height: 100%;
-        width: 7000px;
+        width: 100%;
       }
       @include respond(tab-port-sm) {
         padding-bottom: 6.4rem;
@@ -46,6 +46,7 @@
 
       @include respond(tab-port-sm) {
         align-items: center;
+        padding-right: 0;
       }
 
       &-text {

@@ -25,7 +25,30 @@
   background-size: cover; */
 
   @include respond(phone) {
-    padding: 0rem $default-font-size;
+    padding: 4rem $default-font-size;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  > .container,
+  .logo-anax {
+    min-width: 0;
+  }
+
+  .logo-anax {
+    max-width: 100%;
+
+    @include respond(phone) {
+      width: 24rem;
+      margin-top: 3.2rem;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
   }
 
   .hero-title {

@@ -22,6 +22,7 @@
     "bootstrap": "^5.2.3",
     "jquery": "^3.6.3",
     "popper.js": "^1.16.1",
+    "scrollreveal": "4.0.9",
     "vanilla-tilt": "^1.8.0",
     "yarn": "^1.22.19"
   }
