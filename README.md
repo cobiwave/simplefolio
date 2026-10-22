@@ -330,6 +330,10 @@ Once you finish your setup. You need to put your website online!
 
 I highly recommend to use [Netlify](https://netlify.com) because it is super easy.
 
+You can also deploy it on Wasmer Edge: `npm run build` outputs the static site to `dist/`. Import your own fork or copy of this repository to publish your customized portfolio.
+
+[![Deploy to Wasmer](https://img.shields.io/badge/Deploy%20to-Wasmer-171717?logo=wasmer&logoColor=white)](https://wasmer.io/apps/create?github=cobiwave%2Fsimplefolio)
+
 ## Others versions 👥
 
 [Gatsby Simplefolio](https://github.com/cobiwave/gatsby-simplefolio) by [Jacobo Martinez](https://github.com/cobiwave)\
